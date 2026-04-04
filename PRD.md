@@ -188,13 +188,23 @@ The MVP generates text copy and image specifications (prompts, layout descriptio
 | Product description | Text (long) | Yes | What the product/service is, key features, price range |
 | Target market description | Text (long) | Yes | Who the brand currently targets, any known audience info |
 | Website URL | URL | No | For additional context extraction |
-| Existing customer data | Text | No | Any known demographics, top-performing segments, etc. |
+| Customer data upload | CSV/Excel | No | Real customer data (demographics, purchase history, engagement metrics, LTV). Auto-detected column types, validated for quality. |
 | Competitors | Text | No | Known competitors for positioning context |
+| Brand assets | File upload | No | Logos, fonts, color palettes, photography, design guidelines for visual generation |
+
+#### Customer Data Ingestion
+
+When customer data is uploaded:
+
+1. **Auto-Detection:** Column types are automatically detected (demographics, purchase history, engagement metrics, LTV) using pandas.
+2. **Validation:** Data quality is assessed — missing fields, inconsistent values, and row counts are flagged in a validation summary.
+3. **Enrichment:** For gaps in uploaded data, Claude infers psychographic and behavioral attributes so ICPs are grounded in real customer patterns rather than generated from scratch.
+4. **CRM Integration (Phase 2):** Interfaces are defined for Shopify, Klaviyo, and HubSpot connectors for automated data sync.
 
 #### Processing Pipeline
 
-1. **Context Assembly:** Combine all inputs into a structured prompt context.
-2. **ICP Generation (Pass 1):** Claude generates 3-8 initial ICP (Ideal Customer Profile) segments based on product-market fit analysis. The number of segments scales with product breadth -- a single-SKU brand might get 3-4 segments; a multi-category brand might get 6-8.
+1. **Context Assembly:** Combine all inputs into a structured prompt context. When customer data is available, extract demographic patterns, purchase clusters, and behavioral segments to ground the generation in real data.
+2. **ICP Generation (Pass 1):** Claude generates 3-8 initial ICP (Ideal Customer Profile) segments based on product-market fit analysis. When real customer data is available, ICPs are grounded in actual purchase patterns and demographics rather than generated from scratch. The number of segments scales with product breadth -- a single-SKU brand might get 3-4 segments; a multi-category brand might get 6-8.
 3. **Profile Enrichment (Pass 2):** For each ICP, Claude generates a deep psychographic and behavioral profile through a second, focused prompt.
 4. **Differentiation Check (Pass 3):** Claude reviews all generated ICPs together to ensure they are meaningfully distinct, merging or splitting segments as needed.
 
@@ -276,12 +286,13 @@ Each generated ad variant includes:
 - **CTA text** (e.g., "Shop Now," "Learn More," "Get Yours")
 - **CTA type** (button text for Meta; in-copy for LinkedIn)
 
-**Visual Specification:**
+**Visual Specification (Code-Based Generation):**
+- **Visual code specification** (instructions for programmatic generation via Claude Code, Figma MCP, or Re:Motion — produces HTML/CSS, SVG, or design tool instructions)
 - **Image concept description** (2-3 sentences describing the ideal image)
-- **Image generation prompt** (structured prompt for DALL-E, Midjourney, or Flux)
-- **Color palette suggestion** (hex codes aligned with brand + segment psychology)
+- **Color palette suggestion** (hex codes aligned with brand + segment psychology, incorporating uploaded brand assets)
 - **Layout type** (product-focused, lifestyle, testimonial-style, text-overlay, before/after)
 - **Visual mood** (warm, clinical, energetic, serene, bold, minimal)
+- **Brand asset references** (which uploaded logos, fonts, photography, and guidelines to incorporate)
 
 **Metadata:**
 - **Target ICP segment** (which segment this variant is designed for)
@@ -339,16 +350,27 @@ This diversity is the product's core value proposition. A human copywriter natur
 
 ---
 
-### Module 3: Simulation & Scoring Engine
+### Module 3: Multi-Agent Simulation & Scoring Engine
 
-**Purpose:** Use AI-based audience simulation to rank ad variants by likely effectiveness, surfacing the strongest candidates for human review and providing qualitative reasoning for the rankings.
+**Purpose:** Use multi-agent audience simulation to rank ad variants by likely effectiveness, surfacing the strongest candidates for human review and providing qualitative reasoning with confidence intervals for the rankings. Inspired by the MiroFish/OASIS architecture for population-scale agent simulation.
 
-#### Scoring Process
+#### Agent Simulation Framework
 
-**Step 1: Persona Simulation**
-For each ICP segment, Claude is prompted to role-play as a representative member of that segment. The prompt includes the full psychographic profile generated in Module 1. The model is instructed to evaluate each ad variant *as that person would experience it* -- scrolling through their feed, seeing this ad among others.
+**Agent Initialization:**
+For each ICP segment, the system initializes 3-5 simulation agents with:
+- **Persistent memory stores** — each agent tracks ad exposures, preference evolution, and human feedback across simulation runs
+- **Unique behavioral signatures** — within the segment's parameters, each agent has distinct personality traits, decision-making tendencies, and response patterns (e.g., one agent is more skeptical, another is more impulse-driven)
+- **Segment-grounded personality** — agents are initialized with the full psychographic profile from Module 1 as their baseline
 
-**Step 2: Dimensional Scoring**
+**Multi-Round Simulation:**
+Each ad variant is evaluated across multiple rounds (default: 5 runs per variant) for statistical confidence:
+1. **Exposure round** — agents encounter the ad variant in a simulated feed context
+2. **Reaction round** — agents generate authentic behavioral responses (scroll past, pause, click, share, dismiss)
+3. **Social influence round** — agents interact with each other: word-of-mouth dynamics, opinion cascading, social proof effects. Ads that generate "share-worthy" reactions get amplification bonuses.
+4. **Score aggregation** — behavioral signals across rounds and agents are aggregated into dimensional scores with confidence intervals
+
+#### Scoring Dimensions
+
 Each variant is scored on five dimensions:
 
 | Dimension | Description | Scale |
@@ -359,17 +381,27 @@ Each variant is scored on five dimensions:
 | **Clarity** | Do I immediately understand what's being offered and why I should care? | 1-10 |
 | **CTA Effectiveness** | Am I motivated to take the next step? Is the ask appropriate for my relationship with this brand? | 1-10 |
 
-**Step 3: Composite Scoring**
+**Composite Scoring:**
 - Composite score = weighted average (Attention: 25%, Relevance: 25%, Emotional Resonance: 20%, Clarity: 15%, CTA Effectiveness: 15%)
 - Weights are configurable but these defaults reflect the reality that in social feeds, attention and relevance are the primary gates.
+- **Confidence intervals** are reported alongside each score based on variance across agents and simulation runs.
 
-**Step 4: Qualitative Analysis**
-For the top 5 and bottom 3 variants per ICP, Claude generates:
-- A 2-3 sentence explanation of *why* this variant scored well or poorly from the persona's perspective
-- Specific callouts of what works (e.g., "The urgency angle lands because this segment has high FOMO tendencies") or what falls flat (e.g., "The humor feels forced and undermines the premium positioning")
+#### Human Feedback Integration
+
+Users can submit feedback at any point ("our customers wouldn't respond to this because..."), which is:
+- Incorporated into agent memory for subsequent simulation runs
+- Used to adjust agent behavioral signatures and response patterns
+- Tracked per agent/variant with full feedback history visible in the dashboard
+
+#### Qualitative Analysis
+
+For the top 5 and bottom 3 variants per ICP, the simulation generates:
+- A 2-3 sentence explanation of *why* this variant scored well or poorly, grounded in agent behavioral patterns (not single-prompt judgments)
+- Specific callouts of what works (e.g., "The urgency angle lands because this segment has high FOMO tendencies — 4 of 5 agents paused and engaged") or what falls flat (e.g., "The humor feels forced — agents with higher skepticism scores consistently scrolled past")
 - Suggested improvements for borderline variants
 
-**Step 5: Cross-Segment Analysis**
+#### Cross-Segment Analysis
+
 After scoring all variants for all ICPs:
 - Identify any "universal winners" -- variants that score well across multiple segments (these may indicate broadly effective messaging)
 - Identify "segment specialists" -- variants that score very high for one segment but poorly for others (these are the precision tools)
@@ -404,38 +436,56 @@ These aren't disclaimers hidden in fine print. They're part of the UI, displayed
 - Target platforms (multi-select: Meta, Instagram, LinkedIn, Google Display)
 - Emotional angles to explore (multi-select with "all" default)
 - Brand voice guidelines (text field -- optional, for tone calibration)
-- Brand assets (logo upload, brand color hex codes -- optional)
+- Brand assets upload (logos, fonts, color palettes, photography, design guidelines -- referenced by visual generation pipeline)
+- Customer data upload (CSV/Excel -- optional, for grounding ICPs in real data)
 
 **Step 3 -- Generation**
 - Progress indicator showing pipeline stages (ICP Generation > Enrichment > Ad Generation > Scoring)
 - Estimated time display
 - Real-time preview of ICPs as they're generated (don't make the user wait for everything to finish)
 
-#### 4B: ICP Review Panel
+#### 4B: Customer Data Panel
+
+- **Upload interface** for CSV/Excel customer data files
+- **Data preview table** showing uploaded data with detected column types
+- **Validation summary** showing detected columns, data quality flags, missing fields, and row counts
+- **CRM connection status indicators** (Shopify, Klaviyo, HubSpot -- active in Phase 2, stubs visible in MVP)
+- **Re-upload / replace** controls for updating data
+
+#### 4C: Brand Assets Panel
+
+- **Upload interface** for brand assets: logos, fonts, color palettes, photography, design guidelines
+- **Grid view** of uploaded assets with metadata (type, dimensions, upload date)
+- **Delete/replace controls** per asset
+- Assets are referenced by the visual generation pipeline when creating ad visuals
+
+#### 4D: ICP Review Panel
 
 - **Card layout** for each ICP segment with summary view (name, age range, key traits, priority ranking)
 - **Expandable detail panel** showing full psychographic profile
+- **Data grounding indicator** -- shows whether ICP was generated from uploaded customer data or from product/market inference alone
 - **Edit capability** on all fields -- inline editing with save
 - **Add/remove segments** after generation
 - **Segment comparison view** -- side-by-side view of 2-3 segments to verify they're meaningfully distinct
 - **Re-generate option** per segment (keeps others, regenerates one)
 
-#### 4C: Ad Variant Gallery
+#### 4E: Ad Variant Gallery
 
 - **Grouped by ICP segment** with tab or accordion navigation
 - **Sorted by composite score** (highest first) within each group
 - **Card view** for each variant showing:
   - Headline and body copy preview
-  - Visual concept thumbnail (text description rendered as a placeholder card)
-  - Composite score badge (color-coded: green 7+, yellow 5-6, red <5)
+  - Visual preview rendered from code-based generation (HTML/CSS, SVG, or design tool output)
+  - Multi-agent simulation score with confidence intervals (color-coded: green 7+, yellow 5-6, red <5)
   - Emotional angle tag
   - Platform tag
 - **Detail view** (click to expand) showing:
   - Full copy for all fields
-  - Complete visual specification
-  - All five dimensional scores with bar chart
-  - Qualitative analysis text
+  - Complete visual specification with rendered preview
+  - All five dimensional scores with bar chart and confidence intervals
+  - Qualitative analysis text (grounded in agent behavioral patterns)
   - Hypothesis text (why this might work)
+  - **Style variation controls** -- regenerate visuals with different treatments while keeping copy fixed
 - **Filter and sort** by:
   - Score (ascending/descending)
   - Emotional angle
@@ -443,7 +493,14 @@ These aren't disclaimers hidden in fine print. They're part of the UI, displayed
   - Approval status
 - **Bulk actions:** approve all above threshold, reject all below threshold
 
-#### 4D: Review Workflow
+#### 4F: Agent Feedback Panel
+
+- **Agent reasoning view** -- for each ad variant, see the reasoning from each simulation agent
+- **Feedback submission** -- submit text feedback ("our customers wouldn't respond to this because...") to incorporate into agent memory for subsequent simulation runs
+- **Feedback history** -- view all submitted feedback per agent and per variant
+- **Re-score trigger** -- after submitting feedback, re-run simulation to see updated scores
+
+#### 4G: Review Workflow
 
 Three states for each variant:
 - **Pending** (default) -- not yet reviewed
@@ -452,11 +509,13 @@ Three states for each variant:
 
 Additional actions:
 - **Edit** -- modify any copy field inline; edited variants are marked with an "edited" badge
+- **Request style variation** -- regenerate visuals with different treatments while keeping copy fixed. Lock approved elements, regenerate only unlocked ones.
 - **Duplicate & modify** -- create a copy of a variant as a starting point for a human-refined version
 - **Star/favorite** -- mark as a top pick (orthogonal to approve/reject)
 - **Add note** -- attach a comment for team context
+- **View agent reasoning** -- see per-agent breakdown of simulation results and confidence intervals
 
-#### 4E: Export
+#### 4H: Export
 
 - **Export approved variants** as:
   - CSV (one row per variant, all fields as columns -- importable to Meta Ads Manager bulk upload)
@@ -465,7 +524,8 @@ Additional actions:
   - ZIP of individual ad cards (PNG mockups of each ad as it would appear on-platform)
 - **Export includes:**
   - All copy fields in platform-specific format
-  - Image generation prompts (ready to paste into Midjourney/DALL-E/Flux)
+  - Rendered visual assets from code-based generation (PNG/SVG)
+  - Visual code specifications (for further iteration)
   - Image specifications (dimensions, color palette, layout notes)
   - ICP segment summary (so the media buyer knows which audience to target)
   - Recommended targeting parameters for each segment (age range, interests, behaviors -- mapped to platform targeting options)
@@ -564,11 +624,13 @@ Compare to traditional process: 1-3 weeks for an agency to produce 10-20 variant
 │                           FRONTEND                                   │
 │                     Next.js 15 + Tailwind + shadcn/ui                │
 │                                                                      │
-│  ┌─────────────┐  ┌─────────────┐  ┌──────────┐  ┌──────────────┐  │
-│  │  Campaign    │  │    ICP      │  │   Ad     │  │   Export     │  │
-│  │  Wizard      │  │  Review     │  │ Gallery  │  │   Manager    │  │
-│  └──────┬──────┘  └──────┬──────┘  └────┬─────┘  └──────┬───────┘  │
-│         └────────────────┴──────────────┴───────────────┘           │
+│  ┌──────────┐ ┌──────────┐ ┌────────┐ ┌─────────┐ ┌──────────┐   │
+│  │ Campaign │ │ Customer │ │  ICP   │ │   Ad    │ │  Export  │   │
+│  │ Wizard   │ │ Data &   │ │ Review │ │ Gallery │ │ Manager  │   │
+│  │          │ │ Brand    │ │        │ │ & Agent │ │          │   │
+│  │          │ │ Assets   │ │        │ │Feedback │ │          │   │
+│  └────┬─────┘ └────┬─────┘ └───┬────┘ └────┬────┘ └────┬─────┘   │
+│       └─────────────┴───────────┴───────────┴───────────┘         │
 │                              │                                       │
 │                         REST API calls                               │
 └──────────────────────────────┬───────────────────────────────────────┘
@@ -580,15 +642,16 @@ Compare to traditional process: 1-3 weeks for an agency to produce 10-20 variant
 │                                                                      │
 │  ┌──────────────────────────────────────────────────────────────┐    │
 │  │                     API Router Layer                          │    │
-│  │  /campaigns  /icps  /variants  /scores  /exports             │    │
+│  │  /campaigns  /icps  /variants  /scores  /simulate            │    │
+│  │  /customer-data  /brand-assets  /agent-feedback  /exports   │    │
 │  └──────────────────────┬───────────────────────────────────────┘    │
 │                         │                                            │
 │  ┌──────────────────────v───────────────────────────────────────┐    │
 │  │                   Service Layer                              │    │
 │  │                                                              │    │
 │  │  ┌──────────────┐  ┌──────────────┐  ┌──────────────────┐   │    │
-│  │  │  Audience     │  │  Generation  │  │  Scoring         │   │    │
-│  │  │  Intelligence │  │  Engine      │  │  Engine          │   │    │
+│  │  │  Audience     │  │  Generation  │  │  Agent           │   │    │
+│  │  │  Intelligence │  │  Engine      │  │  Simulation      │   │    │
 │  │  │  Service      │  │  Service     │  │  Service         │   │    │
 │  │  └──────┬───────┘  └──────┬───────┘  └────────┬─────────┘   │    │
 │  │         └─────────────────┴───────────────────┘             │    │
@@ -676,7 +739,11 @@ Frontend fetches via REST API ──────> Dashboard renders
 
 ```
 Campaign (1) ──── (N) ICP
+Campaign (1) ──── (N) CustomerDataUpload
+Campaign (1) ──── (N) BrandAsset
 ICP (1) ──── (N) AdVariant
+ICP (1) ──── (N) SimulationAgent
+SimulationAgent (1) ──── (N) AgentMemory
 AdVariant (1) ──── (1) Score
 Campaign (1) ──── (N) Export
 ```
@@ -737,7 +804,7 @@ Campaign (1) ──── (N) Export
 | cta_text | String(100) | Call-to-action text |
 | cta_type | String(50) | CTA button type |
 | image_concept | Text | Image concept description |
-| image_prompt | Text | Image generation prompt |
+| visual_code_spec | Text | Code-based visual generation specification (HTML/CSS, SVG, or design tool instructions) |
 | color_palette | JSON | Suggested colors |
 | layout_type | String(50) | Visual layout type |
 | visual_mood | String(50) | Visual mood descriptor |
@@ -766,9 +833,57 @@ Campaign (1) ──── (N) Export
 | clarity_score | Float | 1-10 score for clarity |
 | cta_score | Float | 1-10 score for CTA effectiveness |
 | composite_score | Float | Weighted composite (calculated) |
-| qualitative_analysis | Text | AI-generated reasoning |
+| confidence_interval | JSON | Confidence intervals per dimension based on multi-agent variance |
+| qualitative_analysis | Text | AI-generated reasoning grounded in agent behavioral patterns |
 | suggested_improvements | Text | Improvement suggestions (for top/bottom variants) |
 | scoring_prompt_version | String(50) | Which scoring prompt version was used |
+| num_agents | Integer | Number of simulation agents used |
+| num_rounds | Integer | Number of simulation rounds run |
+| created_at | DateTime | Creation timestamp |
+
+#### CustomerDataUpload
+
+| Field | Type | Description |
+|-------|------|-------------|
+| id | UUID | Primary key |
+| campaign_id | UUID | Foreign key to Campaign |
+| file_name | String(255) | Original uploaded file name |
+| file_type | Enum | csv, excel |
+| row_count | Integer | Number of data rows |
+| detected_columns | JSON | Auto-detected column types (demographics, purchase history, engagement, LTV) |
+| validation_summary | JSON | Data quality assessment (missing fields, inconsistencies, flags) |
+| status | Enum | uploaded, validating, validated, error |
+| created_at | DateTime | Creation timestamp |
+
+#### SimulationAgent
+
+| Field | Type | Description |
+|-------|------|-------------|
+| id | UUID | Primary key |
+| icp_id | UUID | Foreign key to ICP |
+| agent_index | Integer | Agent number within the ICP (1-5) |
+| behavioral_signature | JSON | Unique personality traits, decision-making tendencies, response patterns |
+| created_at | DateTime | Creation timestamp |
+
+#### AgentMemory
+
+| Field | Type | Description |
+|-------|------|-------------|
+| id | UUID | Primary key |
+| agent_id | UUID | Foreign key to SimulationAgent |
+| memory_type | Enum | ad_exposure, preference_evolution, human_feedback, social_influence |
+| content | JSON | Memory content (ad reactions, feedback text, preference shifts) |
+| created_at | DateTime | Creation timestamp |
+
+#### BrandAsset
+
+| Field | Type | Description |
+|-------|------|-------------|
+| id | UUID | Primary key |
+| campaign_id | UUID | Foreign key to Campaign |
+| asset_type | Enum | logo, font, color_palette, photography, design_guidelines |
+| file_path | String(500) | Path to stored asset file |
+| metadata | JSON | Asset metadata (dimensions, format, description) |
 | created_at | DateTime | Creation timestamp |
 
 #### Export
@@ -822,14 +937,34 @@ Campaign (1) ──── (N) Export
 | POST | `/api/variants/{id}/duplicate` | Duplicate a variant for editing |
 | POST | `/api/icps/{id}/variants/regenerate` | Regenerate variants for a specific ICP |
 
-### Scores
+### Customer Data
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| GET | `/api/campaigns/{id}/scores/summary` | Aggregate scoring summary across all segments |
+| POST | `/api/campaigns/{id}/customer-data` | Upload customer data CSV/Excel for ICP grounding |
+| GET | `/api/campaigns/{id}/customer-data` | List uploaded customer data files |
+| GET | `/api/customer-data/{id}` | Get customer data upload details and validation summary |
+| DELETE | `/api/customer-data/{id}` | Remove uploaded customer data |
+
+### Brand Assets
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/campaigns/{id}/brand-assets` | Upload brand assets (logos, fonts, colors, photography, guidelines) |
+| GET | `/api/campaigns/{id}/brand-assets` | List brand assets for a campaign |
+| DELETE | `/api/brand-assets/{id}` | Remove a brand asset |
+
+### Simulation & Scores
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/campaigns/{id}/simulate` | Run multi-agent simulation across ad variants |
+| GET | `/api/campaigns/{id}/scores/summary` | Aggregate scoring summary across all segments with confidence intervals |
 | GET | `/api/icps/{id}/scores` | Scores for all variants in an ICP |
-| POST | `/api/campaigns/{id}/rescore` | Re-run scoring for all variants |
-| POST | `/api/icps/{id}/rescore` | Re-run scoring for one ICP's variants |
+| POST | `/api/campaigns/{id}/rescore` | Re-run simulation scoring for all variants |
+| POST | `/api/icps/{id}/rescore` | Re-run simulation scoring for one ICP's variants |
+| POST | `/api/campaigns/{id}/agent-feedback` | Submit feedback to simulation agents for memory integration |
+| GET | `/api/campaigns/{id}/agent-feedback` | Get feedback history for a campaign |
 
 ### Exports
 
@@ -904,7 +1039,7 @@ Campaign (1) ──── (N) Export
         "cta": 8
       },
       "image_concept": "Split-screen: crystal clear ocean on one side, person applying sunscreen on the other. Clean, bright aesthetic.",
-      "image_prompt": "Split screen photograph, left side crystal clear turquoise ocean with coral reef visible, right side close-up of hand applying white mineral sunscreen on tanned forearm, bright natural lighting, clean minimal composition, 1080x1080"
+      "visual_code_spec": "HTML/CSS split-screen layout with gradient ocean-blue left panel, product photography placeholder right panel, brand font overlay, SVG wave divider element"
     }
   ],
   "total": 23,
@@ -921,12 +1056,13 @@ Campaign (1) ──── (N) Export
 **Timeline:** 4-6 weeks
 **Goal:** Validate that AI-generated audience intelligence and ad creative are good enough to be useful.
 
-- Campaign creation wizard
-- ICP generation and enrichment (3-8 segments)
-- Ad variant generation (5-15 per ICP, text + image specs)
-- AI scoring and ranking
-- Human review dashboard
-- Export in CSV, JSON, PDF, ZIP formats
+- Campaign creation wizard with customer data upload and brand asset management
+- ICP generation and enrichment (3-8 segments), grounded in real customer data when available
+- Ad variant generation (5-15 per ICP, text + code-based visuals via Claude Code, Figma MCP, Re:Motion)
+- Multi-agent simulation scoring with persistent memory, behavioral signatures, and confidence intervals
+- Human-in-the-loop feedback integration into agent memory
+- Human review dashboard with visual previews, agent reasoning, and style variation controls
+- Export in CSV, JSON, PDF, ZIP formats with rendered visual assets
 - Local deployment, single-user
 
 **Exit criteria:** 5-10 DTC brands use Peitho to generate real campaigns. At least 3 report that the output was "good enough to deploy with minor edits" and saved them meaningful time.
@@ -941,9 +1077,10 @@ Campaign (1) ──── (N) Export
 - **Meta Ads API integration:** Push approved variants directly to Meta Ads Manager as draft campaigns. Auto-configure targeting parameters based on ICP segments.
 - **Google Ads API integration:** Same for Google Display Network and Performance Max.
 - **LinkedIn Ads API integration:** Same for LinkedIn Sponsored Content.
+- **CRM integrations:** Shopify, Klaviyo, HubSpot automated data sync. Pull customer data on schedule, update ICP grounding continuously.
 - **Performance data ingestion:** Pull CTR, CPA, ROAS, conversion data back from platforms.
 - **Feedback-informed generation:** Next campaign generation is informed by which segments, angles, tones, and CTAs actually performed in previous campaigns. The system builds a brand-specific performance model.
-- **Image generation integration:** Connect to DALL-E, Midjourney, or Flux APIs to generate actual images from the image prompts, not just specifications.
+- **Scaling simulation:** Increase agent count per ICP, more complex social dynamics, richer inter-agent communication patterns.
 - **Multi-user support:** Team accounts, role-based access, approval workflows.
 - **Cloud deployment:** Hosted SaaS with user authentication and data isolation.
 
@@ -964,6 +1101,7 @@ Campaign (1) ──── (N) Export
 - **TikTok integration:** Native TikTok ad format support and TikTok Ads API integration.
 - **Creative fatigue detection:** Monitor ad performance decay and auto-suggest refresh creatives when engagement drops.
 - **Automated A/B test design:** Given a set of approved variants, automatically design statistically sound A/B tests with proper sample size calculations and runtime estimates.
+- **Cross-customer intelligence:** Anonymized patterns across brands. Identify what works for similar product categories, market segments, and audience profiles.
 
 ---
 
@@ -1134,11 +1272,17 @@ The system uses four core prompt chains:
    - Output schema: Array of AdVariant objects
    - Key instruction: Maximize diversity across emotional angles, tones, and visual approaches. Each variant must have a clear *hypothesis* for why it would work for this audience.
 
-4. **Scoring Prompt**
-   - Input: ICP profile + ad variant
-   - System prompt: You are a member of this audience segment. You're scrolling through your feed. You see this ad. React authentically.
-   - Output schema: Score object with five dimensions + qualitative analysis
-   - Key instruction: Be honest and critical. A score of 5 means "forgettable." Only give 8+ to variants that would genuinely stop the scroll for this persona.
+4. **Agent Initialization Prompt**
+   - Input: ICP profile + agent index
+   - System prompt: Establish a unique simulation agent within this segment. Define behavioral signature, personality traits, decision-making tendencies, and response patterns that differ from other agents in the same segment.
+   - Output schema: SimulationAgent object with behavioral_signature JSON
+   - Key instruction: Agents must be meaningfully distinct within the segment parameters — one skeptical, one impulse-driven, one research-oriented, etc.
+
+5. **Multi-Round Scoring Prompt**
+   - Input: Agent profile (with memory) + ad variant + social context from other agents
+   - System prompt: You are this specific agent. You encounter this ad in your feed. React based on your behavioral signature, accumulated memory, and any social signals from other agents.
+   - Output schema: Score object with five dimensions + qualitative analysis + confidence intervals
+   - Key instruction: Be honest and critical. A score of 5 means "forgettable." Only give 8+ to variants that would genuinely stop the scroll for this persona. Scores emerge from behavioral patterns across multiple rounds, not single judgments.
 
 ---
 
