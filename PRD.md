@@ -27,31 +27,40 @@
 
 ## 1. Executive Summary
 
-Peitho (named after the Greek goddess of persuasion) is an AI-powered advertising platform that replaces the traditional ad creation workflow with a data-driven pipeline capable of generating hyper-personalized ad variants at a scale no human team can match. Instead of producing one campaign creative and hoping it resonates with a broad audience, Peitho generates hundreds of tailored ad variants across dozens of micro-segments, scores them using AI-based audience simulation, and surfaces the strongest performers for human review and deployment.
+Peitho (named after the Greek goddess of persuasion) is an AI-powered persuasion engine for high-stakes advertising where reaching specific people with psychologically precise messaging matters more than mass-market conversion optimization. Instead of producing generic creative for broad audiences, Peitho builds deep psychological profiles of target individuals and micro-segments — understanding their motivations, fears, decision-making patterns, and emotional triggers — then generates creative precisely designed to influence them across every platform where they can be reached.
 
-The platform's core insight is that AI has commoditized content creation itself. The competitive advantage has shifted to two things: (1) the quality of your *audience intelligence* -- how deeply you understand who you're trying to reach -- and (2) your ability to *test at massive scale* rather than betting on a handful of creatives. Peitho operationalizes both. It uses large language models to generate detailed audience profiles, produce creative variants tailored to each segment's psychology, and simulate audience reactions -- all as hypotheses that get validated through real-world deployment data.
+The platform's core insight: in high-stakes domains (B2B enterprise sales, political campaigns, pharmaceutical marketing, luxury brands, government affairs), the challenge isn't reaching "anyone who might convert." It's reaching *specific people* and persuading them. A $2M enterprise deal depends on influencing the CTO. A political campaign needs persuadable voters in Bucks County, PA to change their mind. A pharma company needs specific oncologists to prescribe. Existing ad tech optimizes for mass-market conversion — Meta and Google's algorithms are brilliant at finding "people likely to buy running shoes" but useless at reaching "the 5 people on the buying committee at Acme Corp" with messages tailored to each person's psychology. Nobody builds deep psychological models of specific targets and generates precision creative to influence them — until now. AI has made this possible for the first time by enabling rich persona modeling at scale and psychologically tailored creative generation that previously required expensive human research.
 
-The MVP targets e-commerce and DTC brands, where conversion metrics are clear, ad formats are standardized, and ROI is directly measurable. The initial product is an export-only tool: it generates and scores ad creatives that marketers download and deploy through their existing ad platform workflows. Platform API integrations, real performance feedback loops, and autonomous campaign management come in later phases.
+The MVP targets B2B companies running account-based marketing (ABM) campaigns, where the value per conversion is high ($50K-$50M+ deal sizes), targeting precision matters, and creative quality directly impacts whether a decision-maker engages. The initial product generates and scores persona-specific creative across platforms (LinkedIn, programmatic display, Meta) tailored to specific buyer personas. Platform API integrations, individual-level intelligence from public data, and autonomous cross-platform orchestration come in later phases.
 
 ---
 
 ## 2. Problem Statement
 
-Digital advertising is broken in ways that both advertisers and consumers feel.
+High-stakes advertising is fundamentally different from mass-market advertising, and the tools haven't caught up.
 
-**For advertisers:**
+**The core problem: when you need to reach specific people, the entire ad tech stack works against you.**
 
-- **Creative bottleneck.** A typical DTC brand's marketing team produces 5-10 ad variants per campaign. An agency might produce 20-30. But modern ad platforms can serve thousands of distinct impressions per day. The creative supply is orders of magnitude below what the distribution infrastructure can handle.
-- **Audience understanding is shallow.** Most brands operate with 2-3 broad audience segments ("women 25-45 interested in fitness"). These segments are too coarse to capture the psychological differences that determine whether an ad converts. A 28-year-old marathon runner and a 42-year-old yoga practitioner have fundamentally different motivations, objections, and emotional triggers -- but they land in the same bucket.
-- **Testing is expensive and slow.** A/B testing at the creative level is table stakes, but testing 5 variants is not the same as testing 500. Agencies charge per creative. Internal teams are bottlenecked by designers and copywriters. The result is that brands test a tiny fraction of the creative space they should be exploring.
-- **Feedback loops are broken.** Performance data from Meta or Google tells you *what* happened (CTR, conversion rate) but not *why*. A low-performing ad gets killed, but the team rarely understands whether the problem was the headline, the emotional angle, the visual style, or the audience-message mismatch. Learnings don't compound.
-- **Agency economics don't scale.** Agencies charge $5K-$50K/month for creative services. For that budget, a DTC brand gets a handful of campaigns. The cost per creative variant makes true personalization economically impossible.
+**For B2B companies:**
 
-**For consumers:**
+- **The targeting exists, but the creative doesn't match.** ABM platforms like Demandbase and 6sense have solved the "find the right person" problem — they can identify and serve ads to employees at specific target companies. But the creative being served is generic. The same display ad goes to the CTO, the VP of Engineering, and the procurement director, despite the fact that these people have fundamentally different motivations, objections, and decision-making criteria. The targeting is surgical; the message is a shotgun.
+- **The buying committee problem.** Enterprise purchases involve 6-10 decision-makers with different roles, concerns, and influence dynamics. The CFO cares about TCO. The CTO cares about technical architecture. The end users care about daily workflow impact. One ad doesn't work for all of them. But producing role-specific creative for every target account is economically impossible with human teams.
+- **Creative is the bottleneck for ABM ROI.** Companies spend $50-200K+/year on ABM platforms but feed them generic creative because producing persona-specific variants at scale requires creative bandwidth they don't have. It's like buying a precision rifle and loading it with bird shot.
 
-- Ads feel generic, irrelevant, or tone-deaf because they were never designed for the specific person seeing them. This drives ad fatigue, banner blindness, and declining engagement rates across every major platform.
+**For political campaigns:**
 
-**The gap:** The ad distribution infrastructure (Meta, Google, TikTok) can target with extraordinary precision. But the creative pipeline feeding that infrastructure produces at artisan scale. Peitho closes that gap.
+- **Persuasion requires psychological precision.** Reaching persuadable voters in swing states is a solved targeting problem (voter files, CTV targeting, programmatic DSPs). But crafting the message that actually changes a mind — that's still done by human consultants at enormous cost and limited scale. A 55-year-old white male in suburban Pennsylvania and a 35-year-old Latina in Maricopa County have fundamentally different concerns, values, and persuasion triggers. The messaging should be as precise as the targeting.
+
+**For pharmaceutical companies:**
+
+- **Reaching doctors is easy. Persuading them is hard.** NPI-level targeting can serve an ad to a specific oncologist. But what should that ad say? What matters to a doctor who's been prescribing a competitor's drug for 10 years? What objections do they have? What evidence would move them? Currently, this requires expensive KOL (key opinion leader) research. AI can generate these psychological models at a fraction of the cost.
+
+**For all high-stakes verticals:**
+
+- **Cross-platform creative is prohibitively expensive.** The target CTO sees LinkedIn during work, reads TechCrunch in the morning, watches Hulu at night, and listens to podcasts during their commute. Reaching them across all touchpoints requires creative tailored to each platform's content grammar — a LinkedIn thought leadership post, a programmatic display ad, a CTV spot. Producing all of this manually costs $20K+/month in agency fees. The result: most companies pick one channel and hope for the best.
+- **The feedback loop is broken.** There's no systematic way to learn *why* a particular message resonated with a particular persona on a particular platform. Performance data tells you what happened, not why. Learnings don't compound across campaigns.
+
+**The gap:** AI has commoditized content creation. The new competitive advantage is *depth of understanding of specific people* — modeling their psychology at a level that enables precision creative — combined with the ability to generate that creative at scale across every platform where the target can be reached. Peitho closes that gap.
 
 ---
 
@@ -59,118 +68,150 @@ Digital advertising is broken in ways that both advertisers and consumers feel.
 
 ### The Paradigm Shift
 
-Traditional advertising operates on a simple model: a small team of humans crafts a small number of creatives, guided by intuition and experience, and deploys them to broad audiences. AI changes the economics of this model completely.
+Traditional advertising asks: "How do we reach people who might buy our product?" High-stakes advertising asks a fundamentally different question: "How do we persuade *this specific person* to make *this specific decision*?"
 
-Peitho's thesis: **The winning advertising strategy is no longer about crafting the perfect ad. It's about generating the right ad for the right micro-segment, at a scale that makes "personalized at the cohort level" economically viable for the first time.**
+AI changes what's possible here. For the first time, you can build rich psychological models of specific individuals — their career trajectory, decision-making patterns, likely motivations, probable objections, emotional triggers — from publicly available data. And then generate creative precisely calibrated to those psychological levers, tailored to each platform where that person can be reached.
 
-Going from 3 audience segments to 50-200 micro-segments, and from 10 ad variants to 500-1,000, is not a linear improvement. It's a qualitative change in how advertising works. It means every micro-segment gets creative that speaks to their specific motivations, addresses their specific objections, and uses the emotional register that resonates with them specifically.
+Peitho's thesis: **The winning strategy in high-stakes advertising is no longer about creative production. It's about *depth of understanding* of the person you're trying to influence, combined with the ability to translate that understanding into precision creative across every touchpoint.**
+
+Going from "generic B2B ad targeting CTOs" to "a message crafted for a risk-averse, technically conservative CTO who's been at the company for 12 years, values stability over innovation, and needs to be convinced that switching won't disrupt his team" — that's not a linear improvement. It's a qualitative change in how persuasion works at scale.
+
+### The Two-Layer Model
+
+Modern ad platforms operate on two fundamentally different paradigms, and Peitho serves both:
+
+**Layer 1: Algorithmic Platforms (Meta, Google)**
+On Meta and Google, the advertiser no longer controls who sees their ads. Meta's Andromeda retrieval engine reads your creative's signals — visual elements, copy themes, emotional angles — and matches them to users whose behavioral patterns suggest they'll respond. The algorithm is better than any human at deciding WHO should see an ad. The advertiser's job is to supply *diverse, high-quality creative* that gives the algorithm material to work with.
+
+On these platforms, Peitho's value is **creative diversity driven by deep persona intelligence**. Building psychologically distinct buyer personas and generating creative tailored to each naturally produces the genuine creative diversity that Andromeda rewards (and that its similarity-detection penalizes when absent). The personas inform creative production; the algorithm handles distribution.
+
+**Layer 2: Precision Platforms (LinkedIn, Programmatic DSPs, CTV, Geofencing)**
+On LinkedIn, you can target by company name, job title, and seniority with verified professional data. On programmatic DSPs (Demandbase, The Trade Desk, StackAdapt), you can serve ads matched to firmographic and intent data. CTV enables household-level targeting. Geofencing can target devices within 10 meters of a specific building.
+
+On these platforms, Peitho's value is the **full loop: persona intelligence → psychologically precise creative → targeted delivery**. You can actually reach the specific CTO at the specific company and serve them a message crafted for their specific psychological profile.
 
 ### Honest Caveats
 
-This vision is powerful, but we build it on a foundation of intellectual honesty about what AI can and cannot do today:
+This vision is powerful, but we build on intellectual honesty:
 
-**1. Micro-segments, not individuals.**
-Ad platforms use cohort-based targeting. You cannot target "John Smith" -- you target "men, 30-40, in Austin, interested in outdoor recreation, with household income $100K+." Peitho's innovation is not individual-level personalization (which is neither technically possible nor desirable from a privacy standpoint). It is taking brands from 2-3 broad audiences to 50-200 micro-segments -- a 10-100x increase in targeting granularity that maps directly onto what ad platforms can actually deliver.
+**1. Psychological profiles are hypotheses, not ground truth.**
+When we use AI to model "a risk-averse CTO who values stability" from their LinkedIn profile and career history, we are generating a *plausible hypothesis* about what this person cares about. This is what a skilled sales strategist does mentally, but at 100x speed with more systematic coverage. The real validation comes from engagement data. Peitho's architecture is designed around this: generate hypotheses fast, deploy them, feed results back.
 
-**2. Synthetic profiles are hypotheses, not ground truth.**
-When we use Claude to generate a profile of "a 45-year-old suburban mom who shops at Whole Foods," we are leveraging the model's training data to produce a *plausible hypothesis* about what that person cares about, fears, and responds to. This is genuinely useful -- it's what a skilled marketer does mentally, but at 100x the speed and with more systematic coverage. But it is a hypothesis. The real validation comes from deployment data. Peitho's architecture is designed around this reality: generate hypotheses fast, test them in the real world, feed performance data back in.
+**2. Micro-segments and personas, not mind-reading.**
+Even at its most advanced, Peitho works with behavioral patterns and publicly available information. It cannot read minds. A persona model for "the CTO of Acme Corp" is an informed approximation based on their public profile, industry patterns, and role-based psychology. It is dramatically more useful than generic creative, but it is not omniscient.
 
-**3. Privacy-first by design.**
-Peitho never scrapes, stores, or processes personally identifiable information. All audience modeling works with aggregate demographic and psychographic data. The platform is designed to be GDPR and CCPA compliant from day one -- not as an afterthought, but as a core architectural constraint. We work with the same targeting parameters that ad platforms expose publicly.
+**3. AI scoring is a ranking heuristic, not a prediction.**
+Using multi-agent simulation to evaluate how a persona might react to an ad is useful for ranking creative variants. It separates obviously bad creative from plausibly good creative. But it is not a reliable predictor of real-world outcomes. We use AI scoring to narrow 200 variants down to 20 for human review. Real deployment is the validation layer.
 
-**4. AI scoring is a heuristic, not a prediction.**
-Using an LLM to role-play a persona and evaluate an ad is a useful ranking heuristic -- it's good at separating obviously bad creative from plausibly good creative. But it is not a reliable predictor of real-world performance. We use AI scoring to rank 1,000 variants down to 50 for human review. Real A/B testing on real platforms with real audiences is the actual validation layer. The PRD and the product messaging should never claim that AI scoring predicts conversion rates.
+**4. Privacy-first by design.**
+Peitho works with publicly available information and aggregate data. All persona modeling uses data that individuals have chosen to make public (LinkedIn profiles, company websites, conference talks, published interviews). The platform is designed to be GDPR and CCPA compliant. We do not access private communications, private purchase data, or information beyond what is publicly available.
 
-**5. Start with static creatives.**
-The MVP generates text copy and image specifications (prompts, layout descriptions). Video generation is Phase 3+. Social ad creatives for Meta, Instagram, LinkedIn, and Google Display are the MVP medium -- they represent the highest volume, most standardized ad formats with the clearest performance metrics.
+**5. Ethical guardrails are load-bearing, not decorative.**
+The capability to build psychological profiles of specific individuals and generate persuasion-optimized creative is powerful and potentially dangerous. We build with explicit ethical constraints: no deceptive advertising, no manipulation of vulnerable populations, no dark patterns. Users agree to acceptable use policies, and the system includes safeguards against generating manipulative or harmful content. See Section 13 for detailed treatment.
+
+**6. Start with static creatives.**
+The MVP generates text copy and image specifications. Video generation is Phase 3+. LinkedIn Sponsored Content, programmatic display ads, and Meta ads are the MVP formats — they represent the highest-value formats for B2B with the clearest engagement metrics.
 
 ---
 
 ## 4. Target Customer
 
-### Why E-Commerce / DTC Brands First
+### Why B2B Account-Based Marketing First
 
-| Factor | Why DTC is ideal |
-|--------|-----------------|
-| **Clear conversion metrics** | Revenue, ROAS, CPA are directly measurable. No ambiguity about whether Peitho is working. |
-| **Standard ad formats** | Social media ads (Meta, Instagram, Google Display) follow well-defined format specs. |
-| **High creative volume needs** | DTC brands run continuous campaigns across multiple products and seasons. Creative is always the bottleneck. |
-| **Price sensitivity** | Most DTC brands can't afford a full-service agency. Peitho's price point ($500-$2K/month) fits their budget. |
-| **Willingness to experiment** | DTC founders are typically data-driven and open to new tools. |
-| **Short feedback loops** | Purchase decisions happen in days, not months. Performance data comes back fast. |
-| **Fragmented market** | Thousands of DTC brands, no single dominant player in the "AI ad creative" space for this segment. |
+| Factor | Why B2B/ABM is ideal |
+|--------|---------------------|
+| **High value per conversion** | Enterprise deals are $50K-$50M+. Even a small improvement in creative effectiveness translates to massive ROI. |
+| **Clear target personas** | The buying committee is known: CTO, VP Engineering, CFO, procurement. Each has documented role-based motivations and objections. |
+| **Targeting infrastructure exists** | LinkedIn, Demandbase, 6sense, and programmatic DSPs already solve delivery. The gap is creative. |
+| **Willingness to pay** | B2B companies already spend $50-200K+/year on ABM platforms, $15-50K/month on agencies. Budget exists. |
+| **Measurable outcomes** | Pipeline generated, deals influenced, meetings booked — clear metrics tied to specific accounts. |
+| **Creative is the acknowledged bottleneck** | Every ABM practitioner knows their targeting is precise but their creative is generic. This is a widely felt pain. |
+| **LinkedIn as primary channel** | LinkedIn's verified professional data means targeting actually works as intended, unlike Meta's algorithmic expansion. |
 
 ### Ideal Customer Profile
 
-- **Revenue:** $500K - $50M annual revenue
-- **Team size:** 2-50 people
-- **Ad spend:** $5K - $500K/month across Meta, Google, and/or TikTok
-- **Current creative process:** Founder doing it themselves, a small in-house team, or a freelancer/small agency
-- **Pain:** Knows they need more creative variants, can't afford to produce them at the volume they need
-- **Sophistication:** Understands basic ad metrics (CTR, ROAS, CPA), runs A/B tests, uses Meta Ads Manager or Google Ads
+- **Company type:** B2B SaaS, technology, professional services, or any company selling to enterprises
+- **Revenue:** $5M - $500M (growth-stage to mid-market)
+- **Ad spend:** $10K - $500K/month across LinkedIn, programmatic display, and Meta
+- **Current ABM approach:** Using Demandbase, 6sense, Terminus, or similar for targeting; creative produced by a small internal team or agency
+- **Team size:** Marketing team of 3-20; no dedicated ABM creative resources
+- **Pain:** Knows their ABM targeting is precise but their creative is generic. Wants to personalize messaging by persona/role but can't produce enough variants
+- **Sophistication:** Understands account-based marketing, runs LinkedIn campaigns, tracks pipeline influence metrics
+
+### Expansion Verticals (Post-MVP)
+
+| Vertical | Why | Timing |
+|----------|-----|--------|
+| **Political campaigns** | Massive budgets ($15.9B in 2024 cycle), proven need for micro-segmented persuasion creative, clear seasonal demand | Phase 2 (aligned with 2028 cycle) |
+| **Pharmaceutical HCP marketing** | $6-8B digital HCP ad market. NPI-level targeting exists but creative is generic. High regulatory complexity = high barrier to entry = moat. | Phase 2-3 |
+| **Luxury brands** | Don't want mass-market reach. Need affluent-only targeting with premium creative. High willingness to pay. | Phase 2 |
+| **Recruiting / talent acquisition** | $30-35B market. Poaching specific talent requires persona-specific messaging. | Phase 3 |
+| **Government affairs / lobbying** | Hyper-specific targeting (geofencing Capitol buildings, targeting staffers). Small market but extremely high value per engagement. | Phase 3 |
 
 ---
 
 ## 5. User Personas
 
-### Persona 1: The DTC Founder-Marketer
-
-**Name:** Sarah Chen
-**Role:** Founder & CEO of a DTC skincare brand ($2M ARR)
-**Context:** Sarah handles marketing herself with one part-time VA. She spends 15 hours/week on ad creative -- writing copy, briefing her freelance designer, reviewing assets. She runs Meta ads and Instagram ads.
-
-**Pain points:**
-- Spends too much time on creative production, not enough on strategy
-- Knows her "women 25-45" targeting is too broad but doesn't have the bandwidth to create segment-specific creative
-- Has a gut feeling about what works but can't test enough variants to validate it
-- Agency quotes ($8K/month+) are too expensive for her stage
-
-**What she wants from Peitho:**
-- Generate 50+ ad variants in an afternoon instead of 5 in a week
-- Understand her customers at a deeper level than "women who like skincare"
-- Get a starting point for creative that she can refine, not a black box she has to trust blindly
-- Export assets she can upload directly to Meta Ads Manager
-
-**Success looks like:** 2x her creative output while cutting time spent on ad production by 60%.
-
-### Persona 2: The Growth Marketing Manager
+### Persona 1: The B2B Growth Marketing Leader
 
 **Name:** Marcus Rivera
-**Role:** Head of Growth at a DTC supplement brand ($15M ARR)
-**Context:** Marcus manages a $200K/month ad budget across Meta, Google, and TikTok. He has a 2-person creative team (1 designer, 1 copywriter) and works with a creative agency for quarterly campaigns. He's data-driven and runs structured A/B tests.
+**Role:** VP of Marketing at a B2B SaaS company ($30M ARR)
+**Context:** Marcus runs a $150K/month ad budget, primarily on LinkedIn and programmatic display through Demandbase. He has a 3-person marketing team and works with a creative agency for quarterly campaigns. His company sells infrastructure software to mid-market and enterprise companies.
 
 **Pain points:**
-- His creative team is the bottleneck -- they can produce ~30 new creatives per month, but he needs 100+
-- His agency produces polished work but it takes 3-4 weeks per campaign and costs $15K
-- He's frustrated by how little insight he gets from ad performance data -- he knows *what* converts but not *why*
-- He wants to test more emotional angles and messaging approaches but doesn't have the creative bandwidth
+- His ABM platform can identify and target decision-makers at 500 target accounts, but every account gets the same generic creative
+- He knows a CFO and a CTO need different messages, but producing role-specific creative for 500 accounts is impossible with his team
+- His agency charges $15K/month and produces ~20 ad variants. He needs 200+
+- LinkedIn CTR has plateaued because his creative is stale — same value props, same angles, same tone
 
 **What he wants from Peitho:**
-- A systematic way to explore the creative space -- different angles, tones, CTAs for different segments
-- AI-generated audience insights that give his copywriter better briefs
-- A scoring/ranking system that helps him prioritize which variants to test first
-- Enough volume that he can run statistically significant tests faster
+- Generate persona-specific creative for each role in the buying committee (CTO, VP Eng, CFO, procurement)
+- Creative that speaks to each role's specific motivations, objections, and decision criteria
+- Platform-native variants: LinkedIn thought leadership posts, display ads, Meta awareness ads
+- A scoring system that helps him prioritize which variants to test first
+- Volume that lets him A/B test at the persona level, not just at the creative level
 
-**Success looks like:** 3x creative volume without adding headcount, with measurably better ROAS from more targeted messaging.
+**Success looks like:** 5x creative volume across buyer personas, measurable increase in target account engagement, and shorter sales cycles because prospects arrive better-educated.
 
-### Persona 3: The Agency Strategist
+### Persona 2: The ABM Agency Strategist
 
 **Name:** Priya Patel
-**Role:** Strategy Director at a performance marketing agency
-**Context:** Priya's agency manages ad spend for 15 DTC clients. Each client gets a dedicated account manager and shared creative resources. The agency is always creative-constrained.
+**Role:** Strategy Director at a B2B performance marketing agency
+**Context:** Priya's agency manages ABM campaigns for 12 B2B clients. Each client has target account lists of 200-2,000 companies. The agency runs LinkedIn, Demandbase, and programmatic campaigns. Creative production is always the bottleneck.
 
 **Pain points:**
-- Clients want more creative variants but aren't willing to pay for them
-- Her creative team spends 60% of their time on "good enough" social ads, not high-impact campaign work
-- She suspects there are audience segments they're missing but doesn't have the research bandwidth to find them
-- Client churn happens when ROAS plateaus and the agency can't find new angles fast enough
+- Clients want persona-specific creative for each buyer role, but the math doesn't work — 5 personas x 3 platforms x 10 variants = 150 pieces of creative per client per quarter
+- Her 4-person creative team is stretched across 12 clients
+- Client churn happens when engagement metrics plateau and the agency can't find fresh angles fast enough
+- She suspects there are psychological angles and messaging strategies they're missing because they don't have the research bandwidth
 
 **What she wants from Peitho:**
-- Generate first-draft creative at scale so her team can focus on refinement and strategy
-- Audience intelligence that surfaces segments and angles her team hasn't considered
-- A tool that makes her agency *more* valuable to clients, not one that replaces her
+- Generate first-draft creative at scale so her team focuses on refinement, not blank-page creation
+- Persona intelligence that surfaces psychological levers her team hasn't considered
+- Cross-platform creative generation (LinkedIn, display, Meta) from a single persona brief
+- A tool that makes her agency more valuable to clients, not one that replaces her
 
-**Success looks like:** Serve the same number of clients with 2x the creative output, reduce churn by consistently surfacing fresh angles.
+**Success looks like:** Serve the same number of clients with 3x the creative output, reduce churn by consistently surfacing fresh persona-specific angles.
+
+### Persona 3: The Political Campaign Director
+
+**Name:** David Okafor
+**Role:** Digital Director for a gubernatorial campaign
+**Context:** David manages a $5M digital ad budget across CTV, programmatic display, Meta, and YouTube. His campaign has identified 8 persuadable voter segments in key counties. He works with a political media firm that produces TV spots and digital creative.
+
+**Pain points:**
+- His media firm produces 3-5 ad variants per voter segment per month. He needs 20-30
+- Each voter segment has different concerns (economy, education, public safety, healthcare) and different persuasion triggers. Generic messaging wastes budget on the already-decided
+- CTV targeting can reach specific households in swing counties, but he's serving them the same generic spot
+- Post-Cambridge Analytica, the industry lost many micro-targeting tools, but the need for segment-specific creative remains
+
+**What he wants from Peitho:**
+- Deep psychological profiles of each voter segment — not just demographics but what they fear, what they aspire to, what language resonates
+- 20+ creative variants per segment, each pulling a different psychological lever
+- Platform-native creative: CTV scripts, Meta video concepts, YouTube pre-roll, display ads
+- Simulation scoring that helps predict which messages will actually persuade (not just get clicks)
+
+**Success looks like:** 5x creative volume per voter segment, measurable improvement in persuasion metrics in targeted counties.
 
 ---
 
@@ -986,19 +1027,19 @@ Campaign (1) ──── (N) Export
 
 ```json
 {
-  "name": "Summer 2026 Sunscreen Launch",
-  "company_name": "SolGuard",
-  "product_description": "Mineral sunscreen with SPF 50, reef-safe, lightweight formula...",
-  "target_market": "Health-conscious consumers who spend time outdoors...",
-  "website_url": "https://solguard.com",
-  "competitors": "Supergoop, Sun Bum, Blue Lizard",
-  "brand_voice": "Confident but approachable, science-backed without being clinical",
+  "name": "Q3 2026 Enterprise Push — Payment Infrastructure",
+  "company_name": "VaultPay",
+  "product_description": "Enterprise payment infrastructure API. Handles card processing, ACH, wire transfers, and cross-border payments with 99.99% uptime SLA. SOC 2 Type II certified...",
+  "target_market": "Mid-market and enterprise fintech companies, SaaS platforms with payment needs, e-commerce companies processing $10M+/year",
+  "website_url": "https://vaultpay.com",
+  "competitors": "Stripe, Adyen, Braintree",
+  "brand_voice": "Technical authority, understated confidence, peer-to-peer tone with engineering leaders",
   "config": {
     "num_segments": 5,
     "variants_per_icp": 10,
-    "platforms": ["meta", "instagram"],
-    "emotional_angles": ["aspiration", "fear", "social_proof", "rational", "storytelling"],
-    "tone_range": "casual_to_balanced"
+    "platforms": ["linkedin", "programmatic_display", "meta"],
+    "emotional_angles": ["rational", "fear", "social_proof", "aspiration", "storytelling"],
+    "tone_range": "professional_to_technical"
   }
 }
 ```
@@ -1008,13 +1049,13 @@ Campaign (1) ──── (N) Export
 ```json
 {
   "id": "550e8400-e29b-41d4-a716-446655440000",
-  "name": "Summer 2026 Sunscreen Launch",
+  "name": "Q3 2026 Enterprise Push — Payment Infrastructure",
   "status": "draft",
   "created_at": "2026-04-03T10:30:00Z"
 }
 ```
 
-**GET `/api/campaigns/{id}/variants?icp_id=...&min_score=6&platform=meta&status=pending`**
+**GET `/api/campaigns/{id}/variants?icp_id=...&min_score=6&platform=linkedin&status=pending`**
 
 ```json
 {
@@ -1022,24 +1063,24 @@ Campaign (1) ──── (N) Export
     {
       "id": "...",
       "icp_id": "...",
-      "icp_name": "Outdoor Active Professional",
-      "platform": "meta",
-      "headline": "Your Sunscreen Shouldn't Make You Choose",
-      "body_copy": "Reef-safe. Lightweight. SPF 50. SolGuard protects your skin without compromising the ocean.",
-      "cta_text": "Shop Now",
-      "emotional_angle": "rational",
-      "tone": "confident",
+      "icp_name": "Risk-Averse CTO at Mid-Market Fintech",
+      "platform": "linkedin",
+      "headline": "Your Payment Stack Shouldn't Keep You Up at Night",
+      "body_copy": "When your processing volume hits $50M, 'good enough' infrastructure becomes a liability. VaultPay handles 99.99% uptime at scale — so your engineering team ships features, not hotfixes.",
+      "cta_text": "See the Architecture",
+      "emotional_angle": "fear",
+      "tone": "peer_technical",
       "status": "pending",
       "score": {
-        "composite": 7.8,
+        "composite": 8.1,
         "attention": 7,
         "relevance": 9,
-        "resonance": 7,
-        "clarity": 8,
+        "resonance": 8,
+        "clarity": 9,
         "cta": 8
       },
-      "image_concept": "Split-screen: crystal clear ocean on one side, person applying sunscreen on the other. Clean, bright aesthetic.",
-      "visual_code_spec": "HTML/CSS split-screen layout with gradient ocean-blue left panel, product photography placeholder right panel, brand font overlay, SVG wave divider element"
+      "image_concept": "Clean, dark-mode dashboard aesthetic showing uptime metrics. Minimal, technical, no stock photography.",
+      "visual_code_spec": "HTML/CSS dark-mode dashboard mockup with real-time uptime counter, subtle grid background, monospace typography, VaultPay logo mark"
     }
   ],
   "total": 23,
@@ -1054,82 +1095,83 @@ Campaign (1) ──── (N) Export
 
 ### Phase 1: MVP (Current)
 **Timeline:** 4-6 weeks
-**Goal:** Validate that AI-generated audience intelligence and ad creative are good enough to be useful.
+**Goal:** Validate that AI-generated persona intelligence and creative are good enough to deploy in B2B campaigns.
 
-- Campaign creation wizard with customer data upload and brand asset management
-- ICP generation and enrichment (3-8 segments), grounded in real customer data when available
-- Ad variant generation (5-15 per ICP, text + code-based visuals via Claude Code, Figma MCP, Re:Motion)
+- Campaign creation wizard with target account/persona definition and brand asset management
+- Buyer persona generation and enrichment (3-8 personas per campaign), grounded in role-based psychology and industry context
+- Ad variant generation (5-15 per persona, text + code-based visuals via Claude Code, Figma MCP, Re:Motion)
 - Multi-agent simulation scoring with persistent memory, behavioral signatures, and confidence intervals
 - Human-in-the-loop feedback integration into agent memory
 - Human review dashboard with visual previews, agent reasoning, and style variation controls
-- Export in CSV, JSON, PDF, ZIP formats with rendered visual assets
+- Export in CSV, JSON, PDF, ZIP formats with rendered visual assets — formatted for LinkedIn, programmatic display, and Meta
 - Local deployment, single-user
 
-**Exit criteria:** 5-10 DTC brands use Peitho to generate real campaigns. At least 3 report that the output was "good enough to deploy with minor edits" and saved them meaningful time.
+**Exit criteria:** 5-10 B2B companies use Peitho to generate ABM campaign creative. At least 3 report that the persona-specific output was meaningfully better than their existing generic creative and saved them significant production time.
 
 ---
 
-### Phase 2: Platform Integration & Feedback Loop
+### Phase 2: Platform Integration & Cross-Platform Delivery
 **Timeline:** 2-3 months post-MVP
-**Goal:** Close the loop between generation and real-world performance.
+**Goal:** Close the loop between generation and real-world delivery across precision targeting platforms.
 
 **Features:**
-- **Meta Ads API integration:** Push approved variants directly to Meta Ads Manager as draft campaigns. Auto-configure targeting parameters based on ICP segments.
-- **Google Ads API integration:** Same for Google Display Network and Performance Max.
-- **LinkedIn Ads API integration:** Same for LinkedIn Sponsored Content.
-- **CRM integrations:** Shopify, Klaviyo, HubSpot automated data sync. Pull customer data on schedule, update ICP grounding continuously.
-- **Performance data ingestion:** Pull CTR, CPA, ROAS, conversion data back from platforms.
-- **Feedback-informed generation:** Next campaign generation is informed by which segments, angles, tones, and CTAs actually performed in previous campaigns. The system builds a brand-specific performance model.
-- **Scaling simulation:** Increase agent count per ICP, more complex social dynamics, richer inter-agent communication patterns.
+- **LinkedIn Ads API integration:** Push approved variants directly to LinkedIn Campaign Manager as draft campaigns. Auto-configure targeting (company, job title, seniority) based on persona definitions.
+- **ABM platform integrations:** Demandbase and 6sense API integrations — feed persona-specific creative into existing ABM targeting workflows. Trigger creative refreshes based on intent signals.
+- **Programmatic DSP integration:** The Trade Desk or StackAdapt integration for display and CTV ad delivery. Map personas to firmographic and intent-based targeting segments.
+- **Meta Ads API integration:** Push awareness-layer creative to Meta Advantage+ campaigns. Leverage persona-driven creative diversity for algorithmic optimization.
+- **Performance data ingestion:** Pull engagement metrics (CTR, pipeline influenced, meetings booked, deal progression) back from platforms. Map performance to specific personas and creative angles.
+- **Feedback-informed generation:** Next campaign generation is informed by which personas, angles, tones, and CTAs actually performed. The system builds a brand-specific and persona-specific performance model.
+- **Cross-platform campaign plans:** Generate coordinated "surround sound" campaigns — LinkedIn for professional context, display for ambient awareness, CTV for evening reach, Meta for broad reinforcement — all from a single persona brief.
+- **Political vertical expansion:** Voter segment modeling, CTV script generation, swing-state targeting integration. Timed for 2028 election cycle ramp-up.
 - **Multi-user support:** Team accounts, role-based access, approval workflows.
 - **Cloud deployment:** Hosted SaaS with user authentication and data isolation.
 
-**Exit criteria:** Campaigns generated by Peitho and deployed via API integration measurably outperform the brand's pre-Peitho creative on CPA or ROAS. Feedback loop demonstrably improves generation quality over 3+ campaign cycles.
+**Exit criteria:** Campaigns generated by Peitho and deployed via API integration measurably outperform the client's pre-Peitho creative on target account engagement metrics. Cross-platform campaigns show higher engagement than single-platform campaigns.
 
 ---
 
-### Phase 3: Video & Multi-Language
+### Phase 3: Individual-Level Intelligence & Vertical Expansion
 **Timeline:** 3-5 months post-Phase 2
-**Goal:** Expand creative format coverage and geographic reach.
+**Goal:** Move from role-based personas to individual-level psychological models using publicly available data.
 
 **Features:**
-- **Video ad generation:** Generate short-form video ads (6s, 15s, 30s) using:
-  - AI video generation models for synthetic footage
-  - Clip extraction and remixing from provided long-form content (brand videos, UGC, product demos)
-  - Template-based video assembly (text overlays, product shots, transitions)
-- **Multi-language support:** Generate ad variants in 10+ languages with cultural adaptation (not just translation -- actual localization of emotional angles, cultural references, humor).
-- **TikTok integration:** Native TikTok ad format support and TikTok Ads API integration.
+- **Public data enrichment pipeline:** For target individuals (e.g., a specific CTO), ingest publicly available data — LinkedIn profile, published interviews, conference talks, blog posts, company announcements, patent filings — to build an individual-level psychological model. What do they care about? What's their decision-making style? What language do they use? What have they publicly advocated for or against?
+- **Individual-level creative generation:** Generate creative specifically tailored to a named individual's psychology, not just their role archetype. "A message for Sarah Chen, CTO of Acme Corp, who has publicly advocated for developer experience and has been at Acme for 3 years after leaving a startup" vs. "a message for CTOs."
+- **Pharma HCP vertical:** NPI-level doctor profiling (specialty, prescribing patterns from public data, published research, conference participation). Generate creative tailored to specific physicians' likely concerns and evidence preferences. Regulatory compliance guardrails for pharma advertising.
+- **Video ad generation:** Short-form video ads (6s, 15s, 30s) — AI video generation, template-based assembly, script generation per persona.
+- **Multi-language support:** Culturally adapted (not just translated) ad variants for international campaigns.
 - **Creative fatigue detection:** Monitor ad performance decay and auto-suggest refresh creatives when engagement drops.
-- **Automated A/B test design:** Given a set of approved variants, automatically design statistically sound A/B tests with proper sample size calculations and runtime estimates.
-- **Cross-customer intelligence:** Anonymized patterns across brands. Identify what works for similar product categories, market segments, and audience profiles.
+- **Geofencing integration:** Generate creative designed for hyper-local delivery — Capitol Hill, conference venues, specific office buildings.
+
+**Exit criteria:** Individual-level creative demonstrably outperforms role-archetype creative in A/B tests on engagement metrics. At least 2 non-B2B verticals (political, pharma, or luxury) onboarded with vertical-specific features.
 
 ---
 
-### Phase 4: Autonomous Campaign Management
+### Phase 4: Autonomous Cross-Platform Orchestration
 **Timeline:** 6-12 months post-Phase 3
-**Goal:** Move from "tool that helps marketers" to "system that manages campaigns."
+**Goal:** Move from "tool that generates creative" to "system that orchestrates multi-platform persuasion campaigns."
 
 **Features:**
-- **End-to-end automation:** Generation, deployment, monitoring, and optimization happen without human intervention (with human oversight and kill switches).
-- **Dynamic budget allocation:** AI reallocates budget across segments and variants based on real-time performance data.
-- **Automatic creative rotation:** Detect fatigue, generate replacement variants, deploy them, and retire underperformers.
-- **Cross-platform optimization:** Optimize holistically across Meta, Google, TikTok, and LinkedIn rather than platform-by-platform.
-- **Anomaly detection and alerting:** Detect sudden performance drops, policy violations, or budget anomalies and alert the user.
-- **Natural language campaign management:** "Increase spend on our best-performing segment by 20%" or "Generate more ads like our top performer but with a humor angle."
+- **Autonomous campaign orchestration:** AI plans and executes the full "surround sound" sequence: awareness on display → engagement on LinkedIn → reinforcement on CTV → direct outreach trigger to sales team. Human oversight and kill switches at every stage.
+- **Intent-triggered creative escalation:** When 6sense or Bombora detects that a target account is actively researching your category, automatically escalate creative frequency and shift messaging from awareness to consideration.
+- **Dynamic budget allocation:** AI reallocates budget across platforms, personas, and creative variants based on real-time engagement signals.
+- **Cross-platform frequency management:** Prevent over-saturation by tracking impressions across LinkedIn, display, CTV, and Meta for each target account.
+- **Automatic creative rotation:** Detect fatigue, generate replacement variants, deploy them, retire underperformers.
+- **Natural language campaign management:** "Increase spend on the CTO persona at our top 50 accounts" or "Generate more ads like our best LinkedIn performer but for the CFO persona."
 
 ---
 
-### Phase 5: Population-Scale Intelligence
+### Phase 5: Persuasion Intelligence Network
 **Timeline:** 12-18 months post-Phase 4
-**Goal:** Build the most comprehensive understanding of consumer segments in digital advertising.
+**Goal:** Build the most comprehensive understanding of high-stakes persuasion dynamics in digital advertising.
 
 **Features:**
-- **Population-scale simulation engine:** A continuously updated model of consumer behavior across millions of micro-segments, informed by aggregate performance data across all Peitho customers (privacy-preserving, no PII).
-- **Competitive intelligence:** Analyze competitor ad creative (from public ad libraries like Meta Ad Library) to identify gaps, counter-position, and spot emerging trends.
-- **Cross-platform attribution:** Unified view of how campaigns across platforms contribute to conversions, with incrementality testing.
-- **Predictive audience discovery:** Identify high-potential micro-segments the brand hasn't targeted yet, based on cross-customer patterns.
-- **Category benchmarking:** "Your sunscreen ads are performing in the 72nd percentile for DTC skincare on Meta. Here's what the top 10% are doing differently."
-- **Marketplace:** Brands can opt-in to share anonymized performance data in exchange for better benchmarking and audience intelligence.
+- **Cross-customer persona intelligence:** Anonymized, aggregate data across all Peitho customers reveals patterns — what messaging works for CTOs in fintech vs. healthcare? What emotional angles resonate with CFOs evaluating $1M+ purchases? New customers get the benefit of this collective intelligence from day one.
+- **Competitive intelligence:** Analyze competitor ad creative (from LinkedIn Ad Library, Meta Ad Library) to identify positioning gaps and emerging messaging trends in each vertical.
+- **Predictive persona discovery:** Identify high-potential buyer personas that the client hasn't targeted yet, based on cross-customer patterns. "Companies like yours see 3x engagement when they also target the VP of Operations — here's why."
+- **Cross-platform attribution:** Unified view of how campaigns across LinkedIn, display, CTV, and Meta contribute to pipeline and revenue, with incrementality testing.
+- **Persuasion modeling:** A continuously refined model of what drives decisions in specific roles, industries, and contexts — informed by millions of real engagement data points across Peitho's customer base. This model is the long-term moat.
+- **Vertical benchmarking:** "Your CTO-targeted LinkedIn creative is performing in the 72nd percentile for B2B infrastructure companies. Here's what the top 10% do differently."
 
 ---
 
@@ -1141,10 +1183,11 @@ Campaign (1) ──── (N) Export
 
 | Metric | Target | How We Measure |
 |--------|--------|----------------|
-| ICP quality | 70%+ of generated ICPs rated "useful and accurate" by users | Post-generation survey (thumbs up/down per ICP) |
+| Persona quality | 70%+ of generated buyer personas rated "useful and accurate" by B2B marketers | Post-generation survey (thumbs up/down per persona) |
 | Variant usability | 30%+ of generated variants approved with no/minor edits | Approval rate in dashboard |
-| Time savings | 3x faster than user's current creative process | Self-reported in user interviews |
-| Willingness to pay | 60%+ of beta users say they'd pay $500+/month | Post-trial survey |
+| Persona differentiation | Users confirm that creative for CTO vs. CFO vs. VP Eng is meaningfully different and appropriately targeted | User interviews |
+| Time savings | 3x faster than user's current ABM creative process | Self-reported in user interviews |
+| Willingness to pay | 60%+ of beta users say they'd pay $2K+/month | Post-trial survey |
 
 **Secondary (Want-to-Hit):**
 
@@ -1160,10 +1203,12 @@ Campaign (1) ──── (N) Export
 
 | Metric | Target | Timeframe |
 |--------|--------|-----------|
-| ROAS improvement | Peitho-generated campaigns outperform brand's baseline by 20%+ | Within 3 campaign cycles |
-| Creative volume increase | 5x increase in creative variants tested per month per brand | Within 2 months of adoption |
-| Customer retention | 80%+ month-over-month retention | 6 months post-launch |
-| Revenue per customer | $1K+ MRR average | 6 months post-launch |
+| Target account engagement lift | Peitho-generated persona-specific creative outperforms generic creative by 30%+ on CTR | Within 2 campaign cycles |
+| Pipeline influence | Measurable increase in meetings booked and pipeline generated from ABM campaigns using Peitho creative | Within 3 months |
+| Creative volume increase | 5x increase in creative variants tested per persona per month | Within 2 months of adoption |
+| Cross-platform adoption | 50%+ of campaigns export creative for 2+ platforms (LinkedIn + display, LinkedIn + Meta, etc.) | Within 3 months of Phase 2 |
+| Customer retention | 85%+ month-over-month retention | 6 months post-launch |
+| Revenue per customer | $2K+ MRR average (higher value market than DTC) | 6 months post-launch |
 | Platform-deployed campaigns | 50%+ of approved variants deployed via API integration (vs. manual export) | Within 3 months of Phase 2 launch |
 
 ---
@@ -1184,19 +1229,28 @@ Campaign (1) ──── (N) Export
 
 | Risk | Severity | Likelihood | Mitigation |
 |------|----------|------------|------------|
-| **GDPR / CCPA exposure.** Even though Peitho doesn't process PII, generated profiles might *feel* like personal data to regulators. | Medium | Low | All generated profiles are clearly synthetic, based on aggregate demographic patterns, not real individuals. Include legal review of data handling practices. Terms of service explicitly state no PII is processed. |
-| **Ad platform policy violations.** Generated ad copy might violate platform-specific advertising policies (e.g., Meta's rules on health claims, financial promises). | High | Medium | Build a policy-checking layer into the generation pipeline: after generating variants, run a validation pass that flags copy potentially violating known platform rules. Include platform policy summaries in generation prompts. |
-| **Intellectual property.** Generated copy or image prompts might inadvertently reproduce copyrighted material. | Low | Low | Claude's training data guardrails help here. Add a similarity check against known slogans/taglines for the brand's industry. Terms of service clarify IP ownership of generated content. |
-| **Misleading ad claims.** AI-generated copy might make claims the product can't support. | Medium | Medium | Include a "factual claims" flag in the generation pipeline. Prompt Claude to avoid specific performance claims unless the user provides supporting data. Surface flagged claims in the review UI. |
+| **GDPR / CCPA exposure from individual profiling.** Phase 3's individual-level intelligence uses public data, but building psychological profiles of named individuals may trigger data protection obligations, especially under GDPR's "profiling" provisions. | High | Medium | Phase 1-2 use role-based archetypes only (no named individuals). Phase 3 individual profiling is built with legal review from day one. All data sourced from publicly available information. Provide data subject access/deletion mechanisms. Obtain legal opinion on GDPR Article 22 (automated decision-making) applicability. |
+| **Ad platform policy violations.** Generated ad copy might violate platform-specific advertising policies (e.g., LinkedIn's B2B rules, Meta's rules on financial/health claims). | High | Medium | Build a policy-checking layer into the generation pipeline: after generating variants, run a validation pass that flags copy potentially violating known platform rules. Include platform policy summaries in generation prompts. |
+| **Pharma regulatory compliance.** HCP marketing is heavily regulated (FDA, FTC). AI-generated pharma ads must comply with fair balance requirements, approved indications, and adverse event disclosures. | High | High (for pharma vertical) | Pharma vertical (Phase 3) built with regulatory compliance as a core constraint, not an afterthought. Mandatory human review for all pharma creative. Integration with MLR (Medical Legal Review) workflows. Conservative generation defaults. |
+| **Political advertising regulations.** Many jurisdictions require disclosure of AI-generated political content and paid-for-by attributions. | Medium | Medium | Auto-include required disclosures. Track and comply with state-by-state AI disclosure laws. Transparent about AI generation in all political creative. |
+
+### Ethical Risks
+
+| Risk | Severity | Likelihood | Mitigation |
+|------|----------|------------|------------|
+| **Manipulative persuasion.** Building psychological profiles and generating persuasion-optimized creative could be used to manipulate vulnerable people or promote harmful products. | High | Medium | Acceptable use policy prohibiting deceptive practices, targeting of vulnerable populations, and promotion of harmful products. Generation pipeline includes ethical guardrails — Claude will refuse to generate manipulative, deceptive, or harmful content. User vetting for high-risk verticals (political, pharma). |
+| **Asymmetric power dynamics.** The tool gives sophisticated actors (corporations, campaigns) unprecedented ability to influence individuals who don't know they're being psychologically profiled. | High | High | This is an inherent property of the technology, not a bug to be mitigated away. We address it through: (1) transparency — the product and its capabilities are public, not covert; (2) the same technology is available to all market participants, not just incumbents; (3) we do not enable covert manipulation — all output is deployed through legitimate, regulated ad platforms with their own disclosure requirements. |
+| **Individual profiling overreach.** Phase 3's individual-level intelligence could cross the line from "understanding your audience" to "surveillance-enabled persuasion." | High | Medium | Strictly limit data sources to publicly available information. No scraping of private accounts, no purchase of data broker profiles, no correlation with private communications. Clear data provenance tracking. Users can see exactly what data informed each profile. Individuals can request deletion of their profiles. |
+| **Erosion of authentic discourse.** If widely adopted for political advertising, hyper-personalized persuasion could further fragment public discourse by telling each voter what they want to hear. | Medium | Low (near-term) | Not within our control to prevent at the industry level. Our contribution: transparency about capabilities, compliance with AI disclosure regulations, and refusal to generate disinformation or deceptive content. |
 
 ### Market Risks
 
 | Risk | Severity | Likelihood | Mitigation |
 |------|----------|------------|------------|
-| **"Good enough" is hard to define.** DTC marketers may judge AI-generated creative against the best agency work, not against their realistic alternative (doing it themselves or not doing it at all). | High | Medium | Position Peitho as "better than what you'd do yourself in 10% of the time," not "better than what a $20K/month agency produces." User onboarding should calibrate expectations. |
-| **Market timing.** If every AI tool adds "ad generation," the feature becomes commoditized. | Medium | High | The moat is not in generation alone -- it's in the audience intelligence + scoring + feedback loop pipeline. Generation is one module. The system's value compounds over time as the feedback loop improves quality. |
-| **DTC market contraction.** E-commerce headwinds (rising CAC, declining VC funding for DTC) could shrink the target market. | Medium | Medium | DTC is the beachhead, not the endgame. The platform generalizes to any advertiser. Phase 2+ expands to agencies, SaaS companies, and larger brands. Rising CAC actually *increases* demand for better creative performance. |
-| **Ad platform targeting restrictions.** Meta, Google, and others are continuously restricting targeting granularity (removing interest categories, limiting demographic targeting). | Medium | Medium | Peitho's value doesn't depend on hyper-narrow targeting. Even with broad targeting, better creative relevance improves performance. The system can adapt to targeting constraints by generating creative that self-selects audiences (i.e., the ad content itself acts as a filter). |
+| **ABM creative is a feature, not a product.** Demandbase, 6sense, or LinkedIn could add AI creative generation as a feature. | High | High | Move fast. The moat is not in generation alone — it's in the persona intelligence depth + multi-agent scoring + cross-platform orchestration + feedback loop. An ABM platform bolting on "AI creative" will produce generic output. Peitho's value is the *depth* of persona understanding, which requires a dedicated product focus. Also: position as complementary to ABM platforms, not competitive. Integrate, don't replace. |
+| **Market timing.** If every AI tool adds "ad generation," the feature becomes commoditized. | Medium | High | Generic ad generation is commoditizing. *Persona-specific persuasion for high-stakes decisions* is not. The more commodity creative tools exist, the more Peitho's depth of persona intelligence differentiates. |
+| **B2B sales cycles are long.** Proving ROI takes 6-12 months because enterprise deals close slowly. | Medium | High | Focus MVP metrics on leading indicators (engagement rates, meeting bookings, pipeline influenced) not lagging indicators (closed deals). Offer a "creative quality" value prop alongside a "performance" value prop. |
+| **Political vertical is cyclical.** Election spending concentrates in 18-month cycles with long gaps between. | Medium | Medium | Political is an expansion vertical, not the core. B2B revenue provides baseline; political provides cyclical upside. Phase 2 timing deliberately aligns with 2028 cycle ramp-up. |
 
 ---
 
@@ -1206,32 +1260,33 @@ Campaign (1) ──── (N) Export
 
 | Tool | What It Does | Peitho's Differentiation |
 |------|-------------|-------------------------|
-| **Jasper** | AI copywriting tool. Generates ad copy, blog posts, emails from templates. | Jasper is a *writing tool*. It generates copy for a single audience. It has no audience intelligence, no segmentation, no scoring, and no systematic exploration of emotional angles. Peitho is a *strategy-to-creative pipeline*. |
-| **Copy.ai** | Similar to Jasper. AI copy generation with templates and workflows. | Same differentiation as Jasper. Copy.ai generates individual pieces of copy. Peitho generates entire campaign structures across segments. |
-| **AdCreative.ai** | Generates ad creative (images + copy) with performance scoring based on historical data. | AdCreative.ai scores based on aggregate historical data ("ads with this layout tend to perform well"). Peitho scores based on *audience-specific* simulation. AdCreative.ai also lacks the audience intelligence layer -- you bring your own audience definition. |
-| **Pencil (by Brandtech)** | AI-generated video and static ads with performance prediction. | Pencil focuses on creative production and has strong video capabilities. But its audience understanding is shallow -- it doesn't generate ICPs or explore segment-specific messaging strategies. |
-| **Predis.ai** | Social media content generation with AI. Covers posts, ads, and carousels. | Predis is a content creation tool, not an advertising strategy tool. No audience segmentation, no scoring against personas. |
+| **Demandbase (Creative)** | ABM platform with targeting and basic display ad generation. | Demandbase solves targeting brilliantly but its creative tools are rudimentary — generic display templates, not persona-specific messaging. Peitho is the creative intelligence layer that Demandbase's targeting deserves. We integrate with Demandbase, not compete with it. |
+| **6sense (Conversational Email)** | ABM intent platform with AI-generated email outreach. | 6sense focuses on email and intent detection. Strong on "when to reach out" but shallow on "what to say" and non-existent on visual/display/LinkedIn creative. Peitho complements 6sense's intent signals with multi-platform creative generation. |
+| **Mutiny** | AI-powered website personalization for B2B. | Mutiny personalizes the website experience after a visitor arrives. Peitho generates the creative that gets them to visit in the first place. Different stage of the funnel. |
+| **Jasper / Copy.ai** | AI copywriting tools. Generate ad copy, emails, blog posts from templates. | Writing tools for a single audience. No persona intelligence, no multi-agent scoring, no cross-platform creative strategy. Peitho is a *persuasion pipeline*, not a writing assistant. |
+| **AdCreative.ai** | Generates ad creative with performance scoring based on historical data. | Scores based on aggregate patterns ("ads with this layout tend to work"). Peitho scores based on *persona-specific* simulation. AdCreative.ai has no audience intelligence — you bring your own audience. |
 
 ### Indirect Competitors
 
 | Tool | What It Does | Why Peitho is Different |
 |------|-------------|------------------------|
-| **Meta Advantage+ Creative** | Meta's native AI that generates ad variants within their platform. | Platform-locked (Meta only). Limited to minor variations (text overlaps, cropping). No audience intelligence. No cross-platform strategy. |
-| **Google Performance Max** | Google's automated campaign type that generates and tests creative across Google properties. | Platform-locked (Google only). Black box -- advertiser has limited visibility into what's being generated and why. No audience intelligence layer. |
-| **Traditional agencies** | Human strategists and creatives produce campaigns. | 10-100x slower, 10-50x more expensive per variant. Limited by human bandwidth. But agencies bring brand understanding, strategic judgment, and relationship value that AI can't replicate. Peitho is a tool *for* agencies as much as a replacement. |
-| **Canva + ChatGPT** | DIY approach: use ChatGPT for copy, Canva for design. | No integration between audience intelligence and creative. No scoring. No systematic exploration. It's a toolkit, not a pipeline. Works for one-off assets, not for campaign-scale variant generation. |
+| **LinkedIn Campaign Manager** | LinkedIn's native ad creation and targeting interface. | Powerful targeting but creative tools are basic. No persona-driven creative generation, no simulation scoring. Peitho generates the creative that makes LinkedIn's targeting effective. |
+| **Meta Advantage+ Creative** | Meta's native AI that generates ad variants within their platform. | Platform-locked (Meta only). No persona intelligence. Useful for algorithmic creative testing, but doesn't solve the "what should we say to this specific person" problem. |
+| **Traditional agencies** | Human strategists and creatives produce campaigns. | 10-100x slower, 10-50x more expensive per variant. Limited by human bandwidth. But agencies bring strategic judgment and client relationships that AI can't replicate. Peitho is a tool *for* agencies as much as a replacement. |
+| **Political data firms (HaystaqDNA, Civis Analytics)** | Voter modeling and campaign strategy for political campaigns. | These firms build the voter models and targeting strategy but don't generate the creative. Peitho generates the persona-specific creative that these firms' targeting delivers. Complementary, not competitive (in Phase 2+). |
+| **Pharma HCP platforms (Doceree, DeepIntent)** | NPI-level targeting for pharmaceutical advertising to doctors. | Same pattern: strong targeting, weak creative. Peitho provides the intelligence-to-creative pipeline these platforms lack (in Phase 3+). |
 
 ### Competitive Moat (Over Time)
 
 Peitho's defensibility increases with each phase:
 
-1. **Phase 1 (MVP):** Low moat. The pipeline is novel but technically reproducible. Defensibility comes from execution speed and prompt engineering quality.
+1. **Phase 1 (MVP):** Low moat. The persona-to-creative pipeline is novel but technically reproducible. Defensibility comes from execution speed, prompt engineering quality, and being first to frame this as the creative layer for ABM.
 
-2. **Phase 2 (Feedback Loop):** Medium moat. Performance data from real campaigns creates a proprietary dataset that improves generation quality. Each brand's history makes the system more valuable for that brand (switching cost).
+2. **Phase 2 (Platform Integration):** Medium moat. Integrations with LinkedIn, Demandbase, 6sense, and DSPs create workflow lock-in. Performance data from real campaigns creates a proprietary dataset that improves generation quality per client.
 
-3. **Phase 3+ (Cross-Customer Intelligence):** High moat. Aggregate, anonymized performance data across hundreds of brands creates a network effect. Peitho gets better at predicting what works for a new sunscreen brand because it has seen what worked for 50 other sunscreen brands. No new entrant has this data.
+3. **Phase 3 (Individual Intelligence):** High moat. The public data enrichment pipeline — building individual-level psychological models from LinkedIn, interviews, conference talks — is a genuinely novel capability. Combined with cross-customer data on what messaging works for what persona types, this creates a compounding intelligence advantage.
 
-4. **Phase 5 (Population-Scale Simulation):** Very high moat. A continuously updated model of consumer behavior across segments, informed by millions of real ad performance data points, is extremely difficult to replicate.
+4. **Phase 5 (Persuasion Intelligence Network):** Very high moat. Aggregate data across hundreds of B2B companies about what persuades CTOs, CFOs, VPs of Engineering — broken down by industry, company stage, and individual psychology — is an asset no new entrant can replicate. Peitho knows what works because it has seen what works at scale.
 
 ---
 
@@ -1239,16 +1294,19 @@ Peitho's defensibility increases with each phase:
 
 | Term | Definition |
 |------|------------|
-| **ICP** | Ideal Customer Profile. A detailed description of a target audience micro-segment. |
-| **Micro-segment** | A narrowly defined audience group (more specific than a traditional segment, less specific than an individual). |
-| **Ad variant** | A single ad creative (copy + visual specification) tailored to a specific ICP and platform. |
+| **ICP** | Ideal Customer Profile. In Peitho's context, a detailed psychological and behavioral profile of a target buyer persona (e.g., "Risk-Averse CTO at Mid-Market Fintech"). |
+| **Buyer persona** | A specific role within a target account's buying committee, enriched with psychological drivers, objections, and decision-making patterns. |
+| **ABM** | Account-Based Marketing. A B2B strategy that targets specific companies and individuals within those companies, rather than broad audiences. |
+| **Buying committee** | The group of decision-makers involved in an enterprise purchase (typically 6-10 people with different roles and concerns). |
+| **Ad variant** | A single ad creative (copy + visual specification) tailored to a specific buyer persona and platform. |
 | **Composite score** | Weighted average of the five scoring dimensions (attention, relevance, resonance, clarity, CTA effectiveness). |
 | **Emotional angle** | The primary psychological lever an ad variant uses (e.g., fear, aspiration, social proof). |
-| **Synthetic profile** | An AI-generated description of a hypothetical audience member, used for simulation and scoring. |
-| **DTC** | Direct-to-Consumer. Brands that sell directly to end customers, typically via e-commerce. |
-| **ROAS** | Return on Ad Spend. Revenue generated per dollar spent on advertising. |
-| **CPA** | Cost Per Acquisition. The cost to acquire one customer through advertising. |
+| **Surround sound** | A cross-platform campaign strategy that reaches the same target person across multiple channels (LinkedIn, display, CTV, Meta) with coordinated, platform-native messaging. |
+| **DSP** | Demand-Side Platform. A programmatic advertising platform (e.g., The Trade Desk, StackAdapt, Demandbase) used to serve display, native, and CTV ads. |
+| **CTV** | Connected TV. Streaming platforms (Hulu, Peacock, etc.) that support household-level ad targeting. |
+| **NPI** | National Provider Identifier. A unique ID for each healthcare provider in the US, used for physician-level ad targeting in pharma. |
 | **CTR** | Click-Through Rate. The percentage of ad impressions that result in a click. |
+| **Pipeline influenced** | The dollar value of sales pipeline (deals in progress) that was exposed to advertising. A key B2B metric. |
 
 ## Appendix B: Prompt Architecture (High-Level)
 

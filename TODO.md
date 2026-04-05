@@ -1,6 +1,6 @@
 # Peitho MVP — Build Checklist
 
-Target: Functional MVP in 1-2 days. AI-powered hyper-personalized ad generation pipeline with a dashboard UI.
+Target: Functional MVP in 1-2 days. AI-powered precision persuasion pipeline for B2B/high-stakes advertising with a dashboard UI.
 
 **Stack:** Next.js 15 + Tailwind + shadcn/ui | Python FastAPI | Anthropic Claude API | SQLite
 
@@ -24,8 +24,8 @@ Goal: End-to-end AI pipeline — campaign in, scored ad variants out.
 - [ ] **Config & env** — `.env` file for `ANTHROPIC_API_KEY`, `DATABASE_URL`. Pydantic Settings class in `config.py`.
 
 ### AI Services
-- [ ] **ICP Generation Service** (`services/icp_service.py`) — Takes campaign info (company, product, market, URL). Builds a prompt asking Claude to generate 3-8 detailed ICP segments. Each ICP includes: name, age range, income, job title, psychographic profile, pain points, goals, media consumption habits, likely objections. Parse structured JSON response. Store each ICP in DB linked to campaign.
-- [ ] **Ad Generation Service** (`services/ad_service.py`) — Takes a single ICP profile + campaign context. Prompts Claude to generate 5-15 ad variants tailored to that ICP. Each variant: headline (max 40 chars), body copy (max 125 chars for Meta, longer for others), CTA text, visual code specification (for code-based generation via Claude Code, Figma MCP, or Re:Motion), emotional tone, suggested platform. Parse and store in DB.
+- [ ] **Buyer Persona Generation Service** (`services/icp_service.py`) — Takes campaign info (company, product, target accounts, market). Builds a prompt asking Claude to generate 3-8 detailed buyer personas (e.g., CTO, VP Engineering, CFO, procurement). Each persona includes: role, responsibilities, KPIs, decision-making style, psychological drivers, fears, objections, media consumption habits, platform preferences. For B2B: focuses on buying committee roles and professional psychology. Parse structured JSON response. Store each persona in DB linked to campaign.
+- [ ] **Ad Generation Service** (`services/ad_service.py`) — Takes a single buyer persona + campaign context. Prompts Claude to generate 5-15 ad variants tailored to that persona's psychology. Each variant: headline (platform-appropriate length), body copy (platform-appropriate), CTA text, visual code specification (for code-based generation via Claude Code, Figma MCP, or Re:Motion), emotional tone, target platform (LinkedIn, programmatic display, Meta). Each variant includes a hypothesis for why this specific psychological angle would resonate with this specific persona. Parse and store in DB.
 - [ ] **Simulation/Scoring Service** (`services/scoring_service.py`) — Takes an ICP profile + ad variant. Runs a multi-agent simulation:
   - Initialize 3-5 simulation agents per ICP segment with persistent memory and unique behavioral signatures.
   - Run multi-round simulation (default 5 runs per variant) for statistical confidence.
@@ -64,12 +64,12 @@ Goal: End-to-end AI pipeline — campaign in, scored ad variants out.
 - [ ] **Export** — `GET /api/campaigns/{id}/export?platform=meta|linkedin|google`. Returns approved ads formatted to platform specs (character limits, field mapping) with rendered visual assets. JSON response, optionally CSV download.
 
 ### Prompt Engineering
-- [ ] **Write and test ICP prompt** — System prompt establishing Claude as a market research expert. Few-shot example of good ICP output. Enforce JSON schema in the prompt. Temperature ~0.7 for creativity.
-- [ ] **Write and test ad generation prompt** — System prompt as world-class copywriter. Include the full ICP as context. Request diverse tones across variants (urgent, aspirational, fear-based, social-proof, etc.). Temperature ~0.8.
+- [ ] **Write and test persona prompt** — System prompt establishing Claude as a B2B buyer psychology expert. Few-shot example of good buyer persona output (role-based psychology, decision-making patterns, objections, emotional drivers). Enforce JSON schema in the prompt. Temperature ~0.7 for creativity.
+- [ ] **Write and test ad generation prompt** — System prompt as world-class B2B copywriter who understands persona-specific persuasion. Include the full buyer persona as context. Request diverse psychological angles across variants (fear/risk, aspiration, social proof, rational/ROI, authority, peer pressure). Platform-native creative guidelines (LinkedIn thought leadership vs. display ads vs. Meta). Temperature ~0.8.
 - [ ] **Write and test scoring prompts** — Agent-based simulation architecture: agent initialization prompt (establish unique behavioral signatures, persistent memory, segment-grounded personality) + multi-round scoring prompt (expose agents to ad variants, collect behavioral signals, aggregate into scores with confidence intervals). Temperature ~0.3 for consistency.
 
 ### Integration Test
-- [ ] **End-to-end test script** (`tests/test_pipeline.py`) — Create campaign for a sample company → generate ICPs → generate ads for each ICP → score all ads → verify top-scored ads make sense → export to Meta format. Use `httpx` against running server. Print summary: X ICPs, Y total ads, top 3 ads with scores.
+- [ ] **End-to-end test script** (`tests/test_pipeline.py`) — Create campaign for a sample B2B company → generate buyer personas (CTO, CFO, VP Eng) → generate persona-specific ads for each → score all ads → verify persona differentiation (CTO ads ≠ CFO ads) → export to LinkedIn + display format. Use `httpx` against running server. Print summary: X personas, Y total ads, top 3 ads per persona with scores.
 
 ---
 
@@ -103,24 +103,26 @@ Goal: Clean, usable dashboard to drive the full workflow.
 
 ---
 
-## Phase 2 (Future — Real Ad Platform Integration)
+## Phase 2 (Future — Platform Integration & Cross-Platform Delivery)
 
-- [ ] **Meta Ads API integration** — OAuth flow, campaign creation, audience targeting from ICPs, automated ad upload with approved creatives.
-- [ ] **Google Ads API integration** — Responsive display ads, audience segments, conversion tracking setup.
-- [ ] **LinkedIn Ads API integration** — Sponsored content creation, matched audiences from ICP firmographics.
-- [ ] **Performance tracking pipeline** — Ingest CTR, CPC, conversion rate from ad platforms. Store per-variant metrics. Dashboard showing real vs simulated performance.
-- [ ] **ICP refinement loop** — Compare simulated scores vs actual performance. Fine-tune ICP profiles and scoring weights. Flag when simulation diverges from reality.
-- [ ] **A/B test management** — Auto-create A/B tests from top-scored variants. Statistical significance calculator. Auto-pause underperformers.
-- [ ] **Budget allocation engine** — Distribute budget across ICPs proportional to predicted/actual ROAS. Rebalance daily.
-- [ ] **CRM integrations** — Shopify, Klaviyo, HubSpot automated data sync. Pull customer data on schedule, update ICP grounding continuously.
-- [ ] **Scaling simulation** — Increase agent count per ICP, more complex social dynamics, richer inter-agent communication patterns.
+- [ ] **LinkedIn Ads API integration** — OAuth flow, campaign creation, persona-based targeting (company + job title + seniority), automated ad upload with approved creatives.
+- [ ] **ABM platform integrations** — Demandbase and 6sense API connections. Feed persona-specific creative into existing ABM targeting workflows. Trigger creative refresh based on intent signals.
+- [ ] **Programmatic DSP integration** — The Trade Desk or StackAdapt for display and CTV ad delivery. Map personas to firmographic/intent-based targeting segments.
+- [ ] **Meta Ads API integration** — Push awareness-layer creative to Advantage+ campaigns. Leverage persona-driven creative diversity for algorithmic optimization.
+- [ ] **Cross-platform campaign plans** — Generate coordinated "surround sound" campaigns from a single persona brief: LinkedIn for professional context, display for ambient awareness, CTV for evening reach, Meta for broad reinforcement.
+- [ ] **Performance tracking pipeline** — Ingest engagement metrics (CTR, pipeline influenced, meetings booked, deal progression) from platforms. Map performance to specific personas and creative angles. Dashboard showing real vs simulated performance.
+- [ ] **Persona refinement loop** — Compare simulated scores vs actual performance. Fine-tune persona profiles and scoring weights. Flag when simulation diverges from reality.
+- [ ] **Political vertical expansion** — Voter segment modeling, CTV script generation, swing-state targeting integration. Timed for 2028 election cycle.
+- [ ] **Scaling simulation** — Increase agent count per persona, more complex buying committee dynamics, model inter-persona influence within accounts.
 
-## Phase 3+ (Future — Scale & Autonomy)
+## Phase 3+ (Future — Individual Intelligence & Vertical Expansion)
 
-- [ ] **Video ad generation** — Generate video scripts per ICP. Integrate with video generation APIs (Runway, Pika). Auto-edit templates with generated copy.
-- [ ] **Multi-language ad generation** — Detect target market languages. Generate culturally-adapted (not just translated) ad variants.
-- [ ] **Autonomous campaign management** — Agent loop: monitor performance → pause losers → scale winners → generate new variants → repeat. Human-in-the-loop approval gates.
-- [ ] **Population-scale simulation** — Simulate thousands of synthetic personas (not just ICP archetypes). Monte Carlo scoring for confidence intervals on ad performance.
-- [ ] **Cross-customer intelligence** — Anonymized patterns across brands. Identify what works for similar product categories, market segments, and audience profiles.
-- [ ] **Competitive intelligence module** — Scrape competitor ad libraries (Meta Ad Library, Google Ads Transparency). Analyze positioning gaps. Generate counter-positioning ads.
-- [ ] **Cross-platform attribution** — Unified view of ad performance across all platforms. Multi-touch attribution modeling. Customer journey visualization.
+- [ ] **Public data enrichment pipeline** — For target individuals, ingest LinkedIn profiles, published interviews, conference talks, blog posts, patent filings. Build individual-level psychological models.
+- [ ] **Individual-level creative generation** — Generate creative tailored to a named individual's psychology, not just their role archetype.
+- [ ] **Pharma HCP vertical** — NPI-level doctor profiling, regulatory compliance guardrails, MLR workflow integration.
+- [ ] **Video ad generation** — Generate video scripts per persona. Integrate with video generation APIs (Runway, Pika). Auto-edit templates with persona-specific copy.
+- [ ] **Multi-language ad generation** — Culturally-adapted (not just translated) ad variants for international campaigns.
+- [ ] **Geofencing creative** — Generate creative designed for hyper-local delivery (Capitol Hill, conference venues, specific office buildings).
+- [ ] **Autonomous cross-platform orchestration** — AI plans and executes full surround sound sequences with intent-triggered escalation. Human oversight at every stage.
+- [ ] **Persuasion intelligence network** — Cross-customer persona insights, competitive intelligence from ad libraries, vertical benchmarking.
+- [ ] **Cross-platform attribution** — Unified view of campaign performance across LinkedIn, display, CTV, and Meta. Multi-touch attribution modeling.

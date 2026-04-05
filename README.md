@@ -1,8 +1,8 @@
 # Peitho
 
-**AI-Powered Hyper-Personalized Advertising at Scale**
+**AI-Powered Precision Persuasion for High-Stakes Advertising**
 
-Peitho generates highly targeted ad variants by building detailed ICPs from your company info and existing customer data, creating dozens of tailored ad creatives with code-based visuals per segment, and scoring each ad through multi-agent simulation. Human-in-the-loop at every stage. The result: a ranked portfolio of ads optimized for each customer persona before you spend a dollar on media.
+Peitho builds deep psychological profiles of the specific people you need to influence — understanding their motivations, fears, decision-making patterns, and emotional triggers — then generates creative precisely designed to persuade them across every platform where they can be reached. Multi-agent simulation scores each variant before you spend a dollar on media. Human-in-the-loop at every stage.
 
 > *Named after the Greek goddess of persuasion.*
 
@@ -10,16 +10,16 @@ Peitho generates highly targeted ad variants by building detailed ICPs from your
 
 ## The Problem
 
-Digital advertising is stuck in a loop of broad targeting and generic creative. Marketers manually build 2-3 audience segments, write a handful of ad variants, and rely on expensive live A/B testing to find what works. Most ad spend is wasted on the wrong message reaching the wrong person. The feedback cycle takes weeks and thousands of dollars.
+In high-stakes advertising — B2B enterprise sales, political campaigns, pharma, government affairs — the challenge isn't reaching "anyone who might convert." It's reaching *specific people* and persuading them. ABM platforms like Demandbase and 6sense solve targeting (they can find the CTO). But the creative they serve is generic — the same display ad goes to the CTO, CFO, and VP of Engineering, despite fundamentally different motivations and objections. The targeting is surgical; the message is a shotgun.
 
 ## The Solution
 
-Peitho inverts the process:
+Peitho closes the gap between precision targeting and precision creative:
 
-1. **Deep ICP Generation** — Given your company, product, and market, Claude builds 3-8 richly detailed customer personas: demographics, psychographics, pain points, goals, media habits, and likely objections. When real customer data is available, ICPs are grounded in actual purchase patterns and demographics rather than generated from scratch.
-2. **Hyper-Personalized Ad Creation** — For each ICP, Claude generates 5-15 ad variants with diverse emotional tones, CTAs, and angles. Visuals are generated programmatically using code-based tools (Claude Code, Figma MCP, Re:Motion), incorporating uploaded brand assets for pixel-perfect control.
-3. **Multi-Agent Simulation Scoring** — Multiple simulation agents per ICP — each with persistent memory and unique behavioral signatures — evaluate ads across multiple runs. Scores emerge from agent behavior patterns, not single prompts. Human feedback is incorporated into agent memory.
-4. **Platform-Ready Export** — Approved ads — including rendered visuals from code-based generation — are formatted to Meta, LinkedIn, and Google Display specs, ready for upload.
+1. **Deep Persona Intelligence** — Given your product, target accounts, and market, Claude builds richly detailed buyer personas: role-based psychology, decision-making patterns, likely objections, emotional triggers, and platform preferences. When enrichment data is available, personas are grounded in real signals rather than archetypes alone.
+2. **Persona-Specific Ad Creation** — For each buyer persona, Claude generates 5-15 ad variants with diverse emotional tones, CTAs, and psychological angles — tailored to each platform's content grammar (LinkedIn thought leadership, programmatic display, Meta, CTV). Visuals are generated programmatically using code-based tools (Claude Code, Figma MCP, Re:Motion).
+3. **Multi-Agent Simulation Scoring** — Multiple simulation agents per persona — each with persistent memory and unique behavioral signatures — evaluate ads across multiple runs. Scores emerge from agent behavior patterns, not single prompts. Human feedback is incorporated into agent memory.
+4. **Cross-Platform Export** — Approved ads are formatted to LinkedIn, programmatic display, Meta, and Google Display specs, with targeting recommendations per persona. Ready for deployment through ABM platforms, DSPs, and ad managers.
 
 ---
 
@@ -178,9 +178,11 @@ peitho/
 
 | Phase | Focus | Status |
 |-------|-------|--------|
-| **MVP** | AI pipeline + dashboard — generate ICPs (with customer data ingestion), create ads (code-based visuals), multi-agent simulation scoring, human feedback, export | In progress |
-| **Phase 2** | Real ad platform integrations, CRM connectors (Shopify, Klaviyo, HubSpot), performance tracking, scaling simulation | Planned |
-| **Phase 3** | Video generation, multi-language, population-scale simulation, cross-customer intelligence | Future |
+| **MVP** | AI pipeline + dashboard — generate buyer personas, create persona-specific ads (code-based visuals), multi-agent simulation scoring, human feedback, cross-platform export | In progress |
+| **Phase 2** | LinkedIn/DSP/ABM platform integrations, cross-platform campaign orchestration, performance feedback loop, political vertical expansion | Planned |
+| **Phase 3** | Individual-level intelligence from public data, pharma HCP vertical, video generation, geofencing integration | Future |
+| **Phase 4** | Autonomous cross-platform orchestration, intent-triggered creative escalation, dynamic budget allocation | Future |
+| **Phase 5** | Persuasion intelligence network — cross-customer persona insights, competitive intelligence, vertical benchmarking | Future |
 
 ---
 
