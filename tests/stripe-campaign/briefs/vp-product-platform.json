@@ -1,0 +1,18 @@
+{
+  "personaId": "vp-product-platform",
+  "persuasionAngle": {
+    "type": "platform-velocity-multiplier",
+    "rationale": "VP of Product personas are measured on shipping speed and platform capabilities. They fear being constrained by payment infrastructure choices. Positioning Stripe as the platform that accelerates rather than limits their product roadmap addresses their core success metric while acknowledging the strategic complexity they face.",
+    "psychFramework": "Authority positioning + velocity proof + strategic partnership framing"
+  },
+  "creative": {
+    "headline": "Built for platform complexity",
+    "statNumber": "6 weeks",
+    "statLabel": "Average time to launch marketplace payments vs 6+ months",
+    "introText": "Shopify, Lyft, Instacart chose Stripe Connect for platform payments. Not because it was simple—because it handled the complexity.",
+    "linkedinHeadline": "Why leading platforms choose Stripe for payment infrastructure",
+    "cta": "See platform examples",
+    "tone": "Strategic partner voice—acknowledges complexity rather than oversimplifying, uses concrete proof from named platforms, avoids 'easy' positioning that insults their intelligence",
+    "subtext": "stripe.com/connect"
+  }
+}

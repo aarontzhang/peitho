@@ -1,0 +1,18 @@
+{
+  "personaId": "vp-finance",
+  "persuasionAngle": {
+    "type": "operational-efficiency-financial-impact",
+    "rationale": "VP Finance processes information outcome-first and needs concrete financial metrics they can reproduce internally. The 'hours saved' proof type directly addresses their pain of drowning in payment operations while providing a quantifiable business case they can present upward.",
+    "psychFramework": "Risk-mitigation through efficiency gains - positions Stripe as the stable, predictable choice that reduces their operational burden rather than adding complexity"
+  },
+  "creative": {
+    "headline": "Finance teams save 15 hours weekly",
+    "statNumber": "15 hours",
+    "statLabel": "average weekly time saved on payment operations",
+    "introText": "Stop drowning in payment reconciliation. Finance teams using Stripe cut manual work by 15 hours per week—time you can spend on strategic initiatives.",
+    "linkedinHeadline": "Automated payment ops that scale with your business growth",
+    "cta": "See the numbers",
+    "tone": "Authoritative but not technical, outcome-focused with concrete metrics, enterprise-stable rather than startup-energetic",
+    "subtext": "stripe.com/payments"
+  }
+}
