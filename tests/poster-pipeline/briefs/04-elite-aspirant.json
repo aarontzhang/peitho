@@ -1,0 +1,16 @@
+{
+  "icpId": "04-elite-aspirant",
+  "segment": "Elite Aspirant",
+  "persuasionAngle": {
+    "type": "Competitive Dominance",
+    "rationale": "This segment respects performance above all. The ad should feel like a competitor's internal monologue — possessive, territorial, unapologetic about wanting to win. 'My lane' is both literal (swimming) and figurative (stay out of it).",
+    "psychFramework": "Achievement motivation theory — high-achievement individuals respond to messaging that mirrors their internal competitive drive, not external validation."
+  },
+  "creative": {
+    "headline": "My lane.",
+    "subtitle": "ELENA VOSS  ///  200M FREE",
+    "tone": "Cold. Possessive. Two words that shut down a conversation. Not a boast — a boundary.",
+    "visualDirection": "Female swimmer mid-freestyle stroke, shot underwater or at water level. Powerful arm pulling through water, muscles defined. Water splashing creates natural drama. Blue tones dominate but skin tones are warm. Tight crop — upper body and one arm. Eyes not visible (face in water or turned) to keep it about the physicality.",
+    "imagePrompt": "Dramatic underwater-level photo of a female swimmer mid-freestyle stroke, powerful arm pulling through clear blue water, athletic muscular build, water splashing around her, shot at water surface level half above half below, blue and teal tones with warm skin highlights, tight crop on upper body, professional aquatic sports photography, shot on Nikon Z9 in underwater housing 24-70mm f/2.8, dramatic lighting from above, no text no logos"
+  }
+}

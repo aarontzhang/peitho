@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    height: 1350px;
+    overflow: hidden;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    background: #000;
+  }
+
+  .poster {
+    position: relative;
+    width: 1080px;
+    height: 1350px;
+    overflow: hidden;
+  }
+
+  /* Background athlete image — fills entire frame */
+  .poster__bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+  }
+
+  /* Gritty texture band at bottom instead of smooth gradient */
+  .poster__texture-band {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 320px;
+    z-index: 1;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.3) 20%,
+      rgba(0, 0, 0, 0.9) 60%,
+      #000 100%
+    );
+  }
+
+  /* Distressed noise overlay for grit */
+  .poster__texture-band::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.15'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+    mix-blend-mode: overlay;
+    opacity: 0.6;
+  }
+
+  /* Scratchy line accents */
+  .poster__scratch {
+    position: absolute;
+    bottom: 280px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    z-index: 2;
+    background: repeating-linear-gradient(
+      90deg,
+      #fff 0px, #fff 3px,
+      transparent 3px, transparent 8px,
+      #fff 8px, #fff 15px,
+      transparent 15px, transparent 25px
+    );
+    opacity: 0.4;
+  }
+
+  /* Headline — massive, full-width, edge-to-edge */
+  .poster__text {
+    position: absolute;
+    bottom: 60px;
+    left: 40px;
+    right: 40px;
+    z-index: 3;
+  }
+
+  .poster__headline {
+    font-size: 120px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 0.92;
+    text-transform: uppercase;
+    letter-spacing: -4px;
+    margin-bottom: 20px;
+  }
+
+  /* Subtitle — split layout: name left, discipline right */
+  .poster__subtitle-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .poster__athlete-name {
+    font-size: 16px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.75);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .poster__discipline {
+    font-size: 16px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.75);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  /* Brand mark — top left */
+  .poster__brand {
+    position: absolute;
+    top: 48px;
+    left: 40px;
+    z-index: 3;
+    font-size: 24px;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.6);
+  }
+</style>
+</head>
+<body>
+  <div class="poster">
+    <div class="poster__bg" id="bg"></div>
+    <div class="poster__texture-band"></div>
+    <div class="poster__scratch"></div>
+    <div class="poster__brand">NIKE</div>
+    <div class="poster__text">
+      <div class="poster__headline" id="headline"></div>
+      <div class="poster__subtitle-row">
+        <div class="poster__athlete-name" id="athleteName"></div>
+        <div class="poster__discipline" id="discipline"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -32,3 +32,7 @@ out/
 .env
 *.log
 tmp/
+
+# Pipeline artifacts
+tests/poster-pipeline/output/
+tests/poster-pipeline/backgrounds/*.png
