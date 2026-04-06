@@ -149,20 +149,22 @@ These are ambitious tests — luxury, heritage, or category-defining brands wher
 
 ## Priority Order for Testing
 
+The B2B brands are the real test. Consumer brands can lean on cinematic photography — athletes, mountains, products. B2B has to make abstract concepts (payments infrastructure, CRM, team messaging) visually compelling with typography, illustration, and layout. That's the harder problem, and it's what Peitho's actual clients will need.
+
 | Priority | Brand | Rationale |
 |----------|-------|-----------|
-| 1 | **Apple** | Opposite of Nike — tests restraint. Immediately recognizable if we nail it. |
-| 2 | **Liquid Death** | Tests extreme voice. If the pipeline can do Liquid Death AND Apple, range is proven. |
-| 3 | **Stripe** | B2B + developer audience. Closest to actual Peitho use case. |
-| 4 | **Patagonia** | Values-driven creative. Tests purpose-led messaging. |
-| 5 | **Slack** | B2B that feels human. Good LinkedIn showcase material. |
-| 6 | **Oatly** | Copy voice challenge. If the AI can write like Oatly, it can write. |
-| 7 | **Spotify** | Data-as-creative. Unique format we haven't tested. |
-| 8 | **HubSpot** | Educational B2B. Direct comparison to what their actual ads look like. |
-| 9 | **Notion** | Minimalist cult brand. Tests subtle positioning. |
-| 10 | **Arc'teryx** | Premium restraint. Similar challenge to Apple but outdoor context. |
-| 11 | **Porsche** | Luxury aspiration. Hard to do well — proves ceiling. |
-| 12 | **Figma** | Design-literate audience. Highest scrutiny test. |
+| 1 | **Stripe** | Developer-audience B2B. Closest to actual Peitho use case. No product photos to lean on — pure concept selling. How do you make "payments infrastructure" feel premium? |
+| 2 | **Slack** | B2B that doesn't feel B2B. Tests whether we can generate creative that's warm and human for enterprise software. Abstract value prop (team communication). |
+| 3 | **HubSpot** | Educational B2B, content-first brand. Tests generating teach-before-you-sell creative. Direct comparison possible — their actual LinkedIn ads are everywhere. |
+| 4 | **Notion** | Minimalist cult brand selling an abstract tool. The product IS the content inside it. How do you advertise a blank canvas? |
+| 5 | **Figma** | Design-literate audience — highest scrutiny. If AI-generated creative for a design tool looks generic, designers will roast it. Hardest audience to fool. |
+| 6 | **Liquid Death** | Extreme consumer voice. Proves range — if we can do Stripe AND Liquid Death, the pipeline handles any tone. |
+| 7 | **Apple** | Opposite of Nike — restraint as brand expression. Recognizable immediately if we nail it. |
+| 8 | **Patagonia** | Values-driven creative where the product is secondary. Tests purpose-led messaging. |
+| 9 | **Oatly** | Copy voice challenge — most distinctive voice in CPG. If the AI can write like Oatly, it can write. |
+| 10 | **Spotify** | Data-as-creative. Unique format we haven't tested. |
+| 11 | **Arc'teryx** | Premium restraint in outdoor context. |
+| 12 | **Porsche** | Luxury aspiration. Hard to do well — proves ceiling. |
 
 ---
 
