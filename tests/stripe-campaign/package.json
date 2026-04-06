@@ -1,0 +1,13 @@
+{
+  "name": "peitho-stripe-campaign",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "node generate.mjs",
+    "render": "node render.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "puppeteer": "^24.40.0"
+  }
+}

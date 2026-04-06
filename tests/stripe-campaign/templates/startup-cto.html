@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    height: 1080px;
+    overflow: hidden;
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #0a2540;
+  }
+
+  .ad {
+    position: relative;
+    width: 1080px;
+    height: 1080px;
+    overflow: hidden;
+  }
+
+  /* ── Gradient mesh ──────────────────────────────────── */
+  .bg-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(140px);
+    pointer-events: none;
+  }
+  .bg-orb--1 {
+    width: 700px; height: 700px;
+    top: -200px; right: -150px;
+    background: radial-gradient(circle, #635bff 0%, transparent 70%);
+    opacity: 0.5;
+  }
+  .bg-orb--2 {
+    width: 500px; height: 500px;
+    bottom: -100px; left: -80px;
+    background: radial-gradient(circle, #80b3ff 0%, transparent 70%);
+    opacity: 0.3;
+  }
+  .bg-orb--3 {
+    width: 350px; height: 350px;
+    top: 50%; left: 55%;
+    background: radial-gradient(circle, #7dd3fc 0%, transparent 70%);
+    opacity: 0.2;
+  }
+
+  /* ── Speed lines — horizontal streaks ───────────────── */
+  .speed-lines {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    overflow: hidden;
+    z-index: 1;
+  }
+  .speed-line {
+    position: absolute;
+    height: 2px;
+    border-radius: 2px;
+    opacity: 0.15;
+  }
+  .speed-line:nth-child(1)  { top: 12%; left: 5%;  width: 35%; background: linear-gradient(90deg, transparent, #635bff, transparent); }
+  .speed-line:nth-child(2)  { top: 18%; left: 15%; width: 50%; background: linear-gradient(90deg, transparent, #80b3ff, transparent); opacity: 0.25; }
+  .speed-line:nth-child(3)  { top: 25%; left: 0%;  width: 25%; background: linear-gradient(90deg, transparent, #7dd3fc, transparent); }
+  .speed-line:nth-child(4)  { top: 48%; left: 60%; width: 40%; background: linear-gradient(90deg, transparent, #635bff, transparent); opacity: 0.2; }
+  .speed-line:nth-child(5)  { top: 55%; left: 40%; width: 55%; background: linear-gradient(90deg, transparent, #80b3ff, transparent); opacity: 0.12; }
+  .speed-line:nth-child(6)  { top: 62%; left: 70%; width: 30%; background: linear-gradient(90deg, transparent, #7dd3fc, transparent); opacity: 0.18; }
+  .speed-line:nth-child(7)  { top: 72%; left: 10%; width: 45%; background: linear-gradient(90deg, transparent, #635bff, transparent); opacity: 0.1; }
+  .speed-line:nth-child(8)  { top: 78%; left: 50%; width: 50%; background: linear-gradient(90deg, transparent, #80b3ff, transparent); opacity: 0.22; }
+  .speed-line:nth-child(9)  { top: 85%; left: 0%;  width: 65%; background: linear-gradient(90deg, transparent, #7dd3fc, transparent); opacity: 0.08; }
+  .speed-line:nth-child(10) { top: 35%; left: 30%; width: 70%; background: linear-gradient(90deg, transparent, #635bff 40%, #80b3ff 70%, transparent); opacity: 0.3; height: 3px; }
+
+  /* ── Glow arrow — a bright streak suggesting forward motion ─── */
+  .glow-streak {
+    position: absolute;
+    top: 50%;
+    left: -5%;
+    width: 110%;
+    height: 4px;
+    background: linear-gradient(90deg, transparent 0%, #635bff 20%, #80b3ff 50%, #7dd3fc 75%, transparent 100%);
+    opacity: 0.6;
+    z-index: 1;
+    filter: blur(1px);
+    transform: translateY(-50%);
+  }
+  .glow-streak::after {
+    content: '';
+    position: absolute;
+    inset: -8px 0;
+    background: linear-gradient(90deg, transparent 0%, #635bff 20%, #80b3ff 50%, #7dd3fc 75%, transparent 100%);
+    opacity: 0.3;
+    filter: blur(12px);
+  }
+
+  /* ── Content ────────────────────────────────────────── */
+  .content {
+    position: relative;
+    z-index: 2;
+    padding: 72px 80px 64px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .brand svg { height: 40px; fill: #fff; }
+  .brand { margin-bottom: 80px; }
+
+  .headline {
+    font-size: 72px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    max-width: 700px;
+    margin-bottom: 24px;
+  }
+
+  .subline {
+    font-size: 22px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
+    max-width: 500px;
+    line-height: 1.5;
+  }
+
+  .bottom {
+    margin-top: auto;
+  }
+  .gradient-line {
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #635bff, #80b3ff, #7dd3fc);
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+  .subtext {
+    font-size: 17px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.4);
+  }
+</style>
+</head>
+<body>
+<div class="ad">
+  <div class="bg-orb bg-orb--1"></div>
+  <div class="bg-orb bg-orb--2"></div>
+  <div class="bg-orb bg-orb--3"></div>
+
+  <div class="speed-lines">
+    <div class="speed-line"></div>
+    <div class="speed-line"></div>
+    <div class="speed-line"></div>
+    <div class="speed-line"></div>
+    <div class="speed-line"></div>
+    <div class="speed-line"></div>
+    <div class="speed-line"></div>
+    <div class="speed-line"></div>
+    <div class="speed-line"></div>
+    <div class="speed-line"></div>
+  </div>
+  <div class="glow-streak"></div>
+
+  <div class="content">
+    <div class="brand">
+      <svg viewBox="0 0 60 25" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 10.2c0-.7.6-1 1.5-1 1.4 0 3.1.4 4.5 1.2V6.3C9.4 5.7 7.8 5.4 6.5 5.4 2.6 5.4 0 7.4 0 10.5c0 4.8 6.6 4 6.6 6.1 0 .8-.7 1.1-1.7 1.1-1.5 0-3.4-.6-4.9-1.5v4.2c1.7.7 3.3 1 4.9 1 4 0 6.7-2 6.7-5.1C11.6 11.1 5 12.1 5 10.2zM16.1 2.3l-4.6 1-.1 13.4c0 2.5 1.9 4.3 4.3 4.3 1.4 0 2.4-.3 2.9-.5v-3.6c-.5.2-3.2.9-3.2-1.4v-5.6h3.2V6.3h-3.2l-.3-4zM23.4 8.2l-.3-1.9h-4.1v14.1h4.7v-9.6c1.1-1.4 3-1.2 3.6-1V6.3c-.6-.2-2.9-.6-3.9 1.9zM28.8 6.3h4.7v14.1h-4.7zM28.8 5l4.7-1V.4l-4.7 1zM41 5.4c-1.8 0-2.9.8-3.5 1.4l-.2-1.1h-4.1v18.5l4.7-1v-4.5c.7.5 1.7 1.2 3.3 1.2 3.3 0 6.3-2.7 6.3-8.5-.1-5.4-3.1-6-6.5-6zM40 17c-1.1 0-1.7-.4-2.2-1V10c.5-.6 1.1-1 2.2-1 1.7 0 2.8 1.9 2.8 4s-1.1 4-2.8 4zM55.3 5.4c-4.5 0-7.3 3.5-7.3 8.5 0 5.6 3.2 8.1 7.8 8.1 2.3 0 4-.5 5.2-1.2v-3.5c-1.3.6-2.7 1-4.5 1-1.8 0-3.3-.6-3.5-2.8h8.8c0-.2.1-1.3.1-1.7-.1-5.2-2.5-8.4-6.6-8.4zm-2.6 6.8c0-2 1.3-2.9 2.4-2.9s2.3.9 2.3 2.9h-4.7z"/>
+      </svg>
+    </div>
+    <div class="headline" id="headline"></div>
+    <div class="subline" id="subline"></div>
+    <div class="bottom">
+      <div class="gradient-line"></div>
+      <div class="subtext" id="subtext">stripe.com/docs</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

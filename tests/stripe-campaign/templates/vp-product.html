@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    height: 1080px;
+    overflow: hidden;
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #0a2540;
+  }
+
+  .ad {
+    position: relative;
+    width: 1080px;
+    height: 1080px;
+    overflow: hidden;
+  }
+
+  /* ── Gradient background ────────────────────────────── */
+  .bg-orb {
+    position: absolute; border-radius: 50%; filter: blur(160px); pointer-events: none;
+  }
+  .bg-orb--1 { width: 600px; height: 600px; bottom: -100px; left: 200px; background: radial-gradient(circle, #635bff, transparent 70%); opacity: 0.3; }
+  .bg-orb--2 { width: 400px; height: 400px; top: -50px; right: -50px; background: radial-gradient(circle, #7dd3fc, transparent 70%); opacity: 0.2; }
+
+  /* ── Network graph — connected nodes ────────────────── */
+  .network {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 1;
+  }
+
+  .node {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 2;
+  }
+
+  .node--hub {
+    width: 64px; height: 64px;
+    top: 52%; left: 55%;
+    background: linear-gradient(135deg, #635bff, #80b3ff);
+    box-shadow: 0 0 60px rgba(99,91,255,0.5), 0 0 120px rgba(99,91,255,0.2);
+  }
+
+  .node--sm {
+    width: 24px; height: 24px;
+    background: rgba(128,179,255,0.5);
+    box-shadow: 0 0 20px rgba(128,179,255,0.3);
+  }
+
+  .node--md {
+    width: 40px; height: 40px;
+    box-shadow: 0 0 30px rgba(125,211,252,0.3);
+  }
+
+  .node--1  { top: 30%; left: 75%; background: rgba(125,211,252,0.5); }
+  .node--2  { top: 68%; left: 78%; background: rgba(99,91,255,0.4); }
+  .node--3  { top: 40%; left: 40%; background: rgba(128,179,255,0.4); }
+  .node--4  { top: 72%; left: 48%; background: rgba(165,243,252,0.4); }
+  .node--5  { top: 28%; left: 60%; background: rgba(99,91,255,0.35); }
+  .node--6  { top: 58%; left: 82%; background: rgba(128,179,255,0.3); }
+  .node--7  { top: 82%; left: 65%; background: rgba(125,211,252,0.35); }
+  .node--8  { top: 45%; left: 90%; background: rgba(99,91,255,0.3); }
+  .node--9  { top: 35%; left: 50%; background: rgba(165,243,252,0.35); }
+  .node--10 { top: 62%; left: 38%; background: rgba(128,179,255,0.3); }
+
+  /* Connecting lines via SVG */
+  .network-lines {
+    position: absolute;
+    top: 0; left: 0;
+    width: 1080px;
+    height: 1080px;
+    z-index: 1;
+  }
+
+  .network-lines line {
+    stroke: rgba(128,179,255,0.12);
+    stroke-width: 1.5;
+  }
+
+  .network-lines .line--bright {
+    stroke: rgba(99,91,255,0.25);
+    stroke-width: 2;
+  }
+
+  /* Node labels */
+  .node-label {
+    position: absolute;
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    z-index: 3;
+  }
+
+  .node-label--1 { top: 27%; left: 76%; }
+  .node-label--2 { top: 72%; left: 78%; }
+  .node-label--3 { top: 37%; left: 35%; }
+  .node-label--4 { top: 76%; left: 47%; }
+  .node-label--hub { top: 48%; left: 50%; text-align: center; color: rgba(255,255,255,0.5); font-size: 12px; }
+
+  /* ── Content ────────────────────────────────────────── */
+  .content {
+    position: relative;
+    z-index: 4;
+    padding: 72px 80px 64px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .brand svg { height: 40px; fill: #fff; }
+  .brand { margin-bottom: 80px; }
+
+  .headline {
+    font-size: 68px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    max-width: 480px;
+  }
+
+  .subline {
+    font-size: 21px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.45);
+    max-width: 400px;
+    line-height: 1.5;
+    margin-top: 24px;
+  }
+
+  .bottom {
+    margin-top: auto;
+  }
+  .gradient-line {
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, #635bff, #80b3ff, #7dd3fc);
+    border-radius: 2px; margin-bottom: 24px;
+  }
+  .subtext {
+    font-size: 17px; font-weight: 500;
+    color: rgba(255,255,255,0.4);
+  }
+</style>
+</head>
+<body>
+<div class="ad">
+  <div class="bg-orb bg-orb--1"></div>
+  <div class="bg-orb bg-orb--2"></div>
+
+  <div class="network">
+    <svg class="network-lines" viewBox="0 0 1080 1080">
+      <!-- Hub to nodes -->
+      <line class="line--bright" x1="594" y1="562" x2="810" y2="324" />
+      <line class="line--bright" x1="594" y1="562" x2="842" y2="734" />
+      <line x1="594" y1="562" x2="432" y2="432" />
+      <line x1="594" y1="562" x2="518" y2="778" />
+      <line x1="594" y1="562" x2="648" y2="302" />
+      <line x1="594" y1="562" x2="886" y2="626" />
+      <line x1="594" y1="562" x2="702" y2="886" />
+      <line x1="594" y1="562" x2="972" y2="486" />
+      <!-- Cross connections -->
+      <line x1="810" y1="324" x2="648" y2="302" />
+      <line x1="842" y1="734" x2="702" y2="886" />
+      <line x1="432" y1="432" x2="540" y2="378" />
+      <line x1="886" y1="626" x2="972" y2="486" />
+      <line x1="518" y1="778" x2="410" y2="670" />
+    </svg>
+
+    <div class="node node--hub"></div>
+    <div class="node node--md node--1"></div>
+    <div class="node node--md node--2"></div>
+    <div class="node node--sm node--3"></div>
+    <div class="node node--sm node--4"></div>
+    <div class="node node--sm node--5"></div>
+    <div class="node node--sm node--6"></div>
+    <div class="node node--sm node--7"></div>
+    <div class="node node--sm node--8"></div>
+    <div class="node node--sm node--9"></div>
+    <div class="node node--sm node--10"></div>
+  </div>
+
+  <div class="node-label node-label--1">Sellers</div>
+  <div class="node-label node-label--2">Payouts</div>
+  <div class="node-label node-label--3">Buyers</div>
+  <div class="node-label node-label--4">Global</div>
+  <div class="node-label node-label--hub">Connect</div>
+
+  <div class="content">
+    <div class="brand">
+      <svg viewBox="0 0 60 25" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 10.2c0-.7.6-1 1.5-1 1.4 0 3.1.4 4.5 1.2V6.3C9.4 5.7 7.8 5.4 6.5 5.4 2.6 5.4 0 7.4 0 10.5c0 4.8 6.6 4 6.6 6.1 0 .8-.7 1.1-1.7 1.1-1.5 0-3.4-.6-4.9-1.5v4.2c1.7.7 3.3 1 4.9 1 4 0 6.7-2 6.7-5.1C11.6 11.1 5 12.1 5 10.2zM16.1 2.3l-4.6 1-.1 13.4c0 2.5 1.9 4.3 4.3 4.3 1.4 0 2.4-.3 2.9-.5v-3.6c-.5.2-3.2.9-3.2-1.4v-5.6h3.2V6.3h-3.2l-.3-4zM23.4 8.2l-.3-1.9h-4.1v14.1h4.7v-9.6c1.1-1.4 3-1.2 3.6-1V6.3c-.6-.2-2.9-.6-3.9 1.9zM28.8 6.3h4.7v14.1h-4.7zM28.8 5l4.7-1V.4l-4.7 1zM41 5.4c-1.8 0-2.9.8-3.5 1.4l-.2-1.1h-4.1v18.5l4.7-1v-4.5c.7.5 1.7 1.2 3.3 1.2 3.3 0 6.3-2.7 6.3-8.5-.1-5.4-3.1-6-6.5-6zM40 17c-1.1 0-1.7-.4-2.2-1V10c.5-.6 1.1-1 2.2-1 1.7 0 2.8 1.9 2.8 4s-1.1 4-2.8 4zM55.3 5.4c-4.5 0-7.3 3.5-7.3 8.5 0 5.6 3.2 8.1 7.8 8.1 2.3 0 4-.5 5.2-1.2v-3.5c-1.3.6-2.7 1-4.5 1-1.8 0-3.3-.6-3.5-2.8h8.8c0-.2.1-1.3.1-1.7-.1-5.2-2.5-8.4-6.6-8.4zm-2.6 6.8c0-2 1.3-2.9 2.4-2.9s2.3.9 2.3 2.9h-4.7z"/>
+      </svg>
+    </div>
+    <div class="headline" id="headline"></div>
+    <div class="subline" id="subline"></div>
+    <div class="bottom">
+      <div class="gradient-line"></div>
+      <div class="subtext" id="subtext">stripe.com/connect</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
