@@ -1,170 +1,190 @@
 # Peitho — Strategic Direction
 
-**Date:** April 5, 2026
+**Date:** April 7, 2026
 **Status:** Working draft — internal alignment document
+**Last updated:** Post cofounder sync (Aaron + Dash, April 7)
 
 ---
 
-## 1. What Peitho Is Now
+## 1. What Peitho Is
 
-Peitho is a pre-spend creative intelligence service for B2B advertising. We use AI to tell companies which creative angles to test before they spend money finding out.
+Peitho is an AI-powered ad agency. We automate the inefficiencies of running an ad agency at scale — creative production, cross-platform distribution, performance testing, and ROI consolidation — using AI as the operational backbone.
 
-The insight is simple: in B2B, targeting is solved. LinkedIn, Demandbase, and 6sense can already find the CTO at your target account. The gap is what you say to them when you get there. A B2B company spending $30-50K/month on ABM wastes 30-40% of that budget in the creative testing phase — running ads against personas with angles that were never going to land. That waste is our wedge.
+The core insight: traditional ad agencies don't scale well. They're labor-intensive, slow to iterate, and rarely test across enough platforms. Most default to Meta and Google because that's what they know. Meanwhile, high-yield niche platforms (local press, trade publications, programmatic placements like Washington Post) are systematically underutilized because agencies lack the bandwidth to test them. A previous agency for an epoxy flooring client was running ads on Washington Post based on ICP data — the client had zero visibility into why or how it was performing. That opacity and fragmentation is the norm, not the exception.
 
-What makes this more urgent now: Meta's Andromeda algorithm (rolled out late 2024) has made the creative itself the targeting signal. You no longer tell Meta who to show your ad to — Meta reads your creative and decides. This means getting the creative right for a specific type of person matters more than ever, across every platform. The companies that win are the ones whose creative speaks to specific buyer psychology, not the ones with the best audience settings. Nobody is doing the pre-spend intelligence work to make that happen systematically.
+Our key differentiator is **multi-platform ad distribution and testing**. We don't just run your Meta ads better — we simulate and test across platforms, consolidate performance data, and surface where your best ROI actually lives.
 
 ---
 
 ## 2. What We Are and What We Aren't
 
 **We are:**
-- A pre-spend creative filter. You have 15 angles you could test. We tell you which 3 are most likely to speak to the psychology of your specific buyer persona. If starting from our shortlist saves money in the testing phase compared to going in blind, that's the proof.
-- A creative direction tool grounded in buyer psychology. We apply validated decision-making and procurement psychology frameworks to construct personas and evaluate creative angles. We're not inventing new research — we're applying research that already exists and is academically backed, using AI to eliminate the manual process.
-- An AI-native service. We operate the pipeline. Customers get deliverables — ranked creative angles, psychological rationale, ready-to-use copy. They don't interact with software.
+- An AI-native ad agency that operates across platforms — not just Meta, not just LinkedIn, but wherever your ICP can be reached cost-effectively.
+- A service that removes the guesswork from cross-platform ad spend by modeling campaign performance before committing budget.
+- A results-based engagement, not a software product. Customers pay for outcomes, not seats.
 
 **We aren't:**
-- A performance predictor. When someone sees your ad in the wild, they've been scrolling for 20 minutes, they got a bad text that morning, their thumb is moving at a certain speed. Meta's algorithm reads hundreds of micro-signals we don't have. We can tell you what a CFO might think about your angle in the abstract. We cannot tell you whether that CFO stops scrolling for it on a Tuesday afternoon. There's a gap between resonance and behavior — a video can resonate intellectually and still not trigger the scroll-stop. We don't claim to predict performance. We claim to filter out angles that were never going to work before you waste budget discovering that yourself.
-- A SaaS product (yet). We're a service first. The technology is our internal advantage, not a product we sell directly. Customers don't need to know how it works — they need it to work.
+- A simulation company. AI simulation is a tool we use internally to model cross-platform ad performance. It's not the product, and we don't position around it.
+- A SaaS product. Selling software forces a "10x better" bar to displace incumbents. Selling results doesn't.
+- Competing with Meta's Andromeda. We can't out-target Meta's own algorithm for broad consumer audiences. We win on platform diversity and niche placement intelligence.
 
 ---
 
-## 3. Why Service First
+## 3. Why Service / Results-Based, Not Software
 
-The fastest path to validation is not building a polished SaaS dashboard. It's using the AI pipeline ourselves to deliver results to one real customer.
+The fastest path to revenue and validation is delivering results, not building a dashboard.
 
-- **Validates without product risk.** We need to know if the pre-filter signal is real before investing in UI/UX, onboarding flows, and self-serve infrastructure.
-- **Opacity is a moat.** Customers cannot tell us how to run our pipeline. We can iterate the AI, swap models, change prompt architecture — all without a product migration. Compare this to a SaaS tool where every change is a feature request negotiation.
-- **Faster to first revenue.** A service engagement can start in days. A SaaS product needs months of build before anyone pays.
-- **Every engagement produces validation data.** Each campaign we run through the pipeline generates a comparison: our ranked angles vs. actual performance. That data compounds. We build our validation in the market, not in a lab.
-- **Productize later.** Once the signal is proven across 10-20 engagements, we know exactly what the product should look like because we've been the user. The SaaS version becomes a codification of a process we've already refined, not a guess about what customers want.
+- **Lower switching cost for customers.** A results-based engagement (especially commission on leads) means the client risks nothing. No upfront fees to justify, no procurement cycle to navigate.
+- **Validates without product risk.** We need to know if cross-platform optimization and AI-driven creative actually outperform before investing in UI/UX and self-serve infrastructure.
+- **Opacity is a moat.** Customers cannot see or replicate our pipeline. We can iterate AI models, swap platforms, change distribution strategies — all without a product migration.
+- **Every engagement produces data.** Each campaign generates cross-platform performance comparisons. That data compounds into our competitive advantage.
+- **Productize later.** Once the service model is refined across 15-20 customers, we know exactly what the product should look like because we've been the user.
 
 ---
 
 ## 4. Target Market
 
-**Primary:** B2B companies running account-based marketing (ABM) campaigns.
+We're pursuing two entry points in parallel, not one.
 
-- Spending $30-50K+/month on LinkedIn, programmatic display, or ABM platforms (Demandbase, 6sense, Terminus)
-- Selling high-ticket products to enterprise ($50K-$50M+ deal sizes)
-- Targeting specific decision-makers: CTOs, CFOs, VPs of Engineering, heads of marketing, procurement leads
-- Creative production is the bottleneck — they know their targeting is precise but their messaging is generic
-- Small marketing teams (3-20 people) without dedicated ABM creative resources, or working with an agency that can't produce enough persona-specific variants
+### Path A: SMB / Underserved Businesses
 
-**Why enterprise B2B specifically:**
-- Personas are stable and role-defined. A CTO's motivations, objections, and decision-making patterns are well-documented and consistent enough to model.
-- The value per conversion justifies the spend. Even marginal improvement in creative effectiveness on a $500K deal is worth real money.
-- LinkedIn targeting lets you actually reach the right person, so validation data is clean — you know who saw what.
-- Text-first. LinkedIn ads are primarily copy. We don't need visual generation infrastructure to deliver value on day one.
+- Small businesses currently underserved by agencies (too small for big shops, too unsophisticated for self-serve tools)
+- Low competition — nobody is fighting to serve the local epoxy flooring company with AI-powered ad distribution
+- Easy to close — the sales cycle is short and the decision-maker is the owner
+- Value prop: "We run your ads across platforms you didn't know existed, and you only pay when it works"
 
-**Why NOT Meta/consumer right now:**
-- Meta exposes all the hardest problems (algorithmic distribution, behavioral unpredictability, visual-first creative) without the infrastructure to handle them yet.
-- Consumer personas are unstable and context-dependent in ways B2B personas aren't.
-- Meta is Phase 2, once the core loop is validated on LinkedIn where the signal is clean.
+### Path B: Enterprise Lead Generation
 
----
+- Hyper-targeted outreach to small decision-maker pools (e.g., 200 VPs of Infrastructure at Fortune 500s)
+- **Revenue model: commission on leads generated, not upfront fees**
+  - Removes all switching risk for the client — they pay nothing unless we deliver
+  - Validated externally: the fastest way to scale is taking a % of additional revenue generated
+  - Aligns incentives perfectly — we only win when the client wins
+- High deal sizes justify the effort per engagement
+- **Warm intro channel:** Dash's dad has a network of enterprise salespeople — potential early customer pipeline
 
-## 5. MVP Service Offering
-
-### What the customer gives us
-- Their product/service and value proposition
-- Target accounts and/or ICP description
-- Buyer roles they're trying to reach (CTO, CFO, VP Eng, etc.)
-- Current creative (optional — useful for benchmarking)
-- Any existing customer research, win/loss data, or ICP documentation
-
-### What we deliver
-1. **Persona intelligence briefs** — Deep buyer persona profiles for each target role, grounded in validated B2B psychology frameworks: role-based motivations, decision-making patterns, likely objections, emotional triggers, information preferences, risk tolerance. Not generic archetypes — specific enough to surface objections the customer hadn't considered.
-2. **Ranked creative angles** — For each persona, a ranked list of creative angles with psychological rationale. "Here are 12 angles for your CTO persona. Here's why #1-3 are most likely to speak to this buyer's psychology, and here's specifically why #10-12 won't land." Each angle includes the psychological mechanism (fear/risk, aspiration, social proof, ROI/rational, authority, peer pressure).
-3. **Ready-to-use LinkedIn copy** — For the top-ranked angles, finished ad copy formatted for LinkedIn Sponsored Content. Headline, body, CTA. Platform-native tone and length.
-4. **Competitive angle analysis** — What psychological angles competitors are using (from ad libraries) and where the gaps are.
-
-### The core pipeline (internal)
-```
-Customer brief → Persona construction (validated psych frameworks + AI)
-             → Creative angle generation (diverse psychological approaches)
-             → Pre-filter ranking (which angles match this persona's psychology)
-             → LinkedIn copy generation
-             → Deliverable package
-```
-
-### What we explicitly don't build yet
-- Multi-agent simulation with persistent memory
-- Social influence engines or agent-to-agent interaction
-- Visual/image generation
-- SaaS dashboard or self-serve UI
-- CRM integrations (Shopify, Klaviyo, HubSpot)
-- Meta, Google Display, or CTV ad formats
-- Cross-platform campaign orchestration
-- Performance tracking pipeline
-
-All of these are real and valuable. None of them are needed to validate the core hypothesis.
+### Why NOT broad consumer / Meta-first:
+- Meta's Andromeda algorithm handles broad consumer targeting better than we ever could
+- Consumer personas are unstable and context-dependent
+- We win on platform diversity and niche precision, not on beating Meta at its own game
 
 ---
 
-## 6. Validation Plan
+## 5. AI Simulation — Where It Fits
 
-### The hypothesis
-AI-constructed buyer personas, grounded in existing psychology frameworks, can reliably identify which creative angles will resonate with specific B2B buyer roles — well enough that starting from our shortlist saves money compared to the current process of testing angles blind.
+Simulation was the original idea. Here's how it's evolved.
 
-### How we test it
-1. **Find one real customer.** Ideally someone spending real money on ABM who has a defined ICP and is actively making creative decisions. They need to be willing to walk us through their current process.
-2. **Run the pipeline.** Construct personas for their target buyer roles. Generate and rank creative angles. Produce LinkedIn copy for the top angles.
-3. **Sit with them.** Walk through the output together. Capture: What did the pipeline get right? What did it miss? What objections did it surface that they hadn't considered? How does this compare to how they currently decide which angles to test?
-4. **Deploy and compare.** If they're willing, run our top-ranked angles alongside their normal creative in a live campaign. Compare engagement metrics. This is the real signal.
-5. **Repeat.** Five engagements and a pattern starts emerging. What types of personas does the pipeline model well? Where does it fall short? What do we need to adjust?
+**What we tried / considered:**
+- Using AI simulation to fill data gaps for personalized ads (synthetic user generation)
+- A friend at Neo attempted this approach — failed due to insufficient per-user data to make synthetic users realistic
+- Neither Aaron nor Dash has deep simulation expertise — we shouldn't position as a simulation company
 
-### What "working" looks like
-- The pipeline's top 3 angles outperform the customer's bottom 3 angles more often than chance
-- Customers report that the persona briefs surfaced objections or motivations they hadn't considered
-- The time from "brief" to "ready-to-test creative" is compressed from weeks to days
-- Customers would pay for this as an ongoing service
+**Where simulation actually adds value:**
+- Modeling cross-platform ad performance before spending budget
+- Predicting how campaigns will perform on Platform A vs. Platform B vs. Platform C
+- Most relevant for brands spending $200K+/day where even marginal improvement in platform allocation has massive ROI
 
-### What "not working" looks like
-- The pipeline's ranking doesn't correlate with actual engagement
-- Persona briefs feel generic and don't surface anything the customer didn't already know
-- The psychological rationale sounds plausible but doesn't translate to real creative differentiation
-
-If it's not working, we need to diagnose *where* the signal breaks down: persona construction, angle generation, or ranking. Each failure mode has a different fix.
+**The reframe:**
+Simulation is an internal augmenting tool, not the product. We use it to make smarter platform and creative decisions. The customer sees results, not the simulation.
 
 ---
 
-## 7. The Long Game
+## 6. Go-to-Market & Positioning
 
-The MVP is a narrow wedge. Here's where it goes once validated.
+### Sell results, not software
+- Don't sell as software — forces a "10x better" bar to displace incumbents
+- Sell as a service / results-based engagement
+- For enterprise: commission on leads generated (% of additional revenue)
+- For SMB: flat fee or performance-based, depending on the client
 
-**Near-term (post-validation):**
-- Data flywheel: every engagement produces sim-score-vs-actual-performance data. Accumulated across customers, this becomes the validation layer and a compounding competitive advantage.
-- Expand to Meta and programmatic display once we've proven the core loop on LinkedIn.
-- Social listening as a data input — real public sentiment data to ground personas in what people actually say, not just what psychology predicts they'd say. Synthetic data fills gaps; real data leads.
+### Content and brand building are non-negotiable
+This is a long-term leverage play, not optional.
 
-**Medium-term:**
-- Productize into SaaS once the service model has been refined across 15-20 customers and we know exactly what the product should look like.
-- Individual-level intelligence from public data (LinkedIn profiles, conference talks, published content) for named-account targeting.
-- ABM platform integrations (Demandbase, 6sense) — feed persona-specific creative directly into existing targeting workflows.
-- Performance tracking pipeline connecting sim scores to real campaign metrics.
-
-**Long-term vision:**
-- AI-native ABM agency that scales beyond what human-staffed agencies can do — not by replacing people but by making the creative intelligence layer autonomous.
-- Cross-platform orchestration: coordinated "surround sound" campaigns from a single persona brief (LinkedIn for professional context, display for ambient awareness, CTV for evening reach).
-- Political vertical timed for the 2028 cycle — voter segment modeling, micro-targeted persuasion creative.
-- Persuasion intelligence network: cross-customer persona insights, competitive intelligence, vertical benchmarking.
-
-The massive version of this is an AI system that understands specific people well enough to generate precision creative across every touchpoint where they can be reached, and learns from every deployment to get better. We start with "which LinkedIn ad angle should you test first for your CTO persona" and build toward that.
+- **Cluely as cautionary example:** great marketing, mediocre product — but the marketing alone generated massive traction. Content compounds.
+- **Acquired podcast proof point:** ~200K YouTube views per episode, $500K per ad mention. Niche audience with deep trust > broad reach with shallow attention.
+- **Plan:**
+  - Film B-roll in SF office during work trial
+  - Record voiceovers separately
+  - Post daily short-form content (TikTok, YouTube Shorts, LinkedIn)
+  - Aaron's LinkedIn already generating inbound — double down on this channel
+- Content builds the brand moat that makes every other channel cheaper over time.
 
 ---
 
-## 8. What We Believe and What We Still Need to Prove
+## 7. Cofounder Dynamics & Roles
 
-### Beliefs (strong conviction, based on existing evidence)
-- **AI can meaningfully model B2B buyer psychology by role.** Role-based decision-making in procurement is well-studied. A CTO's motivations and objections are documented and consistent enough across companies that an AI-constructed persona is useful, even if imperfect.
-- **Existing psychology frameworks + AI = credible persona construction without original research.** We're not claiming to have done the research. We're claiming to apply research that already exists. That's a defensible position.
-- **The pre-filter is valuable even if imperfect.** If we can reliably eliminate the bottom 30% of angles before any money is spent, that's worth paying for. We don't need to be right about what will work — we need to be right about what won't.
-- **Creative diversity driven by persona intelligence is what algorithms reward.** Andromeda penalizes creative similarity and rewards genuine diversity. Persona-driven creative naturally produces that diversity.
+**Loose framing:**
+- Aaron → CTO track
+- Dash → CEO track
+
+**But roles aren't rigid.** Both will do technical and commercial work, especially early on. What matters is speed of execution, not title clarity.
+
+**Key dynamics discussed:**
+- Aaron's concern: Dash currently sells what exists well, but needs to develop ability to pitch the long-term vision (Jobs/Musk-style reality distortion field)
+- Dash's response: pitching skill isn't the constraint — knowledge and vision are, and both are learnable
+- Aaron's self-assessment: not certain he's the strongest possible CTO, but AI-native approach (Claude Code as primary dev environment) levels the playing field significantly
+- **Key principle from Will:** speed of execution separates great founders from mediocre ones
+
+---
+
+## 8. EF Work Trial & Timeline
+
+- Dash has a pending offer conversation with Ali and Joe — Will offered to bring him back for a work trial
+- Aaron confirmed he's in for the work trial
+- Aaron's concern: ensure Dash still gets his $10K if the partnership doesn't work out — don't want him stranded (Diego situation)
+  - Dash is confident he'll get an offer regardless
+- **Timeline:**
+  - Aaron free from ~May 12–14
+  - Needs a few days back home for brother's graduation
+  - Plan: go to SF, fly back for graduation, return — flexible
+
+---
+
+## 9. Tech & Tooling
+
+- **Primary dev environment:** Claude Code — merge conflicts with multiple agents flagged as a real challenge
+- **Infrastructure:** Supabase (AWS wrapper), Google Cloud. AWS not used directly.
+- **Development philosophy:** Don't over-optimize early. Ship working code, refactor later when there's user demand.
+  - Cautionary example: Aaron's video editor — 35K lines, ~400 commits, 3 weeks of work, ultimately unused. Over-engineering kills startups.
+- **Company name:** "Peitho" (Greek goddess of persuasion) — placeholder, generated by Claude
+
+---
+
+## 10. What We Believe and What We Still Need to Prove
+
+### Beliefs (strong conviction)
+- **Multi-platform distribution is the real edge.** Most agencies and tools optimize within a single platform. The opportunity is in finding high-ROI placements across platforms that nobody is testing systematically.
+- **AI can automate the inefficiencies of agency operations at scale.** Creative production, platform selection, performance analysis — all of these are bottlenecked by human bandwidth in traditional agencies.
+- **Results-based pricing removes the biggest barrier to adoption.** Commission on leads / % of revenue generated means zero switching risk for clients.
+- **Content compounds.** Building a brand through consistent short-form content creates a moat that makes every sales conversation easier over time.
 
 ### What we need to prove
-- **Does the pre-filter actually save money in the testing phase?** This is the core question. If customers test 15 angles blind and we can narrow it to 5, does starting from our 5 produce better results than a random 5?
-- **Are role-based psychological models predictive enough of real behavior?** There's a gap between "a CFO cares about TCO" (true in the abstract) and "this specific CFO will click on this specific ad" (unknowable). Where on that spectrum does our output land, and is it useful enough?
-- **Will B2B companies pay for this as a service?** The budget exists (they're already spending on agencies and ABM platforms). The question is whether our framing and delivery are compelling enough.
+- **Can we actually surface high-ROI niche placements that agencies miss?** The Washington Post / epoxy flooring example suggests yes, but we need to do this systematically and repeatedly.
+- **Does AI-driven cross-platform simulation actually predict performance well enough to be useful?** If our platform allocation recommendations don't outperform naive distribution, the simulation angle falls apart.
+- **Will the commission model work at SMB scale?** Enterprise commission makes sense on large deal sizes. For SMBs, the economics need to pencil out.
+- **Can we close enterprise deals through warm intros fast enough?** Dash's dad's network is promising but unvalidated as a GTM channel.
 
 ### How we prove it
-In the market, not in a lab. Every engagement is a data point. We don't need a 20-year validation study like Neurons. We need 5 real engagements and the intellectual honesty to read the signal clearly — including if it says we're wrong.
+In the market, not in a lab. First 5 engagements across both SMB and enterprise entry points. Read the signal honestly.
+
+---
+
+## 11. Next Steps
+
+### Aaron
+- [ ] Add documents to shared GitHub repo for Dash to review
+- [ ] Ask Will on Thursday call whether they should start meeting together as a team
+- [ ] Read (or digest via Claude) *The Mom Test* by Rob Fitzpatrick
+- [ ] Set up Discord server for async notes and file sharing
+
+### Dash
+- [ ] Connect with Aaron on Discord (friend request sent)
+- [ ] Explore tech stack and ad generation tools before Thursday
+- [ ] Research competitive landscape in AI ad space (deep research / Claude)
+- [ ] Reach out to Will to schedule work trial for when Aaron arrives in SF (~mid-May)
+- [ ] Talk to his dad about enterprise sales network as potential early customer channel
+
+### Both
+- [ ] Meet again Thursday evening to sync on competitive research and next steps
+- [ ] Start filming B-roll / content in SF office once work trial begins
+- [ ] Begin enterprise customer discovery interviews as early as next week
