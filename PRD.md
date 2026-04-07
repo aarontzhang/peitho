@@ -90,12 +90,21 @@ We sell as a service / results-based engagement, not as software. This is a deli
 
 AI simulation was the original idea. It has been reframed:
 
-- **Not synthetic users.** Generating synthetic user personas from insufficient per-user data doesn't work (validated by others who've tried).
 - **Not the product.** We don't position as a simulation company.
 - **An internal tool** for modeling cross-platform ad performance before spending budget — predicting how campaigns will perform on Platform A vs. B vs. C.
 - **Most relevant** for brands spending $200K+/day where even marginal improvement in platform allocation has massive ROI.
 
 The customer sees results, not the simulation.
+
+### The Synthetic Data Thesis
+
+Most companies don't have enough real customer data to make fully informed ad decisions — especially across platforms they've never tested. Historically, humans bridged this gap manually: a strategist would look at incomplete data about an audience and make educated guesses about what messaging would land. That was expensive, slow, and limited by individual experience.
+
+AI changes this fundamentally. LLMs are probabilistic machines — given a demographic profile and a platform context, they can generate the *most likely* response patterns, preferences, and behaviors. This is exactly the gap-filling that human strategists did, but at scale and grounded in vastly more training data than any individual person's experience.
+
+The argument that "synthetic data isn't valid" misses something important: all data used to shape AI outputs is in some sense synthetic. When you prompt a model with "this is good writing" as a few-shot example, that's subjective, anecdotal input — there's no objective ground truth. Yet it dramatically changes output quality. The line between "real" and "synthetic" data is blurrier than it appears. What matters is whether the data improves decision-making — and probabilistic gap-filling on demographic and behavioral patterns is exactly what AI is built to do.
+
+**This is a theory we need to validate**, but the intuition is strong: AI-generated synthetic audience data, properly grounded in demographic and behavioral priors, can be just as actionable as sparse real data for ad targeting and creative decisions. If true, this means we can generate high-quality persona intelligence and platform recommendations even for clients with minimal existing data — which is most SMBs and many enterprise teams entering new markets.
 
 ### Honest Caveats
 

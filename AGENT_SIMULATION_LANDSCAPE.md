@@ -319,7 +319,7 @@ Traditional market research takes months; Aaru does it in minutes. Traditional 3
 
 **Important context:** Peitho is an AI-powered ad agency, not a simulation company. Simulation is an internal augmenting tool for modeling cross-platform ad performance — it's not the product. These takeaways are about how to use simulation internally, not how to position around it.
 
-1. **Agent grounding is everything.** The difference between toy simulations and production systems is how well agents are grounded in real data. Aaru's information diet + demographic grounding and MiroFish's GraphRAG approach are both worth studying for our internal platform modeling.
+1. **Agent grounding matters, but synthetic data can fill the gaps.** The difference between toy simulations and production systems is grounding. Aaru uses census + real-time media; MiroFish uses GraphRAG. But the key insight for us: most companies don't *have* enough real data. AI can bridge that gap probabilistically — the same way human strategists always did, but at scale. LLMs are inherently probabilistic machines that can generate the most likely response patterns for a given demographic. This synthetic data is arguably as actionable as sparse real data for ad decisions. (Theory to validate.)
 
 2. **Dual-platform simulation (MiroFish) is directly relevant.** Running agents on both Twitter-like and Reddit-like platforms captures different social dynamics. For Peitho's cross-platform performance modeling — predicting how campaigns perform on Platform A vs. B vs. C — this multi-environment approach maps directly to our differentiator.
 
