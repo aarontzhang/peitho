@@ -3,10 +3,33 @@
 // Each agent becomes a "living" persona that can be chatted with, shown ads,
 // and given news updates.
 
-import { campaign as stripeCampaign, personas as stripePersonas } from "../../tests/stripe-campaign/config.mjs";
-import { campaign as patagoniaCampaign, personas as patagoniaPersonas } from "../../tests/patagonia-campaign/config.mjs";
+import path from "path";
+import { fileURLToPath } from "url";
 
-function buildSystemPrompt(persona, campaign) {
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+// Dynamic campaign loader — resolves relative to project root
+async function importCampaign(name) {
+  const campaignPath = path.resolve(__dirname, "..", "campaigns", `${name}.mjs`);
+  return import(campaignPath);
+}
+
+// Lazy-load legacy campaigns (may not exist on disk)
+let stripeCampaign, stripePersonas, patagoniaCampaign, patagoniaPersonas;
+async function loadLegacyCampaigns() {
+  try {
+    const stripe = await importCampaign("stripe");
+    stripeCampaign = stripe.campaign;
+    stripePersonas = stripe.personas;
+  } catch { /* stripe config not present */ }
+  try {
+    const patagonia = await importCampaign("patagonia");
+    patagoniaCampaign = patagonia.campaign;
+    patagoniaPersonas = patagonia.personas;
+  } catch { /* patagonia config not present */ }
+}
+
+export function buildSystemPrompt(persona, campaign) {
   const proofList = persona.cognition.proofHierarchy
     .map((p, i) => `  ${i + 1}. ${p.replace(/-/g, " ")}`)
     .join("\n");
@@ -78,26 +101,33 @@ function buildAgentConfig(persona, campaign, campaignName) {
   };
 }
 
-export function loadAllPersonas() {
+export async function loadAllPersonas() {
+  await loadLegacyCampaigns();
   const agents = [];
 
-  for (const persona of stripePersonas) {
-    agents.push(buildAgentConfig(persona, stripeCampaign, "Stripe"));
+  if (stripePersonas) {
+    for (const persona of stripePersonas) {
+      agents.push(buildAgentConfig(persona, stripeCampaign, "Stripe"));
+    }
   }
 
-  for (const persona of patagoniaPersonas) {
-    agents.push(buildAgentConfig(persona, patagoniaCampaign, "Patagonia"));
+  if (patagoniaPersonas) {
+    for (const persona of patagoniaPersonas) {
+      agents.push(buildAgentConfig(persona, patagoniaCampaign, "Patagonia"));
+    }
   }
 
   return agents;
 }
 
-export function loadCampaignPersonas(campaignName) {
-  if (campaignName === "stripe") {
-    return stripePersonas.map((p) => buildAgentConfig(p, stripeCampaign, "Stripe"));
-  }
-  if (campaignName === "patagonia") {
-    return patagoniaPersonas.map((p) => buildAgentConfig(p, patagoniaCampaign, "Patagonia"));
-  }
-  throw new Error(`Unknown campaign: ${campaignName}. Available: stripe, patagonia`);
+export async function loadCampaignPersonas(campaignName) {
+  const { campaign, personas } = await importCampaign(campaignName);
+  const displayName = campaignName.charAt(0).toUpperCase() + campaignName.slice(1);
+  return personas.map((p) => buildAgentConfig(p, campaign, displayName));
+}
+
+// Load raw campaign + personas for pipeline use (no agent wrapping)
+export async function loadCampaignRaw(campaignName) {
+  const { campaign, personas } = await importCampaign(campaignName);
+  return { campaign, personas };
 }

@@ -1,0 +1,28 @@
+{
+  "name": "stripe-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts StripeDemo out/stripe-demo.mp4",
+    "preview": "remotion still src/index.ts StripeDemo out/preview.png --frame=60"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@remotion/cli": "^4.0.446",
+    "@remotion/google-fonts": "^4.0.446",
+    "@remotion/layout-utils": "^4.0.446",
+    "@remotion/transitions": "^4.0.446",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "remotion": "^4.0.446"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^6.0.2"
+  }
+}
