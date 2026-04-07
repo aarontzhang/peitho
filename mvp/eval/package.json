@@ -1,0 +1,13 @@
+{
+  "name": "peitho-eval",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "eval": "node evaluate.mjs",
+    "eval:stripe": "node evaluate.mjs stripe",
+    "eval:patagonia": "node evaluate.mjs patagonia"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0"
+  }
+}

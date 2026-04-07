@@ -1,0 +1,11 @@
+{
+  "name": "peitho-agent-panel",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "start": "node cli.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0"
+  }
+}

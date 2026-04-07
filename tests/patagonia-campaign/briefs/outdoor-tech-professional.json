@@ -1,0 +1,16 @@
+{
+  "personaId": "outdoor-tech-professional",
+  "persuasionAngle": {
+    "type": "anti-marketing-transparency",
+    "rationale": "This persona fears being seen as buying into lifestyle branding over performance. By leading with brutal honesty about gear acquisition psychology, we bypass their 'am I paying for brand identity' objection while positioning Patagonia as the anti-corporate choice. The worn wear angle directly addresses their 'is quality declining' concern with measurable proof.",
+    "psychFramework": "cognitive-dissonance-resolution"
+  },
+  "creative": {
+    "headline": "You don't need another fleece",
+    "provocativeHook": "But if yours fails at 11,000 feet, we'll replace it",
+    "postText": "Most outdoor brands want you buying new gear every season. We'd rather you kept wearing the same jacket for fifteen years. Our Worn Wear program has repaired over 100,000 pieces since 2013. Because the most sustainable product is the one that doesn't break. #WornWear #BuyLess",
+    "cta": "Share a photo of your oldest piece of outdoor gear in the comments",
+    "tone": "Anti-corporate honesty with quiet confidence — acknowledging consumer psychology while taking the opposite position from industry norms, no lifestyle aspiration",
+    "subtext": "patagonia.com/worn-wear"
+  }
+}

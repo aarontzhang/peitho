@@ -1,0 +1,16 @@
+{
+  "personaId": "values-driven-founder",
+  "persuasionAngle": {
+    "type": "anti-hagiography-real-costs",
+    "rationale": "This persona's core fear is that Patagonia's model only works because Chouinard is exceptional, making it irrelevant to their reality. By exposing the actual trade-offs and costs Patagonia accepted early on, we prove the model is replicable but requires specific sacrifices—giving them a concrete framework instead of inspiration porn.",
+    "psychFramework": "Existential proof through disclosed sacrifice—showing what Patagonia gave up early validates that values-driven scale is possible for mortals willing to pay similar costs"
+  },
+  "creative": {
+    "headline": "We turned down $100M in revenue",
+    "provocativeHook": "Here's what saying no to fast fashion actually costs",
+    "postText": "1996: Patagonia could have licensed our name to mass retailers. The revenue projections were staggering. We said no. Twenty-six years later, that decision saved the brand but cost us billions.\n\nMost 'purpose-driven' companies never face this choice. We did. #BCorps #PurposeDriven",
+    "cta": "What revenue have you walked away from to stay true to your values",
+    "tone": "Unflinchingly honest about real costs, no martyrdom or virtue signaling, just founder-to-founder acknowledgment that values have a price tag and Patagonia paid it",
+    "subtext": "patagonia.com/our-footprint"
+  }
+}

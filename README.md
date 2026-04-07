@@ -2,6 +2,8 @@
 
 **AI-Powered Ad Agency**
 
+> *We use AI to simulate your customers, ask them what they want, and build the ads that convince them. Then we find the platforms where each persona actually spends time and deploy there automatically.*
+
 > *Named after the Greek goddess of persuasion — placeholder name.*
 
 ---
