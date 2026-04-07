@@ -1,26 +1,38 @@
 # Peitho
 
-**AI-Powered Precision Persuasion for High-Stakes Advertising**
+**AI-Powered Ad Agency**
 
-> *Named after the Greek goddess of persuasion.*
+> *Named after the Greek goddess of persuasion — placeholder name.*
 
 ---
 
 ## The Problem
 
-In high-stakes advertising — B2B enterprise sales, political campaigns, pharma, government affairs — the challenge isn't reaching people. It's persuading *specific* people. Modern targeting can find the right person, but the creative they see is generic. The same ad goes to the CTO, CFO, and VP of Engineering, despite fundamentally different motivations, objections, and decision-making patterns. The targeting is surgical; the message is a shotgun.
+Traditional ad agencies don't scale. They're labor-intensive, slow to iterate, and rarely test across enough platforms. Most default to Meta and Google because that's what they know. Meanwhile, high-yield niche platforms — local press, trade publications, programmatic placements — are systematically underutilized because agencies lack the bandwidth to test them.
+
+The result: clients have no visibility into where their best ROI actually lives. A previous agency for an epoxy flooring client ran ads on Washington Post based on ICP data — the client had zero visibility into why or how it performed. That opacity and fragmentation is the norm.
 
 ## What Peitho Does
 
-Peitho closes the gap between precision targeting and precision creative:
+Peitho is an AI-native ad agency that automates the inefficiencies of running an ad agency at scale. The key differentiator is **multi-platform ad distribution and testing** — not just running your Meta ads better, but simulating and testing across platforms, consolidating performance data, and surfacing where your best ROI actually lives.
 
-1. **Deep Persona Intelligence** — Given your product, target accounts, and market, Peitho builds richly detailed buyer personas: role-based psychology, decision-making patterns, likely objections, emotional triggers, and platform preferences. When enrichment data is available, personas are grounded in real signals rather than archetypes alone.
+1. **Cross-Platform Intelligence** — Model how campaigns will perform across platforms before spending budget. Surface high-ROI niche placements that traditional agencies miss.
 
-2. **Persona-Specific Ad Creation** — For each persona, Peitho generates ad variants with diverse emotional tones, CTAs, and psychological angles — tailored to each platform's content grammar (LinkedIn thought leadership, programmatic display, Meta, CTV). Visuals are generated programmatically.
+2. **AI-Driven Creative Production** — Generate persona-specific ad variants at scale across every platform where your ICP can be reached.
 
-3. **Multi-Agent Simulation Scoring** — Multiple simulation agents per persona — each with persistent memory and unique behavioral signatures — evaluate ads across multiple runs. Scores emerge from agent behavior patterns, not single prompts. Human feedback is incorporated into agent memory.
+3. **Performance Consolidation** — Unified view of ad performance across platforms. One place to see what's working where and why.
 
-4. **Cross-Platform Export** — Approved ads are formatted to platform specs with targeting recommendations per persona. Ready for deployment.
+4. **Results-Based Model** — We sell outcomes, not software. For enterprise: commission on leads generated. For SMB: performance-based pricing.
+
+## Target Market
+
+**Path A: SMB / Underserved Businesses** — Small businesses too small for big agencies, too unsophisticated for self-serve tools. Short sales cycles, low competition.
+
+**Path B: Enterprise Lead Generation** — Hyper-targeted outreach to small decision-maker pools. Commission on leads generated — zero risk for the client.
+
+## How It Works
+
+AI simulation models cross-platform ad performance internally. The customer sees results — which platforms to run on, what creative to use, and consolidated performance data — not the simulation.
 
 ---
 

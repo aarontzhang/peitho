@@ -317,14 +317,14 @@ Traditional market research takes months; Aaru does it in minutes. Traditional 3
 
 ## Key Takeaways for Peitho
 
-1. **Agent grounding is everything.** The difference between toy simulations and production systems is how well agents are grounded in real data. Aaru's information diet + demographic grounding and MiroFish's GraphRAG approach are both worth studying.
+**Important context:** Peitho is an AI-powered ad agency, not a simulation company. Simulation is an internal augmenting tool for modeling cross-platform ad performance — it's not the product. These takeaways are about how to use simulation internally, not how to position around it.
 
-2. **Interpretability sells.** Every company leads with "you can see why the agent decided X." For persuasion testing, being able to show *why* a synthetic persona was or wasn't persuaded is potentially more valuable than the prediction itself.
+1. **Agent grounding is everything.** The difference between toy simulations and production systems is how well agents are grounded in real data. Aaru's information diet + demographic grounding and MiroFish's GraphRAG approach are both worth studying for our internal platform modeling.
 
-3. **Dual-platform simulation (MiroFish) is clever.** Running agents on both Twitter-like and Reddit-like platforms captures different social dynamics. For Peitho's creative testing, simulating how messaging spreads across different channel types could be powerful.
+2. **Dual-platform simulation (MiroFish) is directly relevant.** Running agents on both Twitter-like and Reddit-like platforms captures different social dynamics. For Peitho's cross-platform performance modeling — predicting how campaigns perform on Platform A vs. B vs. C — this multi-environment approach maps directly to our differentiator.
 
-4. **Validation methodology matters.** Aaru's EY study (Spearman 0.90, produced in 1 day vs. 6 months) is the gold standard for proving synthetic research works. Any Peitho simulation capability needs a comparable validation story.
+3. **Validation methodology matters.** Aaru's EY study (Spearman 0.90, produced in 1 day vs. 6 months) is the gold standard for proving synthetic research works. If we use simulation to recommend platform allocation, we need comparable validation showing our recommendations outperform naive distribution.
 
-5. **Open source can win.** MiroFish hit 42K GitHub stars and attracted serious investment as a fully open-source project. The OASIS engine underneath it is peer-reviewed and battle-tested.
+4. **We don't need to build this from scratch.** MiroFish is open source (AGPL-3.0, 42K stars). The OASIS engine is peer-reviewed. We can leverage existing frameworks rather than building simulation infrastructure — this is an internal tool, not our core product.
 
-6. **The market is ready.** Aaru reached $1B valuation in 21 months. Enterprises (Accenture, EY, IPG) are paying for synthetic research. The "simulate don't survey" thesis has crossed the credibility threshold.
+5. **The market validates simulation as a tool, not as a product for us.** Aaru reached $1B valuation positioning as a simulation company. We don't have deep simulation expertise and shouldn't compete there. But the fact that simulation works (Aaru's results prove it) validates using it as an internal tool for platform performance modeling.
