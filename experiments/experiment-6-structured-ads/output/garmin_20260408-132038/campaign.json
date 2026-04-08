@@ -1,0 +1,136 @@
+{
+  "brand": {
+    "name": "Garmin",
+    "voice": "Confident, data-driven, no-nonsense. Athletic but accessible.",
+    "visual_identity": {
+      "primary_color": "#000000",
+      "accent_color": "#CCFF00",
+      "secondary_color": "#C0C0C0"
+    }
+  },
+
+  "product": {
+    "name": "Forerunner 255",
+    "category": "GPS Running Smartwatch",
+    "price": "$299",
+    "hero_features": [
+      "VO2 Max tracking",
+      "14-day battery life",
+      "Training readiness score",
+      "Race predictor",
+      "49g weight"
+    ],
+    "product_json_path": "garmin_forerunner_255.json"
+  },
+
+  "icps": [
+    {
+      "id": "competitive-runner",
+      "label": "Competitive Distance Runner",
+      "pain_points": [
+        "Needs to know when to push vs. recover",
+        "Hates charging devices during training blocks",
+        "Wants accurate race time predictions"
+      ],
+      "copy": {
+        "product_title": "FORERUNNER 255",
+        "tagline": "GPS Running Smartwatch",
+        "headline": "EVERY MILE,\nMEASURED.",
+        "subline": "VO2 Max. Training readiness. Race predictions.\n14-day battery. 49 grams. From $299.",
+        "cta": "Shop Forerunner 255"
+      },
+      "visual_treatment": {
+        "background_mood": "Moody dawn road stretching into foggy distance, dark atmospheric tones, wet asphalt reflections. Dark and cinematic, especially darker in the top and bottom edges.",
+        "palette": {
+          "bg_dominant": "#0a0a0f",
+          "bg_accent": "#CCFF00",
+          "text_primary": "#FFFFFF",
+          "text_secondary": "#D2D2D2",
+          "cta_bg": "#CCFF00",
+          "cta_text": "#0a0a0a"
+        }
+      }
+    },
+    {
+      "id": "casual-jogger",
+      "label": "Casual Fitness Jogger",
+      "pain_points": [
+        "Overwhelmed by complex fitness tech",
+        "Wants simple progress tracking without fuss",
+        "Looking for motivation to stay consistent"
+      ],
+      "copy": {
+        "product_title": "FORERUNNER 255",
+        "tagline": "GPS Running Smartwatch",
+        "headline": "JUST RUN.\nIT HANDLES THE REST.",
+        "subline": "Auto-tracks distance, pace, and heart rate.\nNo setup. No fuss. 14 days per charge. From $299.",
+        "cta": "See Forerunner 255"
+      },
+      "visual_treatment": {
+        "background_mood": "Warm golden-hour park path with soft bokeh, green trees, inviting and energetic. Darker at top and bottom edges for text contrast.",
+        "palette": {
+          "bg_dominant": "#1a1210",
+          "bg_accent": "#FF6B6B",
+          "text_primary": "#FFFFFF",
+          "text_secondary": "#E0D8D0",
+          "cta_bg": "#FF6B6B",
+          "cta_text": "#FFFFFF"
+        }
+      }
+    },
+    {
+      "id": "trail-runner",
+      "label": "Trail and Ultra Runner",
+      "pain_points": [
+        "Needs GPS that works in remote areas",
+        "Battery must last full ultra-distance days",
+        "Wants elevation and navigation data"
+      ],
+      "copy": {
+        "product_title": "FORERUNNER 255",
+        "tagline": "GPS Running Smartwatch",
+        "headline": "BUILT FOR\nTHE LONG WAY.",
+        "subline": "Multi-band GPS. 14-day battery.\n49 grams on your wrist. From $299.",
+        "cta": "Explore Forerunner 255"
+      },
+      "visual_treatment": {
+        "background_mood": "Mountain trail at golden hour, dramatic peaks in background, warm amber light, epic adventure atmosphere. Darker at top and bottom edges for text.",
+        "palette": {
+          "bg_dominant": "#0f0a05",
+          "bg_accent": "#FFA500",
+          "text_primary": "#FFFFFF",
+          "text_secondary": "#E8D5B8",
+          "cta_bg": "#FFA500",
+          "cta_text": "#0a0a0a"
+        }
+      }
+    },
+    {
+      "id": "tech-enthusiast",
+      "label": "Data-Driven Tech Enthusiast",
+      "pain_points": [
+        "Wants deep metrics and API access to data",
+        "Compares specs obsessively before buying",
+        "Values accuracy and sensor quality"
+      ],
+      "copy": {
+        "product_title": "FORERUNNER 255",
+        "tagline": "GPS Running Smartwatch",
+        "headline": "ALL THE DATA.\nNONE OF THE BULK.",
+        "subline": "Optical HR. Pulse Ox. Multi-band GPS.\nTraining load, recovery, VO2 Max. From $299.",
+        "cta": "Shop Forerunner 255"
+      },
+      "visual_treatment": {
+        "background_mood": "Dark abstract tech environment with subtle blue circuit-like light patterns, clean and futuristic, minimal. Very dark at top and bottom edges.",
+        "palette": {
+          "bg_dominant": "#050510",
+          "bg_accent": "#4488FF",
+          "text_primary": "#FFFFFF",
+          "text_secondary": "#B0C4DE",
+          "cta_bg": "#4488FF",
+          "cta_text": "#FFFFFF"
+        }
+      }
+    }
+  ]
+}
