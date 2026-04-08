@@ -1,0 +1,27 @@
+{
+  "id": "marathon-data-runner",
+  "name": "Marcus Chen",
+  "age": 34,
+  "archetype": "Dedicated Marathon Runner",
+  "bio": "Software engineer by day, marathoner by dawn. Runs 50+ miles/week. Chasing a sub-3:10 marathon PR. Obsessed with splits, training load, and VO2 max trends. Hates charging devices mid-training-block.",
+  "weekly_mileage": "50-60 miles",
+  "key_races": "Boston qualifier, 2-3 marathons/year",
+  "pain_points": [
+    "Wants training readiness score to know when to push vs. recover",
+    "Needs 14-day battery \u2014 refuses to charge mid-week",
+    "VO2 max tracking and race predictor for goal-setting",
+    "Lightweight \u2014 won't run with a brick on his wrist"
+  ],
+  "values": [
+    "data-driven training",
+    "reliability over flashiness",
+    "lightweight gear"
+  ],
+  "trigger_features": [
+    "VO2 max",
+    "training readiness",
+    "race predictor",
+    "14-day battery",
+    "49g weight"
+  ]
+}

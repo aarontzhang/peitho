@@ -1,0 +1,12 @@
+Generate a 1080x1080 premium advertisement image featuring a Garmin Forerunner 255 GPS running smartwatch.
+
+Product details: Round matte black polymer case, 46mm. Black silicone sport band with oval ventilation holes and silver pin buckle. Five buttons — three flush rectangular on the left (LIGHT, UP, DOWN), two protruding on the right: START/STOP with a lime-green (#CCFF00) accent ring, and BACK in silver chrome. MIP LCD display showing time 10:10:38 in bold white and chartreuse, date SAT 01, weekly mileage 25 mi, VO2 50, small GARMIN branding at bottom. Deep black display background. Weight: 49g. The watch face has a chartreuse seconds display and a blue gauge arc.
+
+COMPOSITION IS CRITICAL — follow exactly:
+- The watch MUST be positioned in the RIGHT THIRD of the frame (right-aligned, vertically centered).
+- The ENTIRE LEFT HALF of the image must be empty dark space with no product, no objects — just moody atmospheric background. This empty space is reserved for text overlay.
+- The watch should float at a 3/4 angle (face tilted toward upper-left).
+
+Background: A moody dawn road scene — foggy asphalt stretching into the distance, very dark atmospheric tones. Subtle chartreuse/lime (#CCFF00) light accents in the fog matching the watch's signature color. The background should be darkest on the left side, lighter/more atmospheric on the right behind the watch.
+
+Style: Premium commercial product photography composited into a cinematic running environment. Photorealistic, studio-lit product with atmospheric background. 1080x1080 square. No text or logos in the image.
