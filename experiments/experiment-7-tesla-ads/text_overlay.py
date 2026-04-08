@@ -75,33 +75,32 @@ def create_layers(bg: Image.Image, copy: dict, treatment: dict, brand: dict) -> 
 # ---------------------------------------------------------------------------
 
 def _create_gradient_layer() -> Image.Image:
-    """Dark overlays in text zones only. Transparent in product zone."""
+    """Gentle vignette in text zones — no hard black bars.
+
+    The Gemini backgrounds already darken the edges, so this layer
+    only adds a soft transparent-to-translucent sweep for readability.
+    The gradient spans the FULL zone with a smooth ease curve.
+    """
     w, h = OUTPUT_SIZE
     layer = Image.new("RGBA", (w, h), (0, 0, 0, 0))
     draw = ImageDraw.Draw(layer)
 
-    max_alpha = 220  # slightly more transparent than exp6 for elegance
+    peak_alpha = 140  # subtle, not a black bar
 
-    # Top zone: solid dark, smooth fade at bottom edge
+    # Top zone: strongest at y=0, fades to transparent at zone bottom
     t_start, t_end = TOP_ZONE
-    fade_start = t_end - int((t_end - t_start) * 0.30)
+    t_span = t_end - t_start
     for y in range(t_start, t_end):
-        if y < fade_start:
-            alpha = max_alpha
-        else:
-            progress = (y - fade_start) / (t_end - fade_start)
-            alpha = int(max_alpha * (1 - progress ** 1.5))
+        progress = (y - t_start) / t_span  # 0 at top edge, 1 at zone bottom
+        alpha = int(peak_alpha * (1 - progress) ** 2)  # ease-out curve
         draw.rectangle([(0, y), (w, y + 1)], fill=(0, 0, 0, alpha))
 
-    # Bottom zone: smooth fade at top edge, then solid dark
+    # Bottom zone: transparent at zone top, strongest at y=bottom
     b_start, b_end = BOTTOM_ZONE
-    fade_end = b_start + int((b_end - b_start) * 0.22)
+    b_span = b_end - b_start
     for y in range(b_start, b_end):
-        if y > fade_end:
-            alpha = max_alpha
-        else:
-            progress = (y - b_start) / (fade_end - b_start)
-            alpha = int(max_alpha * (progress ** 1.5))
+        progress = (y - b_start) / b_span  # 0 at zone top, 1 at bottom edge
+        alpha = int(peak_alpha * progress ** 2)  # ease-in curve
         draw.rectangle([(0, y), (w, y + 1)], fill=(0, 0, 0, alpha))
 
     return layer
