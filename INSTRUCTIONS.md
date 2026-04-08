@@ -1,6 +1,6 @@
 # Peitho Ad Pipeline — How It Works
 
-This is the process Claude follows to generate a full set of personalized ads for a brand. The pipeline takes a brand name and produces multiple ad creatives, each tailored to a different simulated customer persona (ICP).
+This is the process Claude follows to generate a full set of personalized ads for a physical product. The pipeline takes a brand + product and produces multiple ad creatives, each tailored to a different simulated customer persona (ICP).
 
 ---
 
@@ -14,7 +14,7 @@ Go online and study the brand's visual identity:
 - Understand the product's key specs and selling points
 - Save reference images locally for visual grounding
 
-**Example:** For Tesla, we found Model S press photos on EVKX.net, noted the ultra-minimal design language (no grille, clean surfaces), and identified the color palette (black, white, red #E82127).
+The goal is to internalize how the brand presents itself so that every downstream decision (color, font weight, copy tone, background mood) feels native to the brand.
 
 ### 2. Create the Product JSON
 
@@ -28,56 +28,86 @@ Include:
 
 The more specific this JSON is, the more accurate Gemini's output will be. Describe what the product actually looks like, not what you wish it looked like.
 
-**Example:** `experiments/experiment-7-tesla-ads/tesla_model_s.json`
+### 3. Define the ICPs
 
-### 3. Create the Campaign JSON
+Identify 3-5 distinct customer personas who would buy this product. Each ICP should represent a genuinely different motivation — not just demographics, but different *reasons to care*.
 
-This is the core creative file. It defines the brand voice, product info, and — most importantly — the ICPs (Ideal Customer Profiles).
+For each ICP, define:
+- **Label** — who they are
+- **Pain points** — what they struggle with that this product solves
+- **Visual treatment** — what kind of scene/mood would resonate with them
 
-**Example:** `experiments/experiment-7-tesla-ads/campaigns/tesla.json`
+Don't write the copy yet. The next step handles that.
 
-#### Structure:
+### 4. Simulate Each ICP and Write Messaging
+
+This is the most important step and where most of the creative value lives.
+
+For each ICP, simulate being that customer. Think through:
+- What would make them stop scrolling?
+- What specific anxiety or desire does this product address for them?
+- What proof point would they find most compelling?
+
+Then write the ad copy:
+
+```
+copy:
+  product_title  — the product name (same across ICPs)
+  tagline        — product category descriptor (same across ICPs)
+  headline       — the big text, 1-2 lines (unique per ICP)
+  subline        — supporting detail, specs, benefits (unique per ICP)
+  cta            — button text (can vary per ICP)
+```
+
+#### Writing Good Headlines
+
+The headline is the single most important element. It determines whether someone engages or scrolls past.
+
+**What makes a good headline:**
+- **Tied to the ICP's specific pain point** — the headline should answer "why should THIS person care?"
+- **Passes the swap test** — if you swap the headline between two ICPs and it still works for both, it's too generic
+- **Scannable** — a stranger should get it in under 2 seconds
+
+**What makes a bad headline:**
+- Works for any product in the category (or worse, any product at all)
+- Requires context to understand
+- Uses abstract metaphors instead of concrete benefits
+
+**Rules of thumb:**
+- Numbers and specifics tend to outperform adjectives and abstractions
+- Name the benefit, not the category
+- Short is good, but clear beats short
+- If the headline sounds like it could be a motivational poster, rethink it
+
+#### Refining the Messaging
+
+After the first draft of copy, pressure-test it:
+1. Read each headline as if you're the ICP, mid-scroll, seeing this for the first time
+2. Ask: "Would I stop? Do I immediately know what this is and why I should care?"
+3. If the answer is no, rewrite. Don't get attached to clever phrasing that doesn't land.
+
+The subline should reinforce the headline with proof — specs, numbers, concrete details. The headline hooks; the subline convinces.
+
+### 5. Assemble the Campaign JSON
+
+Combine everything into the campaign config file:
 
 ```
 brand        — name, voice, color palette
 product      — name, category, price, hero features, path to product JSON
 icps[]       — array of customer personas, each with:
-  id         — slug for filenames (e.g., "performance-purist")
+  id         — slug for filenames
   label      — human-readable name
-  pain_points— what this customer struggles with (informs the copy)
-  copy       — the actual ad text:
-    product_title  — e.g., "MODEL S PLAID"
-    tagline        — e.g., "Electric Performance Sedan"
-    headline       — the big text (1-2 lines)
-    subline        — supporting detail (specs, benefits)
-    cta            — button text
-  visual_treatment — mood and colors for this persona's ad:
+  pain_points— what this customer struggles with
+  copy       — headline, subline, cta (written in step 4)
+  visual_treatment:
     background_mood  — text description of the scene for Gemini
     palette          — hex codes for bg, text, CTA colors
 ```
 
-#### Writing Good Headlines
+The `background_mood` should match the ICP's world — not just look nice, but feel like a place this person would recognize or aspire to. Always include "darker at top and bottom edges for text contrast" in the mood description so Gemini leaves room for the text overlay.
 
-This is the most important part. Headlines should be:
-
-- **Concrete and specific** — lead with a real number, a real benefit, or a real contrast
-- **Immediately clear** — a stranger should understand it in under 2 seconds
-- **Tied to the ICP's pain point** — the headline should answer "why should THIS person care?"
-
-| Quality | Headline | Why |
-|---------|----------|-----|
-| Great | "1.99 SECONDS." | Specific, dramatic, instantly understood |
-| Great | "ZERO EMISSIONS. ZERO COMPROMISE." | Clear contrast, addresses the eco buyer's fear of sacrifice |
-| Bad | "THE SOFTWARE IS THE CAR." | Ambiguous — what does this mean to someone scrolling? |
-| Bad | "SILENCE IS POWER." | Vague — could be a yoga ad |
-
-**Rules of thumb:**
-- If the headline works for a different product, it's too generic
-- Numbers beat adjectives ("1,020 HP" > "INCREDIBLY POWERFUL")
-- Name the benefit, not the category ("396 MILES. NO GAS STATION." > "ELECTRIC DRIVING")
-- Short is good, but clear beats short
-
-### 4. Run the Pipeline
+### 6. Run the Pipeline
 
 ```bash
 cd experiments/<experiment-folder>
@@ -93,21 +123,21 @@ For each ICP:
   Step A — Image Generation (image_gen.py)
   ├── Embeds the full product JSON into a Gemini prompt
   ├── Adds the ICP's background_mood and accent color
-  ├── Adds composition rules (car placement, empty zones for text)
+  ├── Adds composition rules (product placement, empty zones for text)
   ├── Sends to Gemini 3.1 Flash Image Preview
   └── Returns a 1024x1024 product image
 
   Step B — Text Overlay (text_overlay.py)
   ├── Resizes background to 1080x1080
-  ├── Creates a subtle gradient vignette (NOT a black bar)
+  ├── Creates a subtle gradient vignette (NOT a black bar — smooth ease curve)
   ├── Renders all text at 2x resolution for crisp anti-aliasing
-  │   ├── Top zone: brand name (letter-spaced), product title, tagline
+  │   ├── Top zone: brand name, product title, tagline
   │   └── Bottom zone: headline, subline, CTA button
   ├── Downscales text layer to 1080x1080
   └── Composites: background + gradient + text = final ad
 ```
 
-### 5. Check the Output
+### 7. Validate the Output
 
 Each ICP produces 5 files:
 
@@ -117,38 +147,36 @@ Each ICP produces 5 files:
 | `{icp}_bg.png` | Raw background image from Gemini |
 | `{icp}_gradient.png` | The vignette overlay layer |
 | `{icp}_text.png` | Text layer on transparent background |
-| `{icp}_ad.png` | Final composited ad (this is the deliverable) |
+| `{icp}_ad.png` | Final composited ad (the deliverable) |
 
-The separate layers let you swap or edit components independently (e.g., try a different background with the same text, or adjust text without re-generating the image).
+The separate layers let you swap or edit components independently — try a different background with the same text, or adjust text without re-generating the image.
 
 **Validation checklist:**
-- [ ] Car/product is fully visible and not clipped by text zones
+- [ ] Product is fully visible and not clipped by text zones
 - [ ] Headline is readable at thumbnail size
 - [ ] Subline is legible (bump font size if not)
 - [ ] CTA button has enough contrast against background
 - [ ] No Gemini hallucinations (wrong product, extra objects, text baked into image)
 - [ ] Gradient blends smoothly — no visible black bars or hard edges
 - [ ] Overall feel matches the brand's aesthetic
+- [ ] Each ICP's ad feels distinct from the others (different mood, not just different text)
 
 ---
 
-## Adapting for a New Brand
+## Adapting for a New Product Category
 
-To run this pipeline for a different company:
+The `image_gen.py` and `text_overlay.py` scripts are product-category-specific. When moving to a new category, adjust:
 
-1. **Find reference imagery** online for the product
-2. **Create `<product>.json`** describing the product's physical appearance
-3. **Create `campaigns/<brand>.json`** with:
-   - Brand identity (voice, colors)
-   - Product info + path to product JSON
-   - 3-5 ICPs with tailored copy and visual treatments
-4. **Adjust `image_gen.py`** if the product category is very different (e.g., the watch pipeline had band-orientation rules; the car pipeline has ground-plane rules)
-5. **Adjust `text_overlay.py`** for brand-appropriate typography:
-   - Font choice and weights
-   - Margins and spacing
-   - Letter-spacing for brand name
-   - CTA button style
-6. **Run:** `python3 generate.py campaigns/<brand>.json`
+**image_gen.py** — composition rules change per product type:
+- Watches: product floating on invisible stand, band orientation rules, anti-hallucination constraints
+- Cars: product on ground plane, heroic low camera angle, no license plates
+- Other products: adjust placement zones, camera angle, and forbidden behaviors accordingly
+
+**text_overlay.py** — typography should match the brand:
+- Font choice and weights (match the brand's actual typeface as closely as possible)
+- Margins and spacing (minimal brands need more breathing room)
+- Letter-spacing for brand name (some brands use wide tracking)
+- CTA button style (rounded vs sharp corners, pill vs rectangle)
 
 ---
 
@@ -175,8 +203,8 @@ experiments/<experiment>/
 ```
 
 **Reference experiments:**
-- `experiment-6-structured-ads/` — Garmin Forerunner 255 (watch, Avenir Next font)
-- `experiment-7-tesla-ads/` — Tesla Model S Plaid (car, Helvetica Neue font)
+- `experiment-6-structured-ads/` — Garmin Forerunner 255 (watch)
+- `experiment-7-tesla-ads/` — Tesla Model S Plaid (car)
 
 ## Dependencies
 
@@ -184,4 +212,4 @@ experiments/<experiment>/
 - `Pillow` (PIL) — image processing
 - `requests` — Gemini API calls
 - `GEMINI_API_KEY` environment variable
-- macOS system fonts (Helvetica Neue for Tesla; Avenir Next for Garmin in Experiment 6)
+- macOS system fonts (choose a font that matches the brand's typography)
