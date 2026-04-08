@@ -29,7 +29,10 @@ Goal: End-to-end AI pipeline — brand intake → customer simulation → person
 - [ ] **SQLite + SQLAlchemy setup** — Create `database.py` with engine/session factory pointing to `peitho.db`. Define models:
   - `Campaign` (id, company_name, product_description, target_market, website_url, status, created_at)
   - `BrandIntake` (id, campaign_id FK, brand_assets, customer_data, previous_ads, voice_guidelines, raw_json)
-  - `SimulationAgent` (id, campaign_id FK, icp_id FK, behavioral_signature, memory, persona_type [customer/potential])
+  - `SimulationAgent` (id, campaign_id FK, icp_id FK, behavioral_signature, memory, persona_type [customer/potential]) — disposable per campaign
+  - `Client` (id, name, industry, onboarded_at, total_campaigns)
+  - `ClientAgentProfile` (id, client_id FK, segment_archetype, accumulated_learnings, confidence_level, campaigns_absorbed) — persistent across campaigns
+  - `CampaignLearning` (id, client_agent_id FK, campaign_id FK, learning_type, content, real_world_validated) — feeds client agents after each campaign
   - `ICP` (id, campaign_id FK, name, demographics, psychographics, pain_points, goals, media_habits, objections, conversion_triggers, raw_json)
   - `AdVariant` (id, campaign_id FK, icp_id FK, headline, body_copy, cta, visual_code_spec, tone, platform, status [draft/approved/rejected], raw_json)
   - `SimulationScore` (id, ad_variant_id FK, icp_id FK, attention, relevance, resonance, clarity, cta_effectiveness, overall_score, reasoning, raw_json)
@@ -38,7 +41,7 @@ Goal: End-to-end AI pipeline — brand intake → customer simulation → person
 
 ### AI Services
 - [ ] **Brand Intake Service** (`services/intake_service.py`) — Ingests brand info, customer data, brand assets, previous ads, and voice guidelines. Parses and structures all inputs for the simulation pipeline.
-- [ ] **Customer Simulation Service** (`services/simulation_service.py`) — Creates AI agents representing the client's customer base + potential customers. Grounds agents in real customer data; fills gaps with synthetic data. Each agent has distinct behavioral signatures and persistent memory.
+- [ ] **Customer Simulation Service** (`services/simulation_service.py`) — Two-tier agent architecture. (1) Campaign agents: fresh per campaign, generated from scratch based on the specific product/brief — never pulled from a pre-built database. (2) Client agents: persistent profiles that accumulate learnings across campaigns (messaging effectiveness, platform performance, objection patterns). Campaign agents are initialized with client agent context when available, so campaign 5 is dramatically better than campaign 1. Fills data gaps with synthetic data. Each campaign agent has distinct behavioral signatures.
 - [ ] **Persona Interrogation Service** (`services/interrogation_service.py`) — Queries simulation agents to surface wants, desires, fears, objections, and conversion triggers. Aggregates agent responses into structured persona intelligence.
 - [ ] **Buyer Persona Generation Service** (`services/icp_service.py`) — Takes simulation output + campaign info. Builds buyer personas grounded in agent interrogation results, role-based psychology, and industry context.
 - [ ] **Cross-Platform Ad Generation Service** (`services/ad_service.py`) — Takes persona + campaign context. Generates highly targeted ad variants addressing each persona's specific concerns and conversion triggers. Tailored to multiple platforms including niche placements, trade press, local media.

@@ -48,7 +48,11 @@ Document the layout decision in a brief comment at the top of both `image_gen.py
 
 ### 4. Define the ICPs
 
-Identify 3-5 distinct customer personas who would buy this product. Each ICP should represent a genuinely different motivation — not just demographics, but different *reasons to care*.
+**Always generate fresh.** Identify 3-5 distinct customer personas who would buy this product. Never pull from a pre-built database of generic archetypes — ICPs are generated from scratch for every campaign based on the specific product and brief. The personas who buy a Garmin Forerunner are fundamentally different from those who buy a Tesla Model S, even for the same client. Pre-built profiles lead to lazy demographic segmentation instead of the purchase-motivation reasoning that produces our best work.
+
+**Exception — client context:** If this is a repeat client with persistent client-level agent data from prior campaigns, use that accumulated context (what messaging worked, what platforms performed, what objections mattered) to inform ICP generation — but still generate the ICPs fresh. The learnings shape the reasoning, not the profiles themselves.
+
+Each ICP should represent a genuinely different motivation — not just demographics, but different *reasons to care*.
 
 #### Choosing the right ICPs
 

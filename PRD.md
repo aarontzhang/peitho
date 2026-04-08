@@ -104,6 +104,30 @@ AI simulation is the engine that powers the pipeline. It's how we understand you
 - **Not the product.** We don't position as a simulation company. The customer sees results — ads that convert, deployed where they work best — not the simulation itself.
 - **Most relevant** for brands spending $200K+/day where even marginal improvement in platform allocation has massive ROI, but the approach works at any scale.
 
+### The Hybrid Agent Strategy
+
+Agent simulation operates at two distinct levels — one disposable, one persistent:
+
+**1. Fresh ICPs per campaign (disposable).** Every campaign generates its ICPs from scratch based on the specific product and brief. There is no standing database of "generic buyer archetypes" to pull from. The personas who buy a Garmin Forerunner are fundamentally different from those who buy a Tesla Model S, even for the same client. Pre-built profiles would push toward lazy demographic segmentation instead of the purchase-motivation-driven simulation that produces our best creative. This mirrors how Aaru constructs agents per scenario from real data and MiroFish generates agents fresh from each knowledge graph.
+
+**2. Persistent client-level agents (accumulating).** While ICPs are disposable, the *learnings* from each campaign flow into persistent client-level agent profiles that get smarter over time. After campaign results come back, these agents absorb: which messaging worked, which flopped, how objections shifted, what proof points closed deals, which platforms over/underperformed for each segment type. The next campaign for the same client starts with this accumulated context — not recycled personas, but a calibrated understanding of *their* customer base.
+
+**Why this matters:**
+
+- **Campaign 1 is cold** — pure simulation from research. **Campaign 5** has a corpus of "here's what we've tried for this client, here's what worked for each segment, here's how their audience actually responded." The quality gap between campaign 1 and campaign 5 is the moat.
+- **This is the retention story.** If a client can leave and get the same quality elsewhere, they will. But if switching means losing 6+ months of calibrated agent memory — the accumulated understanding of their customers built across multiple campaigns — that's real lock-in. Not artificial lock-in, but genuine accumulated value that a competitor starts from zero on.
+- **Analogous to Aaru's "information diet."** Aaru's Stage 2 continuously feeds agents real-world information to update their views. Our equivalent: campaign performance data is the "information diet" that updates client-level agents between campaigns. Each engagement makes the agents more accurate for that specific client.
+
+**What persists vs. what doesn't:**
+
+| Persists (client-level) | Does NOT persist (campaign-level) |
+|--------------------------|-----------------------------------|
+| Messaging effectiveness by segment type | Specific ICP profiles |
+| Platform performance patterns | Per-campaign copy and creative |
+| Objection/proof-point effectiveness | Simulation scores |
+| Audience behavioral signals from real data | Background moods, visual treatments |
+| Segment types that over/underperformed | Individual agent behavioral signatures |
+
 ### The Synthetic Data Thesis
 
 Most companies don't have enough real customer data to make fully informed ad decisions — especially across platforms they've never tested. This is a data gap, not a data problem. Historically, humans bridged this gap manually: a strategist would look at incomplete data about an audience and make educated guesses about what messaging would land. That was expensive, slow, and limited by individual experience.
@@ -415,11 +439,20 @@ This diversity is the product's core value proposition. A human copywriter natur
 
 #### Agent Simulation Framework
 
-**Agent Initialization:**
-For each ICP segment, the system initializes 3-5 simulation agents with:
-- **Persistent memory stores** — each agent tracks ad exposures, preference evolution, and human feedback across simulation runs
+**Two-tier agent architecture:**
+
+Simulation agents exist at two levels, following the hybrid agent strategy (see Section 3):
+
+1. **Campaign agents (disposable):** For each ICP segment, the system initializes 3-5 fresh simulation agents per campaign. These are generated from scratch based on the product and brief — never pulled from a pre-built database. They live for the duration of the campaign and are discarded after scoring.
+
+2. **Client agents (persistent):** At the client level, persistent agent profiles accumulate learnings across campaigns. After each campaign's real-world results come in, these agents absorb what worked and what didn't — messaging effectiveness, platform performance, objection patterns, proof-point effectiveness. When a new campaign is created for the same client, campaign agents are initialized with context from the client agents, giving them a head start on understanding this client's audience.
+
+**Campaign Agent Initialization:**
+For each ICP segment, the system initializes 3-5 campaign simulation agents with:
+- **Client context injection** — if client agents exist from prior campaigns, their accumulated learnings are injected as initialization context (e.g., "for this client's audience, durability messaging outperforms price-comparison messaging in the fitness segment")
 - **Unique behavioral signatures** — within the segment's parameters, each agent has distinct personality traits, decision-making tendencies, and response patterns (e.g., one agent is more skeptical, another is more impulse-driven)
 - **Segment-grounded personality** — agents are initialized with the full psychographic profile from Module 1 as their baseline
+- **Per-campaign memory** — each agent tracks ad exposures and preference evolution within the current campaign's simulation runs
 
 **Multi-Round Simulation:**
 Each ad variant is evaluated across multiple rounds (default: 5 runs per variant) for statistical confidence:
@@ -792,12 +825,15 @@ Frontend fetches via REST API ──────> Dashboard renders
 ### Entity Relationship Diagram
 
 ```
+Client (1) ──── (N) Campaign
+Client (1) ──── (N) ClientAgentProfile
 Campaign (1) ──── (N) ICP
 Campaign (1) ──── (N) CustomerDataUpload
 Campaign (1) ──── (N) BrandAsset
 ICP (1) ──── (N) AdVariant
 ICP (1) ──── (N) SimulationAgent
 SimulationAgent (1) ──── (N) AgentMemory
+ClientAgentProfile (1) ──── (N) CampaignLearning
 AdVariant (1) ──── (1) Score
 Campaign (1) ──── (N) Export
 ```
@@ -927,6 +963,48 @@ Campaign (1) ──── (N) Export
 | agent_id | UUID | Foreign key to SimulationAgent |
 | memory_type | Enum | ad_exposure, preference_evolution, human_feedback, social_influence |
 | content | JSON | Memory content (ad reactions, feedback text, preference shifts) |
+| created_at | DateTime | Creation timestamp |
+
+#### Client
+
+| Field | Type | Description |
+|-------|------|-------------|
+| id | UUID | Primary key |
+| name | String(255) | Client/company name |
+| industry | String(255) | Industry vertical |
+| onboarded_at | DateTime | When the client relationship started |
+| total_campaigns | Integer | Number of campaigns run (denormalized for quick access) |
+| created_at | DateTime | Creation timestamp |
+| updated_at | DateTime | Last update timestamp |
+
+#### ClientAgentProfile
+
+Persistent agents that accumulate learnings across campaigns for a specific client. These are NOT used directly in simulation — they provide initialization context to fresh campaign agents.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| id | UUID | Primary key |
+| client_id | UUID | Foreign key to Client |
+| segment_archetype | String(255) | The type of audience segment this agent represents (e.g., "fitness-motivated", "price-sensitive professional") |
+| accumulated_learnings | JSON | Structured learnings: messaging effectiveness, platform performance, objection patterns, proof-point effectiveness |
+| confidence_level | Float | How much data backs this agent's learnings (increases with each campaign) |
+| campaigns_absorbed | Integer | Number of campaigns whose results have been incorporated |
+| last_updated_from | UUID | Foreign key to the most recent Campaign whose results were absorbed |
+| created_at | DateTime | Creation timestamp |
+| updated_at | DateTime | Last update timestamp |
+
+#### CampaignLearning
+
+Individual learning records that feed into ClientAgentProfiles after each campaign completes.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| id | UUID | Primary key |
+| client_agent_id | UUID | Foreign key to ClientAgentProfile |
+| campaign_id | UUID | Foreign key to Campaign |
+| learning_type | Enum | messaging_effectiveness, platform_performance, objection_pattern, proof_point, segment_behavior |
+| content | JSON | The specific learning (e.g., "durability messaging outperformed price messaging 3:1 in fitness segment on Instagram") |
+| real_world_validated | Boolean | Whether this learning is backed by real campaign performance data (vs. simulation-only) |
 | created_at | DateTime | Creation timestamp |
 
 #### BrandAsset
@@ -1138,7 +1216,7 @@ Campaign (1) ──── (N) Export
 - **Meta Ads API integration:** Push awareness-layer creative to Meta Advantage+ campaigns.
 - **Cross-platform campaign plans:** Generate coordinated "surround sound" campaigns — LinkedIn for professional context, display for ambient awareness, CTV for evening reach, niche publications for credibility, Meta for broad reinforcement — all from a single persona brief.
 - **Performance data ingestion:** Pull engagement metrics (CTR, pipeline influenced, meetings booked, deal progression) back from all platforms. Map performance to specific personas and creative angles.
-- **Feedback-informed generation:** Next campaign generation is informed by real performance data. The system builds a brand-specific and persona-specific performance model that compounds over time.
+- **Feedback-informed generation via persistent client agents:** After each campaign's real-world results come in, learnings flow into persistent client-level agent profiles (see Section 3: Hybrid Agent Strategy). These agents accumulate: which messaging worked for which segments, which platforms outperformed, which objections mattered most, which proof points closed. The next campaign for the same client starts with this accumulated context — fresh ICPs are still generated per product, but they're initialized with the client agent's learned understanding of this company's audience. Campaign 5 is dramatically better than campaign 1.
 - **Political vertical expansion:** Voter segment modeling, CTV script generation, swing-state targeting integration. Timed for 2028 election cycle ramp-up.
 - **Multi-user support:** Team accounts, role-based access, approval workflows.
 - **Cloud deployment:** Hosted SaaS with user authentication and data isolation.
@@ -1330,7 +1408,7 @@ Peitho's defensibility increases with each phase:
 
 1. **Phase 1 (MVP):** Low moat. The persona-to-creative pipeline is novel but technically reproducible. Defensibility comes from execution speed, prompt engineering quality, and being first to frame this as the creative layer for ABM.
 
-2. **Phase 2 (Platform Integration):** Medium moat. Integrations with LinkedIn, Demandbase, 6sense, and DSPs create workflow lock-in. Performance data from real campaigns creates a proprietary dataset that improves generation quality per client.
+2. **Phase 2 (Platform Integration):** Medium moat. Integrations with LinkedIn, Demandbase, 6sense, and DSPs create workflow lock-in. Performance data from real campaigns feeds persistent client-level agents that get smarter with every engagement. Switching to a competitor means starting from zero — losing months of calibrated audience understanding that can't be exported or replicated.
 
 3. **Phase 3 (Individual Intelligence):** High moat. The public data enrichment pipeline — building individual-level psychological models from LinkedIn, interviews, conference talks — is a genuinely novel capability. Combined with cross-customer data on what messaging works for what persona types, this creates a compounding intelligence advantage.
 
