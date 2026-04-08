@@ -1,0 +1,134 @@
+{
+  "brand": {
+    "name": "Gatorade",
+    "voice": "Bold. Athletic. Confident. Speaks to competitors — not spectators. Short, punchy sentences. No fluff. Let the science back up the swagger.",
+    "colors": {
+      "primary": "#F5A020",
+      "secondary": "#000000",
+      "accent": "#E52B38"
+    }
+  },
+  "product": {
+    "name": "Thirst Quencher",
+    "category": "Sports Drink",
+    "price": "$2.49",
+    "product_json_path": "gatorade_thirst_quencher.json",
+    "hero_features": [
+      "Replaces electrolytes lost in sweat",
+      "Sodium + potassium for hydration",
+      "Carbs for energy during activity",
+      "Trusted by pro athletes since 1965",
+      "28 fl oz — one bottle per session"
+    ]
+  },
+  "icps": [
+    {
+      "id": "endurance_athlete",
+      "label": "Endurance Athlete",
+      "pain_points": [
+        "Bonking or hitting the wall during long runs/rides",
+        "Muscle cramps from electrolyte depletion in hour 2+",
+        "Water alone can't sustain multi-hour effort",
+        "Needs fuel AND hydration without carrying gels separately"
+      ],
+      "copy": {
+        "product_title": "Thirst Quencher",
+        "tagline": "Sports Drink — 28 fl oz",
+        "headline": "MILE 20 DOESN'T\nCARE IF YOU'RE TIRED",
+        "subline": "The electrolytes and carbs that keep your legs moving\nwhen everything says stop.",
+        "cta": "GO THE DISTANCE"
+      },
+      "visual_treatment": {
+        "background_mood": "A long, empty road stretching into the distance at dawn. Misty atmosphere, cool blue-gray sky with warm orange light breaking through on the horizon. Pavement slightly wet from morning dew. The scene feels solitary, meditative, and relentless — the kind of road you run alone at 5am. Darker at top and bottom edges for text contrast.",
+        "palette": {
+          "bg_accent": "#F5A020",
+          "text_primary": "#FFFFFF",
+          "text_secondary": "#D0D0D0",
+          "cta_bg": "#F5A020",
+          "cta_text": "#000000"
+        }
+      }
+    },
+    {
+      "id": "team_sport",
+      "label": "Team Sport Competitor",
+      "pain_points": [
+        "Legs go dead in the 4th quarter or second half",
+        "Cramping during high-intensity bursts late in games",
+        "Losing the edge when it matters most — close games",
+        "Opponents who prepared better and finish stronger"
+      ],
+      "copy": {
+        "product_title": "Thirst Quencher",
+        "tagline": "Sports Drink — 28 fl oz",
+        "headline": "WIN THE\nFOURTH QUARTER",
+        "subline": "Sodium and potassium replace what you sweat out —\nso you finish as strong as you started.",
+        "cta": "FINISH STRONG"
+      },
+      "visual_treatment": {
+        "background_mood": "A dramatic nighttime sports arena or outdoor court with bright stadium floodlights cutting through the dark sky. The ground is a polished hardwood court or green turf with subtle light reflections. The atmosphere is electric, high-stakes, game-night energy. Slightly hazy air from the lights. Bold and intense. Darker at top and bottom edges for text contrast.",
+        "palette": {
+          "bg_accent": "#E52B38",
+          "text_primary": "#FFFFFF",
+          "text_secondary": "#C8C8C8",
+          "cta_bg": "#E52B38",
+          "cta_text": "#FFFFFF"
+        }
+      }
+    },
+    {
+      "id": "outdoor_worker",
+      "label": "Outdoor Worker",
+      "pain_points": [
+        "8+ hours in direct sun with heavy physical labor",
+        "Water alone leads to fatigue and muscle cramps by afternoon",
+        "No time for breaks — need fast, effective hydration",
+        "Heat exhaustion risk is real, not theoretical"
+      ],
+      "copy": {
+        "product_title": "Thirst Quencher",
+        "tagline": "Sports Drink — 28 fl oz",
+        "headline": "BUILT FOR\nTHE LONG SHIFT",
+        "subline": "When you work in the heat, water isn't enough.\nReplace the electrolytes you sweat out all day.",
+        "cta": "BEAT THE HEAT"
+      },
+      "visual_treatment": {
+        "background_mood": "A hot afternoon scene with intense golden sunlight. Dusty, warm-toned environment — sun-baked concrete, warm earth tones, hazy heat shimmer in the distance. The feeling of a long, hot workday under a blazing sky. Warm amber and golden tones dominate. Gritty, real, working-class energy. Darker at top and bottom edges for text contrast.",
+        "palette": {
+          "bg_accent": "#F5A020",
+          "text_primary": "#FFFFFF",
+          "text_secondary": "#E0D0B0",
+          "cta_bg": "#F5A020",
+          "cta_text": "#000000"
+        }
+      }
+    },
+    {
+      "id": "gym_enthusiast",
+      "label": "Gym / HIIT Enthusiast",
+      "pain_points": [
+        "Post-workout dehydration headaches",
+        "Feeling depleted for hours after an intense session",
+        "Recovery takes too long without proper rehydration",
+        "Plain water doesn't replace what a hard workout burns through"
+      ],
+      "copy": {
+        "product_title": "Thirst Quencher",
+        "tagline": "Sports Drink — 28 fl oz",
+        "headline": "YOUR WORKOUT ENDS.\nDEHYDRATION DOESN'T.",
+        "subline": "Rehydrate with sodium, potassium, and carbs.\nRecovery starts the second you stop.",
+        "cta": "REFUEL NOW"
+      },
+      "visual_treatment": {
+        "background_mood": "A dark, moody gym environment after hours. Dramatic low-key lighting with cool blue and teal tones. Heavy equipment silhouettes in the background. A single overhead light creating a pool of light in the center. The atmosphere is post-workout — quiet intensity, the moment after the last rep. Gritty, raw, focused. Darker at top and bottom edges for text contrast.",
+        "palette": {
+          "bg_accent": "#00BCD4",
+          "text_primary": "#FFFFFF",
+          "text_secondary": "#B0D0D8",
+          "cta_bg": "#F5A020",
+          "cta_text": "#000000"
+        }
+      }
+    }
+  ]
+}

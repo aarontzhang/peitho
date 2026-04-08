@@ -1,0 +1,65 @@
+{
+  "product": "Gatorade Thirst Quencher",
+  "variant": "Orange",
+  "category": "Sports Drink",
+  "capacity": "28 fl oz (828 mL)",
+
+  "physical_form": {
+    "type": "Plastic squeeze bottle",
+    "height": "Approximately 10 inches (25 cm)",
+    "diameter": "Approximately 3 inches (7.5 cm) at widest",
+    "shape": "Tall cylindrical bottle with a subtle contoured waist for grip. Slightly narrower in the middle third, wider at the base for stability. Rounded shoulders tapering to the neck.",
+    "cap": "Orange plastic screw cap with a pull-up sport nozzle. Cap color matches the liquid color.",
+    "neck": "Short cylindrical neck with threading for screw cap",
+    "body": "Translucent plastic — the bright orange liquid is clearly visible through the bottle above and below the label area",
+    "base": "Flat circular base, slightly wider than the body, with molded ridges for stability",
+    "label": "White wraparound label covering approximately the middle 40% of the bottle. Features the Gatorade wordmark in bold black italic text, the orange lightning bolt icon, 'THIRST QUENCHER' in smaller text, and 'ORANGE' flavor designation. The label has a clean, bold, sporty design."
+  },
+
+  "color_palette": {
+    "liquid": {
+      "hex": "#F5A020",
+      "description": "Bright, vivid orange — the signature Gatorade orange. Clearly visible through the translucent bottle."
+    },
+    "cap": {
+      "hex": "#F5A020",
+      "description": "Orange plastic cap matching the liquid color"
+    },
+    "bottle_plastic": {
+      "hex": "#E8E8E8",
+      "description": "Clear/translucent plastic with a very slight frosted quality. Orange liquid shows through."
+    },
+    "label_background": {
+      "hex": "#FFFFFF",
+      "description": "Clean white label background"
+    },
+    "label_text": {
+      "hex": "#000000",
+      "description": "Bold black Gatorade wordmark on label"
+    },
+    "lightning_bolt": {
+      "hex": "#F5A020",
+      "description": "Orange lightning bolt icon on the label"
+    }
+  },
+
+  "rendering_instructions": {
+    "camera_angle": "Straight-on front view with very slight 3/4 rotation (5-10 degrees) so the label is fully readable but the bottle has depth and dimension",
+    "camera_height": "Eye level — camera centered on the middle of the bottle",
+    "lighting": "Clean, bright commercial product photography lighting. Key light from upper right, fill light from left. Slight rim light on the edges to define the bottle silhouette. The orange liquid should glow and look refreshing.",
+    "depth_of_field": "Sharp focus on the entire bottle, slightly softer background",
+    "surface": "The bottle should appear to be standing on a surface or floating cleanly — grounded, not awkward",
+    "condensation": "Light condensation droplets on the outside of the bottle to convey cold refreshment. Not dripping wet — just lightly beaded.",
+    "reflection": "Subtle reflection/shadow beneath the bottle for grounding"
+  },
+
+  "prompt_templates": {
+    "base": "A single Gatorade Thirst Quencher 28oz bottle, Orange flavor. Bright orange liquid visible through translucent plastic. Orange screw cap. White label with bold black Gatorade logo and orange lightning bolt. Light condensation on the bottle surface. Premium commercial product photography.",
+    "style_suffixes": {
+      "athletic": "Dynamic sports environment, motion energy, sweat and effort",
+      "refreshing": "Cool tones, ice, water splashes, extreme refreshment",
+      "minimal_studio": "Clean seamless background, dramatic product lighting, studio quality",
+      "outdoor": "Bright sunlight, natural setting, active lifestyle energy"
+    }
+  }
+}
