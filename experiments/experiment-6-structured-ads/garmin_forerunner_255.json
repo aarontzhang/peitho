@@ -1,0 +1,235 @@
+{
+  "product": {
+    "brand": "Garmin",
+    "model": "Forerunner 255",
+    "variant": "Black",
+    "category": "GPS Running Smartwatch",
+    "sku_reference": "010-02641-00"
+  },
+
+  "physical_form": {
+    "case": {
+      "shape": "round",
+      "diameter_mm": 46,
+      "thickness_mm": 12.9,
+      "material": "fiber-reinforced polymer",
+      "finish": "matte black",
+      "bezel": {
+        "type": "fixed, non-rotating",
+        "material": "fiber-reinforced polymer",
+        "color": "#1a1a1a",
+        "texture": "smooth with subtle grain"
+      }
+    },
+    "crystal": {
+      "type": "Corning Gorilla Glass 3",
+      "shape": "flat with slight bevel at edges",
+      "finish": "glossy, anti-reflective"
+    },
+    "caseback": {
+      "material": "polymer",
+      "color": "black",
+      "sensors": ["optical heart rate sensor (green LEDs)", "pulse oximeter (red LED)"]
+    },
+    "weight_g": 49
+  },
+
+  "buttons": {
+    "count": 5,
+    "layout": {
+      "left_side": [
+        { "position": "top", "label": "LIGHT", "style": "flush rectangular, matte black" },
+        { "position": "middle", "label": "UP", "style": "flush rectangular, matte black" },
+        { "position": "bottom", "label": "DOWN", "style": "flush rectangular, matte black" }
+      ],
+      "right_side": [
+        {
+          "position": "top",
+          "label": "START / STOP",
+          "style": "protruding cylindrical, matte black",
+          "accent": {
+            "type": "ring/collar around button base",
+            "color": "#7FFF00",
+            "color_name": "lime green / chartreuse"
+          }
+        },
+        {
+          "position": "bottom",
+          "label": "BACK",
+          "style": "protruding cylindrical, silver/chrome metal",
+          "material": "stainless steel"
+        }
+      ]
+    }
+  },
+
+  "display": {
+    "type": "MIP (Memory-in-Pixel) LCD",
+    "shape": "round",
+    "resolution": "260 x 260 pixels",
+    "diameter_mm": 33,
+    "always_on": true,
+    "backlight": true,
+    "appearance": {
+      "background": "deep black (#000000)",
+      "primary_text_color": "white (#FFFFFF)",
+      "accent_color": "yellow-green / chartreuse (#CCFF00)",
+      "secondary_elements": "gray (#888888)"
+    },
+    "watch_face_content": {
+      "description": "Default Garmin data-rich watch face",
+      "layout": {
+        "top_bar": {
+          "left_icon": "running figure (yellow-green)",
+          "text": "25 mi",
+          "purpose": "weekly distance tracker"
+        },
+        "date_row": {
+          "text": "SAT 01",
+          "color": "white",
+          "font": "medium sans-serif"
+        },
+        "gauge_arc": {
+          "position": "around upper perimeter of face",
+          "markers": ["0", "120"],
+          "fill_indicator": "partial arc, blue segment near bottom-left",
+          "purpose": "heart rate or body battery gauge"
+        },
+        "time_center": {
+          "hours": "10:10",
+          "hours_font": "extra-bold, very large, white",
+          "seconds": "38",
+          "seconds_font": "bold, large, yellow-green (#CCFF00)",
+          "seconds_position": "right of hours, vertically centered"
+        },
+        "bottom_row": {
+          "text": "VO2 50",
+          "color": "white",
+          "purpose": "VO2 Max estimate"
+        },
+        "status_icons": {
+          "position": "center, between date and time",
+          "icons": ["alarm/clock", "bluetooth", "notification", "battery"],
+          "color": "white, small"
+        },
+        "branding": {
+          "text": "GARMIN",
+          "position": "bottom center, below VO2",
+          "color": "gray (#666666)",
+          "font": "small, spaced uppercase"
+        }
+      }
+    }
+  },
+
+  "band": {
+    "material": "silicone",
+    "color": "#1a1a1a",
+    "color_name": "black",
+    "width_mm": 22,
+    "style": "quick-release, standard sport",
+    "texture": {
+      "outer_surface": "smooth matte",
+      "inner_surface": "diagonal ribbed/grooved pattern for ventilation",
+      "keeper_loops": 2
+    },
+    "buckle": {
+      "type": "traditional tang/pin buckle",
+      "material": "stainless steel",
+      "color": "silver / polished chrome",
+      "shape": "rectangular with rounded corners"
+    },
+    "holes": {
+      "shape": "elongated oval / slot",
+      "count_per_side": "~12",
+      "arrangement": "single column, evenly spaced"
+    }
+  },
+
+  "color_palette": {
+    "dominant": { "hex": "#1a1a1a", "name": "matte black", "coverage": "90%" },
+    "accent_1": { "hex": "#CCFF00", "name": "chartreuse/lime", "usage": "seconds display, START button ring" },
+    "accent_2": { "hex": "#C0C0C0", "name": "silver chrome", "usage": "BACK button, buckle" },
+    "accent_3": { "hex": "#4488FF", "name": "blue", "usage": "gauge arc segment on watch face" },
+    "background": { "hex": "#000000", "name": "true black", "usage": "display background" }
+  },
+
+  "rendering_instructions": {
+    "reference_pose": {
+      "description": "3/4 front view, watch tilted ~30 degrees from vertical, face angled toward upper-left",
+      "camera_elevation": "slightly above center (eye-level + 10 degrees)",
+      "camera_azimuth": "front-right, approximately 30 degrees right of center",
+      "band_drape": "natural curve as if on invisible wrist, top strap curves back, bottom strap curves forward"
+    },
+
+    "lighting": {
+      "type": "soft studio lighting",
+      "key_light": "large softbox, upper-right, cool white",
+      "fill_light": "subtle ambient from left",
+      "rim_light": "none or very subtle",
+      "shadows": "soft contact shadow below watch, diffused edges",
+      "reflections": "subtle specular highlights on glass crystal and chrome buckle"
+    },
+
+    "background": {
+      "type": "solid",
+      "color": "#FFFFFF",
+      "gradient": "none or very subtle warm-to-cool gradient"
+    },
+
+    "style": {
+      "photography_type": "product hero shot",
+      "quality": "commercial e-commerce, high resolution",
+      "depth_of_field": "deep (everything sharp)",
+      "post_processing": "clean, minimal, true-to-life color"
+    }
+  },
+
+  "pose_variants": {
+    "front_facing_right": {
+      "description": "Same 3/4 view but mirrored — watch face angled toward upper-right",
+      "camera_azimuth": "front-left, approximately 30 degrees left of center",
+      "button_visibility": "left-side buttons (LIGHT, UP, DOWN) now prominent, right-side buttons partially hidden",
+      "band_drape": "mirrored — top strap curves to right, bottom strap to left",
+      "prompt_modifier": "mirror the reference pose horizontally; watch face tilts toward upper-right corner"
+    },
+    "straight_on": {
+      "description": "Direct front view, watch face perpendicular to camera",
+      "camera_azimuth": "0 degrees (dead center)",
+      "camera_elevation": "0 degrees (eye level)",
+      "band_drape": "symmetrical, top and bottom straps curve equally behind watch",
+      "prompt_modifier": "flat front-facing product shot, watch face directly facing camera"
+    },
+    "top_down_flat_lay": {
+      "description": "Watch laid flat, shot from directly above",
+      "camera_elevation": "90 degrees (bird's eye)",
+      "band_drape": "band extends straight up and down, fully visible",
+      "prompt_modifier": "top-down flat lay on white surface, band fully extended"
+    },
+    "wrist_shot": {
+      "description": "Watch worn on left wrist, lifestyle context",
+      "prompt_modifier": "Garmin Forerunner 255 on athletic male/female wrist, outdoor running context"
+    },
+    "dramatic_angle": {
+      "description": "Low angle hero shot with dramatic lighting",
+      "camera_elevation": "-20 degrees (looking up at watch)",
+      "lighting_override": "moody, single hard light from above-left, dark background",
+      "prompt_modifier": "dramatic low-angle product shot, dark background, single spotlight"
+    }
+  },
+
+  "prompt_templates": {
+    "base_prompt": "Commercial product photography of a Garmin Forerunner 255 GPS running smartwatch in all-black. Round matte black polymer case, 46mm diameter. Black silicone sport band with oval ventilation holes and silver pin buckle. Five physical buttons: three flush on the left (LIGHT, UP, DOWN), two protruding on the right (START/STOP with lime-green accent ring, BACK in silver chrome). MIP LCD display showing time 10:10:38 in bold white and chartreuse, date SAT 01, stats 25 mi and VO2 50, small GARMIN text at bottom. Deep black display background.",
+
+    "angle_right_facing": "Same watch rotated so the face angles toward the upper-right. Buttons on right side now partially hidden behind case. Soft studio lighting on white background. High-resolution commercial product shot.",
+
+    "for_ad_composite": "Isolated Garmin Forerunner 255 on transparent/white background, sharp focus, no shadows, suitable for compositing into advertisement layouts. PNG cutout style.",
+
+    "style_suffixes": {
+      "photorealistic": "hyperrealistic product photography, 8K, studio lighting, sharp detail",
+      "minimal": "minimalist clean white background, soft even lighting, e-commerce style",
+      "lifestyle": "action sports context, motion blur background, sharp watch in focus",
+      "dark_moody": "dark background, dramatic rim lighting, premium luxury feel"
+    }
+  }
+}
