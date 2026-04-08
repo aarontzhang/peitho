@@ -1,0 +1,136 @@
+{
+  "brand": {
+    "name": "Tesla",
+    "voice": "Minimal. Confident. Forward-looking. Let the product speak. No hype — just facts and quiet authority.",
+    "visual_identity": {
+      "primary_color": "#000000",
+      "accent_color": "#E82127",
+      "secondary_color": "#FFFFFF"
+    }
+  },
+
+  "product": {
+    "name": "Model S Plaid",
+    "category": "Electric Performance Sedan",
+    "price": "From $89,990",
+    "hero_features": [
+      "1,020 hp tri-motor",
+      "0-60 in 1.99s",
+      "396-mile range",
+      "200 mph top speed",
+      "Autopilot included"
+    ],
+    "product_json_path": "tesla_model_s.json"
+  },
+
+  "icps": [
+    {
+      "id": "tech-early-adopter",
+      "label": "Tech-Forward Early Adopter",
+      "pain_points": [
+        "Wants the most advanced car on the road",
+        "Cares about OTA updates and software-defined features",
+        "Frustrated by legacy automakers' slow innovation"
+      ],
+      "copy": {
+        "product_title": "MODEL S PLAID",
+        "tagline": "Electric Performance Sedan",
+        "headline": "THE SOFTWARE\nIS THE CAR.",
+        "subline": "Over-the-air updates. Full self-driving hardware.\nThe car that gets better while you sleep.",
+        "cta": "Order Model S"
+      },
+      "visual_treatment": {
+        "background_mood": "Dark minimal abstract environment. Subtle grid lines on the ground, like a digital plane materializing. Deep charcoal and black tones. Faint geometric light patterns. Very dark at top and bottom edges for text contrast. No clutter — pure negative space.",
+        "palette": {
+          "bg_dominant": "#0a0a0a",
+          "bg_accent": "#E82127",
+          "text_primary": "#FFFFFF",
+          "text_secondary": "#999999",
+          "cta_bg": "#E82127",
+          "cta_text": "#FFFFFF"
+        }
+      }
+    },
+    {
+      "id": "eco-professional",
+      "label": "Eco-Conscious Executive",
+      "pain_points": [
+        "Wants to reduce carbon footprint without sacrificing luxury",
+        "Needs a car that matches their professional status",
+        "Tired of gas station stops and maintenance appointments"
+      ],
+      "copy": {
+        "product_title": "MODEL S PLAID",
+        "tagline": "Electric Performance Sedan",
+        "headline": "ZERO EMISSIONS.\nZERO COMPROMISE.",
+        "subline": "396-mile range. No gas. No oil changes.\nThe future of driving, today.",
+        "cta": "Explore Model S"
+      },
+      "visual_treatment": {
+        "background_mood": "Clean, open landscape at dawn. Soft golden light on rolling green hills, wind turbines far in the distance. Expansive sky with gentle clouds. Muted, calming palette. Very dark gradient at top and bottom edges for text contrast.",
+        "palette": {
+          "bg_dominant": "#0f1210",
+          "bg_accent": "#4CAF50",
+          "text_primary": "#FFFFFF",
+          "text_secondary": "#B8C9B8",
+          "cta_bg": "#FFFFFF",
+          "cta_text": "#0a0a0a"
+        }
+      }
+    },
+    {
+      "id": "performance-purist",
+      "label": "Performance & Speed Enthusiast",
+      "pain_points": [
+        "Wants the fastest production sedan, period",
+        "Cares about 0-60, quarter mile, track performance",
+        "Skeptical that electric can beat combustion — needs proof"
+      ],
+      "copy": {
+        "product_title": "MODEL S PLAID",
+        "tagline": "Electric Performance Sedan",
+        "headline": "1.99 SECONDS.",
+        "subline": "0-60 mph. 1,020 hp. Tri-motor AWD.\nThe quickest production car ever made.",
+        "cta": "Configure Yours"
+      },
+      "visual_treatment": {
+        "background_mood": "Dark dramatic track environment at night. Wet tarmac reflecting faint red light. Motion blur in background suggesting extreme speed. Black and red tones. Cinematic, intense. Very dark at top and bottom edges.",
+        "palette": {
+          "bg_dominant": "#050505",
+          "bg_accent": "#E82127",
+          "text_primary": "#FFFFFF",
+          "text_secondary": "#AAAAAA",
+          "cta_bg": "#E82127",
+          "cta_text": "#FFFFFF"
+        }
+      }
+    },
+    {
+      "id": "luxury-upgrader",
+      "label": "Luxury Sedan Upgrader",
+      "pain_points": [
+        "Currently drives a BMW/Mercedes/Audi and wants something more modern",
+        "Values interior quality, comfort, and status",
+        "Wants a quieter, smoother driving experience"
+      ],
+      "copy": {
+        "product_title": "MODEL S PLAID",
+        "tagline": "Electric Performance Sedan",
+        "headline": "SILENCE\nIS POWER.",
+        "subline": "Glass roof. 17\" touchscreen. White interior.\n396 miles of whisper-quiet performance.",
+        "cta": "Schedule a Test Drive"
+      },
+      "visual_treatment": {
+        "background_mood": "Elegant modern architecture at dusk. Clean concrete and glass building, warm interior light spilling out. Muted earth tones, sophisticated and understated. Minimal, editorial. Dark gradient at top and bottom edges for text.",
+        "palette": {
+          "bg_dominant": "#0d0d0f",
+          "bg_accent": "#C8A882",
+          "text_primary": "#FFFFFF",
+          "text_secondary": "#C0B8B0",
+          "cta_bg": "#FFFFFF",
+          "cta_text": "#0a0a0a"
+        }
+      }
+    }
+  ]
+}

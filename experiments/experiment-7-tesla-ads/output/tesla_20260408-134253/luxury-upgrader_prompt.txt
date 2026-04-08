@@ -1,0 +1,176 @@
+Generate a 1080x1080 premium automotive photography image.
+
+PRODUCT SPECIFICATION (render this car exactly as described):
+
+{
+  "product": {
+    "brand": "Tesla",
+    "model": "Model S",
+    "variant": "Plaid",
+    "category": "Electric Performance Sedan",
+    "year": 2024
+  },
+  "physical_form": {
+    "body": {
+      "type": "four-door fastback sedan",
+      "length_mm": 4970,
+      "width_mm": 1964,
+      "height_mm": 1445,
+      "wheelbase_mm": 2960,
+      "silhouette": "sleek, low-slung coupe-like profile with a gently sloping roofline that flows into a subtle rear spoiler",
+      "front": "completely grille-less, smooth body-colored nose with a subtle crease line, ultra-minimal",
+      "rear": "full-width LED light bar connecting two blade-shaped tail lights, small lip spoiler integrated into trunk lid"
+    },
+    "headlights": {
+      "style": "slim, angular LED blade headlights",
+      "shape": "narrow horizontal slits that wrap slightly around the fender",
+      "daytime_running_lights": "bright white LED strip along the bottom edge of each headlight",
+      "appearance": "aggressive yet clean, no excessive chrome or bezels"
+    },
+    "taillights": {
+      "style": "full-width LED light bar with blade accents",
+      "shape": "thin horizontal band spanning the entire rear, red glow",
+      "appearance": "seamless, futuristic, unmistakably Tesla"
+    },
+    "glass": {
+      "windshield": "large panoramic, extends far back over occupants",
+      "roof": "one-piece glass roof from windshield to rear window, tinted",
+      "rear_window": "integrated into the fastback roofline"
+    }
+  },
+  "wheels": {
+    "size": "21-inch",
+    "style": "Arachnid wheels",
+    "finish": "satin black with machined face",
+    "spoke_pattern": "multi-spoke turbine design, aerodynamic",
+    "tire": "265/30R21 performance tires",
+    "brake_calipers": "red anodized, visible through spokes"
+  },
+  "exterior_color": {
+    "name": "Ultra Red",
+    "hex": "#8B1A1A",
+    "appearance": "deep, multi-coat metallic red with rich depth and subtle orange undertones in direct light",
+    "finish": "multi-coat, high-gloss with deep clearcoat"
+  },
+  "interior": {
+    "material": "white vegan leather with carbon fiber trim",
+    "steering_wheel": "yoke-style, half-moon shape with no traditional top spoke",
+    "center_screen": "17-inch horizontal touchscreen, floating design",
+    "rear_screen": "8-inch rear entertainment display",
+    "seats": "heated, ventilated, 14-way power adjustable"
+  },
+  "performance": {
+    "powertrain": "tri-motor all-wheel drive",
+    "horsepower": 1020,
+    "zero_to_sixty_mph": 1.99,
+    "top_speed_mph": 200,
+    "quarter_mile_sec": 9.23,
+    "range_miles": 396,
+    "battery_kwh": 100,
+    "drivetrain": "AWD (tri-motor)"
+  },
+  "color_palette": {
+    "body": {
+      "hex": "#8B1A1A",
+      "name": "Ultra Red",
+      "coverage": "primary"
+    },
+    "accent_dark": {
+      "hex": "#1a1a1a",
+      "name": "gloss black",
+      "usage": "window trim, lower fascia, mirror caps"
+    },
+    "chrome": {
+      "hex": "#C0C0C0",
+      "name": "minimal chrome",
+      "usage": "Tesla wordmark on rear trunk"
+    },
+    "wheels": {
+      "hex": "#2a2a2a",
+      "name": "satin black",
+      "usage": "21-inch Arachnid wheels"
+    },
+    "glass": {
+      "hex": "#1a2a3a",
+      "name": "tinted dark blue-grey",
+      "usage": "panoramic glass roof"
+    },
+    "calipers": {
+      "hex": "#CC0000",
+      "name": "red",
+      "usage": "brake calipers visible through wheels"
+    }
+  },
+  "rendering_instructions": {
+    "reference_pose": {
+      "description": "3/4 front view, car angled ~30 degrees showing front and driver side",
+      "camera_elevation": "slightly below eye level, giving the car a commanding, heroic presence",
+      "camera_distance": "medium-close, car fills roughly 60% of the frame width",
+      "ground_plane": "car sits on ground, subtle shadow beneath"
+    },
+    "lighting": {
+      "type": "dramatic cinematic lighting",
+      "key_light": "large soft light from upper-right, warm white",
+      "fill_light": "cool ambient from left side",
+      "rim_light": "subtle edge light highlighting the roofline and body curves",
+      "reflections": "environmental reflections visible on body panels and glass roof"
+    },
+    "style": {
+      "photography_type": "automotive hero shot",
+      "quality": "commercial campaign, ultra-high resolution",
+      "depth_of_field": "shallow \u2014 sharp car, slightly soft background",
+      "post_processing": "clean, slightly desaturated background to make the car pop",
+      "mood": "premium, aspirational, forward-thinking"
+    }
+  },
+  "prompt_templates": {
+    "base_prompt": "Commercial automotive photography of a Tesla Model S Plaid in Ultra Red multi-coat. Sleek fastback sedan with completely grille-less front, slim blade LED headlights, panoramic glass roof, 21-inch satin black Arachnid wheels. Low, aggressive stance. No badges or text except the small Tesla wordmark on the rear trunk. Ultra-minimal, premium, futuristic.",
+    "style_suffixes": {
+      "minimal_studio": "pure white background, soft even studio lighting, clean product shot",
+      "dark_dramatic": "dark moody background, dramatic rim lighting, premium luxury feel",
+      "environmental": "on a sweeping mountain road or modern architecture setting, cinematic",
+      "night": "night scene, headlights illuminated, wet reflective road surface, neon city glow"
+    }
+  }
+}
+
+Use the JSON above to accurately render: body shape, headlight style, wheel design, exterior color, and proportions.
+
+=== CAMERA & COMPOSITION ===
+- 3/4 front view: camera positioned front-left, roughly 25-30 degrees from head-on.
+- Camera height: slightly below the car's belt line (low, heroic perspective).
+- The car's front fascia and driver-side profile are both clearly visible.
+- The car is facing toward the RIGHT side of the frame.
+- The grille-less, smooth front of the Tesla must be clearly visible — this is the signature design element.
+- Slim blade LED headlights must be visible and sharp.
+
+=== CAR PLACEMENT IN FRAME ===
+- The car occupies the MIDDLE of the frame, centered horizontally.
+- The car center is at approximately 55% from the top (slightly below vertical center).
+- TOP 15% of the frame (top ~160 pixels): COMPLETELY EMPTY of any car parts. Reserved for text overlay.
+- BOTTOM 20% of the frame (bottom ~215 pixels): ground plane and shadows only — no important car details. Reserved for text overlay.
+- The car (bumper to bumper) should span roughly 75-80% of the frame width.
+
+=== GROUND AND ENVIRONMENT ===
+Elegant modern architecture at dusk. Clean concrete and glass building, warm interior light spilling out. Muted earth tones, sophisticated and understated. Minimal, editorial. Dark gradient at top and bottom edges for text.
+- The car sits firmly on a ground surface — it is NOT floating.
+- Subtle shadow beneath the car for grounding.
+- Subtle #C8A882 color accents in the environment (reflections, light sources, atmosphere).
+- Background should be darker/muted in the top 15% and bottom 20% for text readability.
+
+=== CRITICAL STYLE RULES ===
+- This is a REAL car photographed in an environment — not a render, not a toy, not a drawing.
+- Premium commercial automotive photography, cinematic quality.
+- Photorealistic, 1080x1080 square format.
+- Sharp focus on the car body, slightly softer background (shallow depth of field).
+- The car's Ultra Red multi-coat paint should show depth and reflections.
+- NO text, words, letters, numbers, logos, watermarks, or typography anywhere in the image.
+- NO license plates.
+- NO people visible.
+- NO other cars in the frame.
+- The car is the sole subject — clean, minimal, powerful.
+
+=== BRAND AESTHETIC ===
+- Tesla's design language is ultra-minimal: clean surfaces, no unnecessary details.
+- The image should feel premium and forward-looking, never busy or cluttered.
+- Negative space is a feature, not a problem.
