@@ -1143,7 +1143,38 @@ Campaign (1) ──── (N) Export
 - **Multi-user support:** Team accounts, role-based access, approval workflows.
 - **Cloud deployment:** Hosted SaaS with user authentication and data isolation.
 
-**Exit criteria:** Campaigns deployed across 10+ platforms simultaneously. AI-driven budget reallocation demonstrably outperforms static allocation. Cross-platform campaigns show higher conversion than single-platform campaigns.
+**Media Source Intelligence Database:**
+
+A core differentiator in Phase 2 is building a growing, proprietary database of verified advertising placements — not just the obvious platforms (Meta, Google, LinkedIn) but the long tail of niche media sources where specific ICPs actually spend time.
+
+**How it works:**
+
+1. **ICP-driven discovery.** When the ICP simulation identifies where a persona spends time (e.g., "reads Concrete Decor Magazine," "active on ContractorTalk forums," "subscribes to The Hustle newsletter"), those candidate placements are logged as leads in the media source database.
+
+2. **Automated verification.** AI agents investigate each candidate source to determine:
+   - Does this publication/site sell ad inventory? (check for "advertise with us" pages, media kits, programmatic availability)
+   - What ad formats are available? (display, native, sponsored content, newsletter sponsorship, podcast pre-roll)
+   - Is inventory available programmatically (via DSPs like The Trade Desk, DV360, StackAdapt) or only via direct buy?
+   - What are the estimated CPMs / pricing tiers?
+   - What targeting options exist? (contextual, demographic, firmographic)
+   - What are the creative specs? (dimensions, formats, policies)
+
+3. **Structured cataloging.** Each verified source is stored with:
+   - Source name, URL, category (trade publication, forum, newsletter, podcast, local press, etc.)
+   - Available ad formats and specs
+   - Access method (programmatic DSP, direct buy, self-serve platform, sales contact required)
+   - Estimated audience size and composition
+   - Pricing range
+   - Which ICP archetypes map to this source (linked back to the personas that surfaced it)
+   - Verification date and confidence level
+
+4. **Compounding network effect.** Every client engagement feeds the database. A campaign for a fintech company surfaces fintech trade publications. A campaign for a construction company surfaces contractor forums. Over time, the database becomes a comprehensive map of "where to reach [persona X] outside the major platforms" — an asset no individual client or agency has.
+
+5. **Automated re-verification.** Sources are periodically re-checked (quarterly) to confirm ad inventory is still available, pricing hasn't changed, and the site is still active. Stale entries are flagged or archived.
+
+**Why this matters for the moat:** This database is proprietary, compounds with every client, and is expensive to replicate from scratch. A competitor can copy the creative generation pipeline, but they can't copy a database of 5,000 verified niche ad placements built over 50+ client engagements with performance data attached to each one.
+
+**Exit criteria:** Campaigns deployed across 10+ platforms simultaneously. AI-driven budget reallocation demonstrably outperforms static allocation. Cross-platform campaigns show higher conversion than single-platform campaigns. Media source database contains 500+ verified placements across 20+ verticals.
 
 ---
 
