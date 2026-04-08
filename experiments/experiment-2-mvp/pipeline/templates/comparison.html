@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peitho Design System — Before / After</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* ─── Reset & Tokens ─── */
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --bg:#07080A;--surface:#0E1014;--border:#1A1D24;
+    --text:#E8E9EB;--text-dim:#6B7180;--text-muted:#3D4250;
+    --indigo:#4F46E5;--cyan:#22D3EE;--red:#EF4444;--green:#22C55E;
+    --radius:10px;
+  }
+  html{font-size:16px;scroll-behavior:smooth}
+  body{
+    background:var(--bg);color:var(--text);
+    font-family:'DM Sans',sans-serif;
+    line-height:1.5;-webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  /* ─── Page Shell ─── */
+  .page{max-width:1320px;margin:0 auto;padding:60px 40px 120px}
+
+  /* ─── Header ─── */
+  .header{margin-bottom:80px;position:relative}
+  .header::after{
+    content:'';position:absolute;bottom:-40px;left:0;
+    width:100%;height:1px;
+    background:linear-gradient(90deg,var(--indigo),var(--cyan),transparent);
+    opacity:.4;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);
+    margin-bottom:16px;display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:'';width:24px;height:1px;background:var(--cyan)}
+  .page-title{
+    font-size:clamp(36px,5vw,56px);font-weight:800;
+    letter-spacing:-0.035em;line-height:1.05;
+    background:linear-gradient(135deg,#fff 40%,var(--text-dim));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    max-width:720px;
+  }
+  .page-subtitle{
+    margin-top:20px;font-size:18px;color:var(--text-dim);
+    max-width:600px;line-height:1.6;font-weight:400;
+  }
+  .brand-badge{
+    display:inline-flex;align-items:center;gap:8px;
+    margin-top:28px;padding:8px 16px;border-radius:100px;
+    background:rgba(79,70,229,.1);border:1px solid rgba(79,70,229,.25);
+    font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--indigo);
+    letter-spacing:.02em;
+  }
+  .brand-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--indigo)}
+
+  /* ─── Pair Section ─── */
+  .pair{margin-bottom:100px;position:relative}
+  .pair-header{display:flex;align-items:baseline;gap:20px;margin-bottom:32px;flex-wrap:wrap}
+  .pair-number{
+    font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;
+    color:var(--cyan);letter-spacing:.06em;
+    padding:4px 12px;border-radius:100px;border:1px solid rgba(34,211,238,.2);
+    background:rgba(34,211,238,.05);white-space:nowrap;
+  }
+  .pair-title{font-size:22px;font-weight:700;letter-spacing:-0.02em;color:#fff}
+  .pair-meta{
+    font-family:'JetBrains Mono',monospace;font-size:11px;
+    color:var(--text-muted);letter-spacing:.04em;
+  }
+
+  /* ─── Comparison Grid ─── */
+  .comparison{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+  .column{position:relative}
+  .column-label{
+    display:flex;align-items:center;gap:8px;
+    margin-bottom:14px;
+    font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;
+    letter-spacing:.08em;text-transform:uppercase;
+  }
+  .column-label.old{color:var(--text-muted)}
+  .column-label.new{color:var(--green)}
+  .column-label .tag{
+    padding:2px 8px;border-radius:4px;font-size:10px;
+  }
+  .column-label.old .tag{background:rgba(255,255,255,.05);color:var(--text-dim)}
+  .column-label.new .tag{background:rgba(34,197,94,.1);color:var(--green)}
+
+  /* ─── Ad Frame ─── */
+  .ad-frame{
+    border-radius:var(--radius);overflow:hidden;
+    border:1px solid var(--border);
+    position:relative;
+    transition:transform .25s ease,box-shadow .25s ease;
+  }
+  .ad-frame:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 40px rgba(0,0,0,.5);
+  }
+  .ad-frame.old-frame{opacity:.85}
+
+  /* ─── Generic OLD ad style (same for all) ─── */
+  .old-ad{
+    position:relative;overflow:hidden;
+    background:linear-gradient(135deg,#0a0a0a 0%,#1a1a3e 50%,#2d1b4e 100%);
+    font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;
+    display:flex;flex-direction:column;justify-content:flex-end;
+    padding:30px;
+  }
+  .old-ad .overlay{
+    position:absolute;inset:0;z-index:1;
+    background:linear-gradient(to bottom,rgba(0,0,0,.1) 0%,rgba(0,0,0,.3) 40%,rgba(0,0,0,.75) 100%);
+  }
+  .old-ad .content{position:relative;z-index:2;display:flex;flex-direction:column;gap:6px}
+  .old-ad .brand{
+    font-size:9px;font-weight:600;letter-spacing:-0.02em;
+    color:rgba(255,255,255,.6);margin-bottom:4px;
+  }
+  .old-ad .headline{
+    font-size:22px;font-weight:800;line-height:1.05;
+    letter-spacing:-0.03em;color:#fff;max-width:85%;
+  }
+  .old-ad .body{
+    font-size:10px;font-weight:400;line-height:1.4;
+    color:rgba(255,255,255,.65);max-width:75%;
+  }
+  .old-ad .cta{
+    display:inline-flex;align-items:center;gap:4px;
+    margin-top:6px;padding:7px 14px;
+    background:#0071E3;color:#fff;
+    font-size:8px;font-weight:600;border-radius:100px;width:fit-content;
+  }
+  /* Noise texture for old */
+  .old-ad::after{
+    content:'';position:absolute;inset:0;z-index:0;
+    opacity:.04;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ─── NEW: Shared text styles ─── */
+  .new-ad{
+    font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;
+    position:relative;overflow:hidden;
+  }
+  .new-ad .brand{
+    font-size:9px;font-weight:600;letter-spacing:-0.01em;
+    color:rgba(255,255,255,.7);
+  }
+  .new-ad .headline{
+    font-weight:900;line-height:1.05;letter-spacing:-0.035em;color:#fff;
+  }
+  .new-ad .body{
+    font-weight:400;line-height:1.45;color:rgba(255,255,255,.8);
+  }
+  .new-ad .cta-btn{
+    display:inline-flex;align-items:center;gap:5px;
+    padding:7px 18px;background:var(--cyan);color:#0F172A;
+    font-size:9px;font-weight:700;border-radius:100px;width:fit-content;
+    letter-spacing:-0.01em;
+  }
+  .new-ad .cta-link{
+    font-size:9px;font-weight:600;color:var(--cyan);
+    display:inline-flex;align-items:center;gap:4px;
+  }
+  .new-ad .cta-link::after{content:'\2192'}
+
+  /* ─── #1 Instagram Feed — bold-solid + bottom-stack ─── */
+  .new-ig-feed{
+    background:#4F46E5;
+    display:flex;flex-direction:column;justify-content:flex-end;
+    padding:32px;
+  }
+  /* Subtle noise grain */
+  .new-ig-feed::before{
+    content:'';position:absolute;inset:0;
+    opacity:.08;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  /* Geometric accent — large circle bleed */
+  .new-ig-feed::after{
+    content:'';position:absolute;top:-60px;right:-60px;
+    width:220px;height:220px;border-radius:50%;
+    background:rgba(34,211,238,.15);
+    z-index:0;
+  }
+  .new-ig-feed .content{position:relative;z-index:1;display:flex;flex-direction:column;gap:8px}
+  .new-ig-feed .headline{font-size:24px}
+  .new-ig-feed .body{font-size:10px;max-width:80%}
+  .new-ig-feed .brand{margin-bottom:6px}
+
+  /* ─── #2 LinkedIn — editorial-clean + split-left ─── */
+  .new-linkedin{
+    display:grid;grid-template-columns:45% 55%;
+  }
+  .new-linkedin .text-panel{
+    background:#0F172A;padding:24px;
+    display:flex;flex-direction:column;justify-content:center;gap:8px;
+    position:relative;z-index:1;
+  }
+  .new-linkedin .visual-panel{
+    background:#0F172A;position:relative;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+  }
+  /* Geometric shapes */
+  .new-linkedin .visual-panel .shape{position:absolute;border-radius:2px}
+  .new-linkedin .shape-1{
+    width:80px;height:80px;background:var(--indigo);opacity:.6;
+    top:15%;right:10%;transform:rotate(15deg);
+  }
+  .new-linkedin .shape-2{
+    width:50px;height:50px;border:2px solid var(--cyan);opacity:.4;
+    bottom:20%;right:30%;transform:rotate(-8deg);
+  }
+  .new-linkedin .shape-3{
+    width:120px;height:3px;background:var(--cyan);opacity:.3;
+    top:50%;left:10%;transform:rotate(-20deg);
+  }
+  .new-linkedin .shape-4{
+    width:30px;height:30px;border-radius:50%;
+    background:rgba(34,211,238,.15);border:1.5px solid rgba(34,211,238,.3);
+    top:30%;left:20%;
+  }
+  .new-linkedin .shape-5{
+    width:60px;height:60px;background:rgba(79,70,229,.25);
+    bottom:15%;left:15%;transform:rotate(30deg);border-radius:4px;
+  }
+  /* Grid lines bg */
+  .new-linkedin .visual-panel::before{
+    content:'';position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+    background-size:30px 30px;
+  }
+  .new-linkedin .headline{font-size:18px}
+  .new-linkedin .body{font-size:9px;color:rgba(255,255,255,.7)}
+  .new-linkedin .brand{margin-bottom:4px}
+
+  /* Logo mark in visual panel */
+  .new-linkedin .logo-mark{
+    position:relative;z-index:1;
+    font-family:'Inter',sans-serif;font-size:28px;font-weight:900;
+    letter-spacing:-0.05em;color:rgba(255,255,255,.08);
+  }
+
+  /* ─── #3 Instagram Story — 3d-abstract + center-stack ─── */
+  .new-ig-story{
+    background:linear-gradient(160deg,#1a0533 0%,#2d1b69 40%,#4F46E5 100%);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:40px 28px;
+  }
+  .new-ig-story .content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px}
+  .new-ig-story .headline{font-size:22px;max-width:95%}
+  .new-ig-story .body{font-size:10px;max-width:85%;color:rgba(255,255,255,.75)}
+  /* 3D abstract shapes */
+  .new-ig-story .orb{
+    position:absolute;border-radius:50%;z-index:0;
+    filter:blur(1px);
+  }
+  .new-ig-story .orb-1{
+    width:120px;height:120px;
+    background:radial-gradient(circle at 35% 35%,rgba(34,211,238,.5),rgba(79,70,229,.2));
+    top:8%;right:5%;
+  }
+  .new-ig-story .orb-2{
+    width:80px;height:80px;
+    background:radial-gradient(circle at 40% 40%,rgba(139,92,246,.6),rgba(34,211,238,.1));
+    bottom:12%;left:8%;
+  }
+  .new-ig-story .orb-3{
+    width:40px;height:40px;
+    background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.2),transparent);
+    top:35%;left:5%;
+  }
+  /* Ring element */
+  .new-ig-story .ring{
+    position:absolute;border-radius:50%;z-index:0;
+    border:1.5px solid rgba(34,211,238,.2);
+  }
+  .new-ig-story .ring-1{width:200px;height:200px;bottom:-30px;right:-40px}
+  .new-ig-story .ring-2{width:100px;height:100px;top:15%;left:-20px;border-color:rgba(139,92,246,.2)}
+  /* Overlay */
+  .new-ig-story::before{
+    content:'';position:absolute;inset:0;z-index:1;
+    background:linear-gradient(to bottom,rgba(0,0,0,.05) 0%,rgba(0,0,0,.4) 100%);
+  }
+  /* Swipe indicator */
+  .new-ig-story .swipe{
+    position:relative;z-index:2;margin-top:16px;
+    display:flex;flex-direction:column;align-items:center;gap:4px;
+    font-size:8px;font-weight:500;color:rgba(255,255,255,.5);
+    letter-spacing:.06em;text-transform:uppercase;
+    font-family:'JetBrains Mono',monospace;
+  }
+  .new-ig-story .swipe-chevron{
+    width:20px;height:20px;border-left:1.5px solid rgba(255,255,255,.3);
+    border-bottom:1.5px solid rgba(255,255,255,.3);
+    transform:rotate(-45deg);margin-bottom:-6px;
+  }
+
+  /* ─── #4 Google Display — dark-atmospheric + center-stack ─── */
+  .new-display{
+    background:#0a0c10;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:20px 28px;position:relative;
+  }
+  /* Subtle grid */
+  .new-display::before{
+    content:'';position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(79,70,229,.06) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(79,70,229,.06) 1px,transparent 1px);
+    background-size:24px 24px;
+  }
+  /* Moody glow */
+  .new-display::after{
+    content:'';position:absolute;
+    width:200px;height:200px;border-radius:50%;
+    background:radial-gradient(circle,rgba(79,70,229,.15),transparent 70%);
+    top:50%;left:50%;transform:translate(-50%,-50%);
+  }
+  /* Overlay */
+  .new-display .overlay{
+    position:absolute;inset:0;z-index:1;
+    background:linear-gradient(to bottom,rgba(0,0,0,.05) 0%,rgba(0,0,0,.5) 100%);
+  }
+  .new-display .content{
+    position:relative;z-index:2;
+    display:flex;flex-direction:column;align-items:center;gap:5px;
+  }
+  .new-display .headline{font-size:16px}
+  .new-display .body{font-size:8px;max-width:90%;color:rgba(255,255,255,.7)}
+  .new-display .brand{margin-bottom:2px}
+  /* Accent line */
+  .new-display .accent-line{
+    width:30px;height:2px;background:var(--cyan);
+    border-radius:1px;margin-bottom:4px;opacity:.6;
+  }
+
+  /* ─── #5 Newsletter — organic-gradient + split-left ─── */
+  .new-newsletter{
+    display:grid;grid-template-columns:50% 50%;
+  }
+  .new-newsletter .text-panel{
+    background:#0F172A;padding:16px 20px;
+    display:flex;flex-direction:column;justify-content:center;gap:6px;
+  }
+  .new-newsletter .visual-panel{
+    position:relative;overflow:hidden;
+    background:linear-gradient(135deg,#4F46E5 0%,#22D3EE 60%,#a78bfa 100%);
+  }
+  /* Organic curve shapes */
+  .new-newsletter .visual-panel::before{
+    content:'';position:absolute;
+    width:160px;height:160px;border-radius:50%;
+    background:rgba(255,255,255,.08);
+    top:-30px;right:-20px;
+  }
+  .new-newsletter .visual-panel::after{
+    content:'';position:absolute;
+    width:100px;height:100px;border-radius:50%;
+    background:rgba(255,255,255,.06);
+    bottom:-20px;left:10px;
+  }
+  .new-newsletter .wave{
+    position:absolute;bottom:0;left:0;right:0;height:50%;
+    background:linear-gradient(to top,rgba(15,23,42,.2),transparent);
+  }
+  .new-newsletter .headline{font-size:14px}
+  .new-newsletter .body{font-size:8px;color:rgba(255,255,255,.7)}
+
+  /* ─── Annotations ─── */
+  .annotations{
+    display:flex;gap:12px;margin-top:16px;flex-wrap:wrap;
+  }
+  .annotation{
+    font-family:'JetBrains Mono',monospace;font-size:10px;
+    color:var(--text-muted);
+    padding:4px 10px;border-radius:4px;
+    background:rgba(255,255,255,.03);border:1px solid var(--border);
+    display:flex;align-items:center;gap:6px;
+  }
+  .annotation .dot{
+    width:5px;height:5px;border-radius:50%;flex-shrink:0;
+  }
+  .annotation .dot.preset{background:var(--indigo)}
+  .annotation .dot.layout{background:var(--cyan)}
+  .annotation .dot.overlay{background:var(--green)}
+
+  /* ─── Verdict Bar ─── */
+  .verdict{
+    margin-top:20px;padding:14px 20px;
+    border-radius:var(--radius);
+    background:rgba(34,197,94,.04);border:1px solid rgba(34,197,94,.12);
+    font-size:13px;color:var(--text-dim);line-height:1.5;
+  }
+  .verdict strong{color:var(--green);font-weight:600}
+
+  /* ─── Footer ─── */
+  .footer{
+    margin-top:40px;padding-top:40px;
+    border-top:1px solid var(--border);
+    font-family:'JetBrains Mono',monospace;font-size:11px;
+    color:var(--text-muted);letter-spacing:.02em;
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .footer-links{display:flex;gap:20px}
+  .footer-links a{color:var(--indigo);text-decoration:none}
+
+  @media(max-width:860px){
+    .comparison{grid-template-columns:1fr;gap:32px}
+    .page{padding:32px 20px 80px}
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ── Header ── -->
+  <header class="header">
+    <div class="eyebrow">Peitho Design System</div>
+    <h1 class="page-title">Before &amp; After</h1>
+    <p class="page-subtitle">Same brand. Same copy. Same platform. The only difference is the design system rules &mdash; layout selection, background presets, overlay strategy, and typography discipline.</p>
+    <div class="brand-badge"><span class="dot"></span> Arcline &mdash; AI Code Assistant</div>
+  </header>
+
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- PAIR 1: Instagram Feed -->
+  <!-- ════════════════════════════════════════════ -->
+  <section class="pair">
+    <div class="pair-header">
+      <span class="pair-number">01</span>
+      <h2 class="pair-title">Instagram Feed</h2>
+      <span class="pair-meta">1080 &times; 1080 &rarr; scaled</span>
+    </div>
+    <div class="comparison">
+      <!-- OLD -->
+      <div class="column">
+        <div class="column-label old"><span class="tag">Current</span> Without Design System</div>
+        <div class="ad-frame old-frame">
+          <div class="old-ad" style="width:100%;aspect-ratio:1/1;">
+            <div class="overlay"></div>
+            <div class="content">
+              <div class="brand">Arcline</div>
+              <div class="headline">Ship backend code 10x faster with AI</div>
+              <div class="body">Arcline understands your codebase, writes production-ready code, and catches bugs before they reach prod.</div>
+              <div class="cta">Try Arcline Free</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- NEW -->
+      <div class="column">
+        <div class="column-label new"><span class="tag">New</span> With Design System</div>
+        <div class="ad-frame">
+          <div class="new-ad new-ig-feed" style="width:100%;aspect-ratio:1/1;">
+            <div class="content">
+              <div class="brand">Arcline</div>
+              <div class="headline">Ship backend code 10x faster with AI</div>
+              <div class="body">Arcline understands your codebase, writes production-ready code, and catches bugs before they reach prod.</div>
+              <div class="cta-btn">Try Arcline Free</div>
+            </div>
+          </div>
+        </div>
+        <div class="annotations">
+          <span class="annotation"><span class="dot preset"></span>bold-solid</span>
+          <span class="annotation"><span class="dot layout"></span>bottom-stack</span>
+          <span class="annotation"><span class="dot overlay"></span>no overlay</span>
+        </div>
+      </div>
+    </div>
+    <div class="verdict"><strong>Impact:</strong> Bold solid background with clear color discipline. No muddy gradient. The indigo commands attention in-feed. Geometric accent adds depth without competing with text. Zero overlay needed &mdash; the background IS the design.</div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- PAIR 2: LinkedIn -->
+  <!-- ════════════════════════════════════════════ -->
+  <section class="pair">
+    <div class="pair-header">
+      <span class="pair-number">02</span>
+      <h2 class="pair-title">LinkedIn</h2>
+      <span class="pair-meta">1200 &times; 627 &rarr; scaled</span>
+    </div>
+    <div class="comparison">
+      <!-- OLD -->
+      <div class="column">
+        <div class="column-label old"><span class="tag">Current</span> Without Design System</div>
+        <div class="ad-frame old-frame">
+          <div class="old-ad" style="width:100%;aspect-ratio:1200/627;">
+            <div class="overlay"></div>
+            <div class="content">
+              <div class="brand">Arcline</div>
+              <div class="headline">Your senior engineers shouldn't debug junior code</div>
+              <div class="body">Arcline reviews every PR with the rigor of a staff engineer. Real-time suggestions, not post-merge complaints.</div>
+              <div class="cta">Request Demo</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- NEW -->
+      <div class="column">
+        <div class="column-label new"><span class="tag">New</span> With Design System</div>
+        <div class="ad-frame">
+          <div class="new-ad new-linkedin" style="width:100%;aspect-ratio:1200/627;">
+            <div class="text-panel">
+              <div class="brand">Arcline</div>
+              <div class="headline">Your senior engineers shouldn't debug junior code</div>
+              <div class="body">Arcline reviews every PR with the rigor of a staff engineer. Real-time suggestions, not post-merge complaints.</div>
+              <div class="cta-btn">Request Demo</div>
+            </div>
+            <div class="visual-panel">
+              <div class="shape shape-1"></div>
+              <div class="shape shape-2"></div>
+              <div class="shape shape-3"></div>
+              <div class="shape shape-4"></div>
+              <div class="shape shape-5"></div>
+              <span class="logo-mark">A.</span>
+            </div>
+          </div>
+        </div>
+        <div class="annotations">
+          <span class="annotation"><span class="dot preset"></span>editorial-clean</span>
+          <span class="annotation"><span class="dot layout"></span>split-left</span>
+          <span class="annotation"><span class="dot overlay"></span>no overlay (solid panel)</span>
+        </div>
+      </div>
+    </div>
+    <div class="verdict"><strong>Impact:</strong> Split layout gives text its own space &mdash; no overlay needed. The visual panel adds brand character through geometry rather than fighting the copy for attention. Text is perfectly readable on the solid dark panel. Feels editorial, not ad-like.</div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- PAIR 3: Instagram Story -->
+  <!-- ════════════════════════════════════════════ -->
+  <section class="pair">
+    <div class="pair-header">
+      <span class="pair-number">03</span>
+      <h2 class="pair-title">Instagram Story</h2>
+      <span class="pair-meta">1080 &times; 1920 &rarr; scaled</span>
+    </div>
+    <div class="comparison">
+      <!-- OLD -->
+      <div class="column">
+        <div class="column-label old"><span class="tag">Current</span> Without Design System</div>
+        <div class="ad-frame old-frame">
+          <div class="old-ad" style="width:100%;aspect-ratio:1080/1920;">
+            <div class="overlay"></div>
+            <div class="content">
+              <div class="brand">Arcline</div>
+              <div class="headline" style="font-size:20px">Stop writing boilerplate. Start shipping.</div>
+              <div class="body">AI that writes the boring parts so you can focus on architecture.</div>
+              <div class="cta">Swipe Up</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- NEW -->
+      <div class="column">
+        <div class="column-label new"><span class="tag">New</span> With Design System</div>
+        <div class="ad-frame">
+          <div class="new-ad new-ig-story" style="width:100%;aspect-ratio:1080/1920;">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+            <div class="ring ring-1"></div>
+            <div class="ring ring-2"></div>
+            <div class="content">
+              <div class="brand">Arcline</div>
+              <div class="headline">Stop writing boilerplate. Start shipping.</div>
+              <div class="body">AI that writes the boring parts so you can focus on architecture.</div>
+            </div>
+            <div class="swipe">
+              <div class="swipe-chevron"></div>
+              Swipe up
+            </div>
+          </div>
+        </div>
+        <div class="annotations">
+          <span class="annotation"><span class="dot preset"></span>3d-abstract</span>
+          <span class="annotation"><span class="dot layout"></span>center-stack</span>
+          <span class="annotation"><span class="dot overlay"></span>light gradient</span>
+        </div>
+      </div>
+    </div>
+    <div class="verdict"><strong>Impact:</strong> Centered layout is purpose-built for stories &mdash; thumb-zone aware. 3D orbs and rings push visual interest to edges while keeping the center clear for copy. The gradient is rich but disciplined (purple &rarr; indigo only). Swipe indicator is native to the format.</div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- PAIR 4: Google Display -->
+  <!-- ════════════════════════════════════════════ -->
+  <section class="pair">
+    <div class="pair-header">
+      <span class="pair-number">04</span>
+      <h2 class="pair-title">Google Display</h2>
+      <span class="pair-meta">1200 &times; 628 &rarr; scaled</span>
+    </div>
+    <div class="comparison">
+      <!-- OLD -->
+      <div class="column">
+        <div class="column-label old"><span class="tag">Current</span> Without Design System</div>
+        <div class="ad-frame old-frame">
+          <div class="old-ad" style="width:100%;aspect-ratio:1200/628;">
+            <div class="overlay"></div>
+            <div class="content">
+              <div class="brand">Arcline</div>
+              <div class="headline">Code review at machine speed</div>
+              <div class="body">Catch bugs, enforce patterns, and ship faster. Trusted by 2,000+ engineering teams.</div>
+              <div class="cta">Start Free Trial</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- NEW -->
+      <div class="column">
+        <div class="column-label new"><span class="tag">New</span> With Design System</div>
+        <div class="ad-frame">
+          <div class="new-ad new-display" style="width:100%;aspect-ratio:1200/628;">
+            <div class="overlay"></div>
+            <div class="content">
+              <div class="brand">Arcline</div>
+              <div class="accent-line"></div>
+              <div class="headline">Code review at machine speed</div>
+              <div class="body">Catch bugs, enforce patterns, and ship faster. Trusted by 2,000+ engineering teams.</div>
+              <div class="cta-btn">Start Free Trial</div>
+            </div>
+          </div>
+        </div>
+        <div class="annotations">
+          <span class="annotation"><span class="dot preset"></span>dark-atmospheric</span>
+          <span class="annotation"><span class="dot layout"></span>center-stack</span>
+          <span class="annotation"><span class="dot overlay"></span>standard</span>
+        </div>
+      </div>
+    </div>
+    <div class="verdict"><strong>Impact:</strong> Dark atmospheric with a moody grid and subtle indigo glow creates depth without clutter. Centered layout maximizes small format impact. The cyan accent line adds a focal anchor above the headline. Everything is tightly controlled &mdash; no wasted pixels.</div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- PAIR 5: Newsletter -->
+  <!-- ════════════════════════════════════════════ -->
+  <section class="pair">
+    <div class="pair-header">
+      <span class="pair-number">05</span>
+      <h2 class="pair-title">Newsletter</h2>
+      <span class="pair-meta">600 &times; 300 &rarr; scaled</span>
+    </div>
+    <div class="comparison">
+      <!-- OLD -->
+      <div class="column">
+        <div class="column-label old"><span class="tag">Current</span> Without Design System</div>
+        <div class="ad-frame old-frame">
+          <div class="old-ad" style="width:100%;aspect-ratio:600/300;">
+            <div class="overlay"></div>
+            <div class="content">
+              <div class="brand">Arcline</div>
+              <div class="headline" style="font-size:16px">The AI pair programmer that actually understands Go</div>
+              <div class="body" style="font-size:8px">Built for backend engineers. Not another autocomplete.</div>
+              <div class="cta" style="padding:5px 10px;font-size:7px">Learn More</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- NEW -->
+      <div class="column">
+        <div class="column-label new"><span class="tag">New</span> With Design System</div>
+        <div class="ad-frame">
+          <div class="new-ad new-newsletter" style="width:100%;aspect-ratio:600/300;">
+            <div class="text-panel">
+              <div class="brand">Arcline</div>
+              <div class="headline">The AI pair programmer that actually understands Go</div>
+              <div class="body">Built for backend engineers. Not another autocomplete.</div>
+              <div class="cta-link">Learn More</div>
+            </div>
+            <div class="visual-panel">
+              <div class="wave"></div>
+            </div>
+          </div>
+        </div>
+        <div class="annotations">
+          <span class="annotation"><span class="dot preset"></span>organic-gradient</span>
+          <span class="annotation"><span class="dot layout"></span>split-left</span>
+          <span class="annotation"><span class="dot overlay"></span>no overlay (solid panel)</span>
+        </div>
+      </div>
+    </div>
+    <div class="verdict"><strong>Impact:</strong> Split layout naturally matches email contexts &mdash; text reads like editorial content on the left. The organic gradient visual adds brand personality without competing. Text-link CTA blends with newsletter conventions instead of screaming "ad." Compact but not cramped.</div>
+  </section>
+
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <span>Peitho Pipeline &mdash; Design System Comparison</span>
+    <div class="footer-links">
+      <span>templates/DESIGN_SYSTEM.md</span>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

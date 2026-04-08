@@ -1,0 +1,11 @@
+{
+  "name": "peitho-pipeline",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Peitho end-to-end ad generation pipeline",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "@google/generative-ai": "^0.24.0",
+    "puppeteer": "^24.0.0"
+  }
+}

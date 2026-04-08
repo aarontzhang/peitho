@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Spotify — Design System Comparison</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#07080A;--border:#1A1D24;--dim:#6B7180;--muted:#3D4250;--green:#1DB954}
+body{background:var(--bg);color:#E8E9EB;font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased}
+.page{max-width:1400px;margin:0 auto;padding:60px 40px 120px}
+.header{margin-bottom:72px}
+.header::after{content:'';display:block;margin-top:36px;height:1px;background:linear-gradient(90deg,var(--green),transparent 70%);opacity:.3}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:'';width:24px;height:1px;background:var(--green)}
+.page-title{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.035em;line-height:1.05;color:#fff}
+.page-subtitle{margin-top:16px;font-size:17px;color:var(--dim);max-width:660px;line-height:1.6}
+.brand-badge{display:inline-flex;align-items:center;gap:8px;margin-top:22px;padding:6px 14px;border-radius:100px;background:rgba(29,185,84,.08);border:1px solid rgba(29,185,84,.2);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--green)}
+.brand-badge .bdot{width:6px;height:6px;border-radius:50%;background:var(--green)}
+.pair{margin-bottom:88px}
+.pair-header{display:flex;align-items:baseline;gap:16px;margin-bottom:28px;flex-wrap:wrap}
+.pair-number{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;color:var(--green);padding:3px 10px;border-radius:100px;border:1px solid rgba(29,185,84,.2);background:rgba(29,185,84,.05)}
+.pair-title{font-size:20px;font-weight:700;letter-spacing:-.02em;color:#fff}
+.pair-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)}
+.comparison{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.column-label{display:flex;align-items:center;gap:8px;margin-bottom:12px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
+.column-label.old{color:var(--muted)}
+.column-label.new{color:#22C55E}
+.tag{padding:2px 8px;border-radius:4px;font-size:10px}
+.column-label.old .tag{background:rgba(255,255,255,.05);color:var(--dim)}
+.column-label.new .tag{background:rgba(34,197,94,.1);color:#22C55E}
+.ad-frame{border-radius:8px;overflow:hidden;border:1px solid var(--border);transition:transform .2s,box-shadow .2s}
+.ad-frame:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.5)}
+.annotations{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.annotation{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);padding:3px 10px;border-radius:4px;background:rgba(255,255,255,.03);border:1px solid var(--border);display:flex;align-items:center;gap:6px}
+.dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.dot.preset{background:var(--green)}
+.dot.layout{background:#22D3EE}
+.dot.overlay{background:#22C55E}
+.footer{margin-top:40px;padding-top:40px;border-top:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);display:flex;justify-content:space-between}
+@media(max-width:900px){.comparison{grid-template-columns:1fr}.page{padding:28px 20px 80px}}
+</style></head><body>
+<div class="page">
+  <header class="header">
+    <div class="eyebrow">Peitho Design System</div>
+    <h1 class="page-title">Background + Asset Comparison</h1>
+    <p class="page-subtitle">Same brand (Spotify). Gemini-generated backgrounds with logo and brand assets composited on top. Wireframe bars show where text would be placed. Left: generic pipeline. Right: design system rules.</p>
+    <div class="brand-badge"><span class="bdot"></span>Spotify</div>
+  </header>
+  
+  <section class="pair">
+    <div class="pair-header">
+      <span class="pair-number">01</span>
+      <h2 class="pair-title">Instagram Feed</h2>
+      <span class="pair-meta">1080 &times; 1080</span>
+    </div>
+    <div class="comparison">
+      <div class="column">
+        <div class="column-label old"><span class="tag">Current</span> Generic Pipeline</div>
+        <div class="ad-frame">
+          <img src="comp-old-ig-feed.png" style="width:100%;display:block;border-radius:8px;">
+        </div>
+      </div>
+      <div class="column">
+        <div class="column-label new"><span class="tag">New</span> Design System</div>
+        <div class="ad-frame">
+          <img src="comp-new-ig-feed.png" style="width:100%;display:block;border-radius:8px;">
+        </div>
+        <div class="annotations">
+          <span class="annotation"><span class="dot preset"></span>bold-solid</span>
+          <span class="annotation"><span class="dot layout"></span>bottom-stack</span>
+          <span class="annotation"><span class="dot overlay"></span>no overlay</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="pair">
+    <div class="pair-header">
+      <span class="pair-number">02</span>
+      <h2 class="pair-title">LinkedIn</h2>
+      <span class="pair-meta">1200 &times; 627</span>
+    </div>
+    <div class="comparison">
+      <div class="column">
+        <div class="column-label old"><span class="tag">Current</span> Generic Pipeline</div>
+        <div class="ad-frame">
+          <img src="comp-old-linkedin.png" style="width:100%;display:block;border-radius:8px;">
+        </div>
+      </div>
+      <div class="column">
+        <div class="column-label new"><span class="tag">New</span> Design System</div>
+        <div class="ad-frame">
+          <img src="comp-new-linkedin.png" style="width:100%;display:block;border-radius:8px;">
+        </div>
+        <div class="annotations">
+          <span class="annotation"><span class="dot preset"></span>editorial-clean</span>
+          <span class="annotation"><span class="dot layout"></span>split-left</span>
+          <span class="annotation"><span class="dot overlay"></span>no overlay (solid panel)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="pair">
+    <div class="pair-header">
+      <span class="pair-number">03</span>
+      <h2 class="pair-title">Instagram Story</h2>
+      <span class="pair-meta">1080 &times; 1920</span>
+    </div>
+    <div class="comparison">
+      <div class="column">
+        <div class="column-label old"><span class="tag">Current</span> Generic Pipeline</div>
+        <div class="ad-frame">
+          <img src="comp-old-ig-story.png" style="width:100%;display:block;border-radius:8px;">
+        </div>
+      </div>
+      <div class="column">
+        <div class="column-label new"><span class="tag">New</span> Design System</div>
+        <div class="ad-frame">
+          <img src="comp-new-ig-story.png" style="width:100%;display:block;border-radius:8px;">
+        </div>
+        <div class="annotations">
+          <span class="annotation"><span class="dot preset"></span>3d-abstract</span>
+          <span class="annotation"><span class="dot layout"></span>center-stack</span>
+          <span class="annotation"><span class="dot overlay"></span>light 3%→35%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="pair">
+    <div class="pair-header">
+      <span class="pair-number">04</span>
+      <h2 class="pair-title">Google Display</h2>
+      <span class="pair-meta">1200 &times; 628</span>
+    </div>
+    <div class="comparison">
+      <div class="column">
+        <div class="column-label old"><span class="tag">Current</span> Generic Pipeline</div>
+        <div class="ad-frame">
+          <img src="comp-old-display.png" style="width:100%;display:block;border-radius:8px;">
+        </div>
+      </div>
+      <div class="column">
+        <div class="column-label new"><span class="tag">New</span> Design System</div>
+        <div class="ad-frame">
+          <img src="comp-new-display.png" style="width:100%;display:block;border-radius:8px;">
+        </div>
+        <div class="annotations">
+          <span class="annotation"><span class="dot preset"></span>dark-atmospheric</span>
+          <span class="annotation"><span class="dot layout"></span>center-stack</span>
+          <span class="annotation"><span class="dot overlay"></span>standard 5%→45%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="pair">
+    <div class="pair-header">
+      <span class="pair-number">05</span>
+      <h2 class="pair-title">Newsletter</h2>
+      <span class="pair-meta">600 &times; 300</span>
+    </div>
+    <div class="comparison">
+      <div class="column">
+        <div class="column-label old"><span class="tag">Current</span> Generic Pipeline</div>
+        <div class="ad-frame">
+          <img src="comp-old-newsletter.png" style="width:100%;display:block;border-radius:8px;">
+        </div>
+      </div>
+      <div class="column">
+        <div class="column-label new"><span class="tag">New</span> Design System</div>
+        <div class="ad-frame">
+          <img src="comp-new-newsletter.png" style="width:100%;display:block;border-radius:8px;">
+        </div>
+        <div class="annotations">
+          <span class="annotation"><span class="dot preset"></span>organic-gradient</span>
+          <span class="annotation"><span class="dot layout"></span>split-left</span>
+          <span class="annotation"><span class="dot overlay"></span>no overlay (solid panel)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <span>Peitho Pipeline &mdash; Nano Banana (gemini-2.5-flash-image)</span>
+    <span>Backgrounds + asset compositing via Puppeteer</span>
+  </footer>
+</div>
+</body></html>

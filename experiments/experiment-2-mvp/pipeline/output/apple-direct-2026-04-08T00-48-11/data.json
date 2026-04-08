@@ -1,0 +1,377 @@
+[
+  {
+    "persona": {
+      "id": "creative-director",
+      "role": "Creative Director at a 50-person ad/design agency",
+      "segment": "Mac-native creative professional, 12+ years in the industry, manages a team of 8 designers and copywriters. Uses Adobe Creative Suite, Figma, and Final Cut daily. Agency bills $200-400/hr.",
+      "companyStage": "established-agency",
+      "cognition": {
+        "informationProcessing": "craft-first",
+        "proofHierarchy": [
+          "real-creative-output-quality-not-demo-cherry-picks",
+          "peer-creative-professional-endorsement",
+          "workflow-integration-proof-does-it-fit-how-i-already-work",
+          "named-agency-or-brand-adoption-case-study",
+          "control-and-editability-not-black-box-generation"
+        ],
+        "riskOrientation": "quality-protecting"
+      },
+      "objections": {
+        "surface": [
+          "AI image generation looks obviously AI — my clients would never approve it",
+          "We already have workflows that work — adding AI tools means retraining the team",
+          "I tried Midjourney and it's impressive but I can't control it precisely enough"
+        ],
+        "real": [
+          "If AI can do what my team does, what's my agency worth? Am I training my own replacement?",
+          "My clients are already asking 'why can't AI just do this?' and using it to negotiate down our rates",
+          "I'm terrified that junior designers will use AI as a crutch and never develop real craft — and I'll be managing output I can't actually evaluate",
+          "What if the industry decides AI-generated work is 'good enough' and the craft I've spent 15 years building becomes irrelevant?"
+        ]
+      },
+      "antiPatterns": [
+        "Positioning AI as replacing creative professionals — existential threat framing is instant rejection",
+        "Showing AI-generated art/copy as a finished product — they see every flaw and it confirms their skepticism",
+        "'10x your creative output' efficiency framing — implies their current work is slow, not thoughtful",
+        "Comparing AI output to human output as if they're equivalent — offensive to someone who's dedicated their career to craft",
+        "Silicon Valley techno-optimism tone ('the future of creativity!') — reads as naive and disconnected from how creative work actually happens",
+        "Feature spec lists — they don't care about model parameters or technical capabilities"
+      ],
+      "communication": {
+        "preferredFormat": "show-real-workflow-integration-not-feature-demo",
+        "socialProofType": "named-creative-professional-or-agency-endorsement",
+        "attentionWindow": "3-seconds-then-tries-it-themselves-if-output-quality-passes-sniff-test"
+      }
+    },
+    "personaId": "creative-director",
+    "platforms": [
+      {
+        "platformKey": "trade_publication",
+        "platformName": "Communication Arts",
+        "ad": {
+          "copy": "The writing tool that helps you find the words, not replace your thinking. Apple Intelligence Writing Tools work like a good copy editor — catching what you missed, suggesting what you meant. Your voice stays yours.",
+          "visualConcept": "Split screen showing a Creative Director's hand writing notes on paper next to a Mac screen with Apple Intelligence refining copy in real-time. The human handwriting remains prominent and central to the composition."
+        },
+        "bgImagePath": "/Users/aaronzhang/Desktop/Peitho/mvp/pipeline/output/apple-direct-2026-04-08T00-48-11/ads/creative-director-trade_publication-bg.png"
+      },
+      {
+        "platformKey": "slack_discord",
+        "platformName": "Designer Hangout Slack",
+        "ad": {
+          "copy": "Clean Up removes tourists from your location shots without the masking headache. One tap, surgical precision. Your concept work just got faster.",
+          "visualConcept": "Before/after comparison of a street photography shot used in a mood board — the 'before' shows distracting people in the background, the 'after' shows clean architectural lines. Both images are pinned to a physical mood board with other reference materials."
+        },
+        "adImagePath": null
+      },
+      {
+        "platformKey": "linkedin",
+        "platformName": "LinkedIn",
+        "ad": {
+          "copy": "When your client changes the brief at 5 PM, notification summaries show you what actually matters. Apple Intelligence reads through 47 emails and tells you the three things that affect tomorrow's presentation.",
+          "visualConcept": "A clean, organized Creative Director's desk at golden hour with an iPhone showing a concise notification summary overlaying a cluttered email inbox on a Mac screen in the background."
+        },
+        "bgImagePath": "/Users/aaronzhang/Desktop/Peitho/mvp/pipeline/output/apple-direct-2026-04-08T00-48-11/ads/creative-director-linkedin-bg.png"
+      }
+    ]
+  },
+  {
+    "persona": {
+      "id": "enterprise-it-lead",
+      "role": "IT Director / Head of End-User Computing",
+      "segment": "Manages 2,000+ Apple devices (Mac, iPhone, iPad) at a Fortune 1000 company. Reports to CIO. Responsible for MDM, security policy, and device lifecycle. $2M+ annual Apple spend.",
+      "companyStage": "enterprise",
+      "cognition": {
+        "informationProcessing": "security-and-compliance-first",
+        "proofHierarchy": [
+          "apple-platform-security-documentation-and-architecture-whitepapers",
+          "mdm-controllability-can-i-enable-disable-configure-per-policy",
+          "private-cloud-compute-audit-trail-and-third-party-verification",
+          "enterprise-peer-deployment-case-study-at-similar-scale",
+          "compliance-framework-mapping-soc2-hipaa-fedramp"
+        ],
+        "riskOrientation": "breach-prevention-above-all"
+      },
+      "objections": {
+        "surface": [
+          "We need to evaluate the data handling before enabling any AI features fleet-wide",
+          "Our security team hasn't completed the risk assessment for Apple Intelligence yet",
+          "We can't have different AI capabilities across device models — creates support complexity"
+        ],
+        "real": [
+          "If Apple Intelligence sends proprietary data to the cloud and we have a breach, I'm the one in the incident report — not Apple",
+          "My CIO is asking me to 'enable the AI stuff' because the CEO saw a demo, but I have no way to scope the risk yet",
+          "I don't actually understand what Private Cloud Compute does architecturally — and I can't approve what I don't understand",
+          "Half our fleet is older devices that don't support Apple Intelligence — enabling it creates a two-tier experience that doubles my support burden"
+        ]
+      },
+      "antiPatterns": [
+        "Consumer marketing language ('magical', 'delightful') — this is a procurement and security decision",
+        "Feature announcements without MDM configuration details — if I can't control it, it's a threat",
+        "Glossing over the cloud component — 'on-device' is great but Private Cloud Compute IS cloud, and I need the architecture details",
+        "Positioning AI as a productivity boost without addressing data handling — I don't care about productivity if it's a compliance risk",
+        "Assuming IT wants to enable everything — our default posture is deny-until-evaluated",
+        "Ignoring the device fragmentation problem (older devices can't run Apple Intelligence)"
+      ],
+      "communication": {
+        "preferredFormat": "technical-security-whitepaper-with-mdm-configuration-guide",
+        "socialProofType": "enterprise-it-peer-at-comparable-scale-regulated-industry",
+        "attentionWindow": "5-seconds-then-downloads-security-whitepaper-if-architecture-detail-present"
+      }
+    },
+    "personaId": "enterprise-it-lead",
+    "platforms": [
+      {
+        "platformKey": "linkedin",
+        "platformName": "LinkedIn",
+        "ad": {
+          "copy": "Private Cloud Compute doesn't store your data. Cryptographic attestation verifies server software matches Apple's published code. Your security team can audit the architecture. Download the technical overview.",
+          "visualConcept": "Clean diagram showing data flow from enterprise devices through verified compute nodes back to devices, with cryptographic verification symbols. Professional blue and gray color scheme with Apple security certification badges."
+        },
+        "bgImagePath": "/Users/aaronzhang/Desktop/Peitho/mvp/pipeline/output/apple-direct-2026-04-08T00-48-11/ads/enterprise-it-lead-linkedin-bg.png"
+      },
+      {
+        "platformKey": "trade_publication",
+        "platformName": "CSO Magazine",
+        "ad": {
+          "copy": "Apple Intelligence MDM policies let you disable features by classification: writing tools only, no image generation, or complete opt-out by department. Granular controls for mixed compliance environments.",
+          "visualConcept": "Split-screen showing MDM admin console with Apple Intelligence policy toggles on left, and organizational chart with different access levels highlighted on right. Enterprise software interface aesthetic."
+        },
+        "bgImagePath": "/Users/aaronzhang/Desktop/Peitho/mvp/pipeline/output/apple-direct-2026-04-08T00-48-11/ads/enterprise-it-lead-trade_publication-bg.png"
+      },
+      {
+        "platformKey": "hackernews",
+        "platformName": "Hacker News",
+        "ad": {
+          "copy": "Apple's Private Cloud Compute architecture whitepaper is worth reading. Stateless compute, no persistent storage, third-party audited. Different approach than everyone else.",
+          "visualConcept": "Technical architecture diagram showing secure enclave integration with cloud compute nodes. Minimal design with detailed system components and security boundaries clearly marked."
+        },
+        "adImagePath": null
+      }
+    ]
+  },
+  {
+    "persona": {
+      "id": "college-student",
+      "role": "College Junior — CS and Graphic Design double major",
+      "segment": "21 years old, state university, has a MacBook Air (M2) and iPhone 15. Uses AI daily (ChatGPT, Copilot, Midjourney). Part-time freelance design work. Student budget — every dollar is considered.",
+      "companyStage": "n/a-individual-student",
+      "cognition": {
+        "informationProcessing": "comparison-first",
+        "proofHierarchy": [
+          "head-to-head-comparison-with-chatgpt-and-gemini-on-real-tasks",
+          "youtube-creator-deep-dive-not-brand-sponsored",
+          "reddit-and-peer-community-consensus",
+          "speed-and-convenience-in-actual-student-workflow",
+          "free-or-included-with-device-no-additional-subscription"
+        ],
+        "riskOrientation": "fomo-driven-but-budget-constrained"
+      },
+      "objections": {
+        "surface": [
+          "ChatGPT is way better — Apple Intelligence feels like a toy version",
+          "I already have tools that do this — why would I switch to Apple's version?",
+          "Apple is so far behind on AI — Google and OpenAI are years ahead"
+        ],
+        "real": [
+          "I kind of want Apple Intelligence to be good because I already have the devices — but I don't want to be stuck with a worse tool just because it's convenient",
+          "If I use Apple Intelligence for schoolwork and it's not as good as ChatGPT, I'm at a disadvantage compared to classmates",
+          "I'm worried the AI features are just another way Apple locks me into their ecosystem without actually being the best option",
+          "Honestly, I haven't really tried most Apple Intelligence features because the initial reviews were mid — maybe I should actually test them?"
+        ]
+      },
+      "antiPatterns": [
+        "Corporate/professional tone — they're 21, not a VP. Speak like a peer, not a parent.",
+        "Claiming Apple Intelligence is 'the best AI' — they use ChatGPT daily and will call BS immediately",
+        "Privacy messaging as the lead — they care about privacy abstractly but it's not their buying trigger at 21",
+        "Long-form content or whitepapers — their attention span for marketing is 1-2 seconds",
+        "Ignoring the comparison to ChatGPT/Gemini — pretending competitors don't exist is delusional to this audience",
+        "'Premium' or aspirational luxury positioning — they're on a student budget and allergic to being marketed to"
+      ],
+      "communication": {
+        "preferredFormat": "short-form-video-or-visual-comparison-showing-real-use-cases",
+        "socialProofType": "youtube-creator-or-peer-student-endorsement",
+        "attentionWindow": "1-2-seconds-then-watches-full-video-if-comparison-hook-is-genuine"
+      }
+    },
+    "personaId": "college-student",
+    "platforms": [
+      {
+        "platformKey": "youtube_shorts",
+        "platformName": "YouTube Shorts",
+        "ad": {
+          "copy": "ChatGPT vs Apple Intelligence writing my CS assignment — same prompt, side by side. One charges me $20/month and stores my data forever. The other is already on my MacBook.",
+          "visualConcept": "Split-screen screen recording showing identical prompts being entered into ChatGPT and Apple Intelligence writing tools simultaneously, with real assignment text being generated. Clean, minimal setup with visible MacBook keyboard typing."
+        },
+        "bgImagePath": "/Users/aaronzhang/Desktop/Peitho/mvp/pipeline/output/apple-direct-2026-04-08T00-48-11/ads/college-student-youtube_shorts-bg.png"
+      },
+      {
+        "platformKey": "reddit",
+        "platformName": "Reddit",
+        "ad": {
+          "copy": "Been using Apple Intelligence for actual coursework instead of just playing around. Clean Up saved me 3 hours on portfolio photos and the writing tools don't sound like obvious AI. Still keeping ChatGPT but honestly using this more.",
+          "visualConcept": "Screenshot compilation showing before/after portfolio photos with Clean Up, plus examples of writing tool suggestions on actual student papers with realistic edits and improvements."
+        },
+        "bgImagePath": "/Users/aaronzhang/Desktop/Peitho/mvp/pipeline/output/apple-direct-2026-04-08T00-48-11/ads/college-student-reddit-bg.png"
+      },
+      {
+        "platformKey": "slack_discord",
+        "platformName": "Discord",
+        "ad": {
+          "copy": "ok who else discovered notification summaries actually make group projects bearable? Instead of reading 47 messages about meeting times I get 'Meeting moved to Thursday 3pm, Sarah bringing snacks.'",
+          "visualConcept": "Discord screenshot showing a chaotic group project channel with dozens of messages, next to an iPhone notification summary that cleanly distills the important info into one readable sentence."
+        },
+        "adImagePath": null
+      }
+    ]
+  },
+  {
+    "persona": {
+      "id": "small-biz-owner",
+      "role": "Owner of a boutique e-commerce brand (handmade jewelry)",
+      "segment": "Solo operator, runs everything — product photography on iPhone, social media, customer service, bookkeeping. Revenue $80K-$150K/year. Uses iPhone 15 Pro and MacBook Air. Not technical — learned Shopify and Canva by trial and error. Time is the scarcest resource.",
+      "companyStage": "small-business",
+      "cognition": {
+        "informationProcessing": "problem-solution-first",
+        "proofHierarchy": [
+          "before-and-after-demonstration-on-actual-small-business-task",
+          "other-small-business-owner-testimonial-similar-scale",
+          "time-saved-on-specific-task-not-abstract-productivity",
+          "no-learning-curve-it-just-works-in-existing-workflow",
+          "free-and-already-on-my-device-no-new-app-or-subscription"
+        ],
+        "riskOrientation": "time-protecting"
+      },
+      "objections": {
+        "surface": [
+          "I don't have time to learn another tool — I'm already stretched thin",
+          "AI stuff seems complicated — I'm not technical",
+          "I tried ChatGPT for product descriptions once and it sounded generic"
+        ],
+        "real": [
+          "What if I become dependent on AI for my product descriptions and it makes everything sound the same as every other Etsy shop?",
+          "I'm embarrassed that I don't really understand what 'AI' means in practical terms — every tech company uses the word differently",
+          "I need help with the boring stuff (emails, photo editing, social captions) but I'm afraid AI will make my brand feel less personal and handmade",
+          "Honestly, I probably already have these features on my phone and just haven't noticed or tried them"
+        ]
+      },
+      "antiPatterns": [
+        "Technical jargon (LLM, on-device processing, neural engine) — meaningless and intimidating",
+        "Feature lists — she needs use cases, not capabilities",
+        "'Transform your business with AI' grand promises — she just wants to reply to emails faster",
+        "Assuming she knows what Apple Intelligence is or that she's already using it — she probably isn't",
+        "Enterprise or professional framing — she's one person doing everything, not a 'business leader'",
+        "Showing productivity metrics or ROI calculations — she doesn't think in those terms"
+      ],
+      "communication": {
+        "preferredFormat": "30-second-visual-showing-exact-task-being-solved",
+        "socialProofType": "other-solo-business-owner-showing-their-actual-use",
+        "attentionWindow": "2-seconds-then-saves-post-or-shares-with-biz-friend-if-immediately-useful"
+      }
+    },
+    "personaId": "small-biz-owner",
+    "platforms": [
+      {
+        "platformKey": "instagram_story",
+        "platformName": "Instagram Stories",
+        "ad": {
+          "copy": "Your iPhone already writes product descriptions for you. Highlight your text, tap Writing Tools, and watch it help you find the right words without sounding like everyone else's robot copy.",
+          "visualConcept": "Split-screen showing a jewelry maker's hand typing a clunky product description on iPhone, then the same text becoming cleaner and more compelling after using Writing Tools, with the actual jewelry piece visible in the background."
+        },
+        "bgImagePath": "/Users/aaronzhang/Desktop/Peitho/mvp/pipeline/output/apple-direct-2026-04-08T00-48-11/ads/small-biz-owner-instagram_story-bg.png"
+      },
+      {
+        "platformKey": "newsletter",
+        "platformName": "Small Business Newsletter",
+        "ad": {
+          "copy": "Clean Up removes strangers and clutter from your product photos in one tap. No Photoshop skills needed. Your handmade pieces get the clean background they deserve.",
+          "visualConcept": "Before and after photos of a handmade bracelet - first shot cluttered with coffee cups and mail in the background, second shot with the same bracelet now having a perfectly clean surface, showing the Clean Up tool interface briefly."
+        },
+        "bgImagePath": "/Users/aaronzhang/Desktop/Peitho/mvp/pipeline/output/apple-direct-2026-04-08T00-48-11/ads/small-biz-owner-newsletter-bg.png"
+      },
+      {
+        "platformKey": "reddit",
+        "platformName": "Reddit",
+        "ad": {
+          "copy": "Been using Smart Reply for customer emails and honestly forgot it was AI until someone mentioned it. It suggests responses that actually sound like me, not like a chatbot trying to sell extended warranties.",
+          "visualConcept": "Screenshot of an iPhone showing a customer service email thread about a custom jewelry order, with Smart Reply suggestions that feel personal and helpful rather than corporate or robotic."
+        },
+        "bgImagePath": "/Users/aaronzhang/Desktop/Peitho/mvp/pipeline/output/apple-direct-2026-04-08T00-48-11/ads/small-biz-owner-reddit-bg.png"
+      }
+    ]
+  },
+  {
+    "persona": {
+      "id": "privacy-advocate-dev",
+      "role": "Senior iOS Developer / Privacy advocate",
+      "segment": "8 years building iOS apps, 3 shipped to App Store with 500K+ combined downloads. Active in iOS dev community (Twitter/X, Swift forums, WWDC regulars). Runs a technical blog. Deeply invested in Apple's platform but increasingly critical of Apple's direction. Privacy is a core personal value, not just a feature preference.",
+      "companyStage": "n/a-individual-developer",
+      "cognition": {
+        "informationProcessing": "architecture-first",
+        "proofHierarchy": [
+          "apple-security-research-blog-and-private-cloud-compute-architecture-paper",
+          "wwdc-session-technical-deep-dives-not-keynote-marketing",
+          "independent-security-researcher-audit-or-teardown",
+          "open-source-components-or-verifiable-claims",
+          "developer-api-access-to-apple-intelligence-features"
+        ],
+        "riskOrientation": "privacy-absolutist"
+      },
+      "objections": {
+        "surface": [
+          "Private Cloud Compute is still cloud — Apple just put a nicer name on it",
+          "Apple Intelligence can't match GPT-4 because on-device models are too small",
+          "The developer APIs are too limited — I can't build anything serious with SiriKit"
+        ],
+        "real": [
+          "I've been defending Apple's privacy stance for years — if Apple Intelligence quietly compromises on privacy, I look like a fool and Apple loses the one thing that kept me loyal",
+          "The OpenAI partnership for ChatGPT integration directly contradicts everything Apple said about privacy — that cognitive dissonance is unresolved for me",
+          "I want Apple Intelligence to be great because I've built my career on this platform — but I'm afraid they're rushing to ship AI features at the expense of the privacy principles that made the platform worth building on",
+          "If the on-device models are mediocre, Apple will face pressure to move more processing to the cloud, and the privacy story erodes incrementally until it's gone"
+        ]
+      },
+      "antiPatterns": [
+        "Marketing language about privacy without architectural evidence — 'your data stays private' means nothing without the threat model",
+        "Comparing Apple Intelligence features to ChatGPT without acknowledging the capability gap — they know the tradeoffs",
+        "Treating developers as an audience for consumer features — they want APIs, frameworks, and integration points",
+        "Glossing over the OpenAI/ChatGPT partnership — pretending it doesn't exist or isn't a contradiction",
+        "WWDC keynote-style hype — they watch the developer sessions, not the marketing keynote",
+        "Positioning Apple Intelligence as finished or complete — they know it's v1 and they want honesty about the roadmap"
+      ],
+      "communication": {
+        "preferredFormat": "technical-deep-dive-with-architecture-diagrams-and-verifiable-claims",
+        "socialProofType": "independent-security-researcher-or-respected-ios-dev-analysis",
+        "attentionWindow": "3-seconds-then-reads-full-technical-paper-if-architecture-detail-is-real"
+      }
+    },
+    "personaId": "privacy-advocate-dev",
+    "platforms": [
+      {
+        "platformKey": "hackernews",
+        "platformName": "Hacker News",
+        "ad": {
+          "copy": "Apple published the Private Cloud Compute security architecture. Every request gets a cryptographic attestation that your data hit verified code on verified hardware. The paper has SRAM clearing timings and boot chain details — this isn't marketing.",
+          "visualConcept": "Split screen showing a code snippet of cryptographic attestation verification on the left, and a clean technical diagram of the secure enclave and server attestation flow on the right, with Apple's security research blog header visible."
+        },
+        "adImagePath": null
+      },
+      {
+        "platformKey": "newsletter",
+        "platformName": "iOS Dev Weekly",
+        "ad": {
+          "copy": "The Writing Tools API lets you build the privacy-preserving AI features your users actually want. On-device processing with fallback to attested cloud compute when needed. Ship intelligence without shipping user data to third parties.",
+          "visualConcept": "Clean mockup of Xcode showing the Apple Intelligence framework documentation alongside a simple code example implementing Writing Tools in a notes app, with the privacy architecture diagram subtly visible in the background."
+        },
+        "bgImagePath": "/Users/aaronzhang/Desktop/Peitho/mvp/pipeline/output/apple-direct-2026-04-08T00-48-11/ads/privacy-advocate-dev-newsletter-bg.png"
+      },
+      {
+        "platformKey": "slack_discord",
+        "platformName": "iOS Developers Slack",
+        "ad": {
+          "copy": "Yes, ChatGPT integration exists. No, it doesn't run by default. User gets explicit consent for each request and Apple never sees the data. The philosophical compromise is real, but the architectural isolation is too.",
+          "visualConcept": "Screenshot of the actual iOS ChatGPT permission dialog with clear 'Share with ChatGPT' consent, alongside a technical diagram showing the isolated request path that bypasses Apple's servers entirely."
+        },
+        "adImagePath": null
+      }
+    ]
+  }
+]

@@ -88,7 +88,7 @@ ${antiPatterns}
 - When given news or context updates, actually let them shift your thinking if they would realistically affect someone in your position`;
 }
 
-function buildAgentConfig(persona, campaign, campaignName) {
+export function buildAgentConfig(persona, campaign, campaignName) {
   return {
     id: persona.id,
     campaignName,

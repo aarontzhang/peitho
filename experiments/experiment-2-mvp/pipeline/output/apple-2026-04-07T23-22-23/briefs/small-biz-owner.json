@@ -1,0 +1,154 @@
+{
+  "personaId": "small-biz-owner",
+  "role": "Owner of a boutique e-commerce brand (handmade jewelry)",
+  "topAngles": [
+    {
+      "angle": "Fear/loss aversion",
+      "headline": "You're Already Paying for AI Help You Don't Use",
+      "body": "Your iPhone has writing tools that fix typos and suggest replies to customer emails. It's sitting there unused while you stress about responses.",
+      "lever": "Fear of wasting resources she's already invested in triggers her time-protecting instincts and scarcity mindset.",
+      "score": 9,
+      "sentiment": "positive"
+    },
+    {
+      "angle": "Aspiration/identity",
+      "headline": "The Creative Who Masters Both Craft AND Business",
+      "body": "Smart jewelry makers use their iPhone's built-in tools to polish product descriptions and clean up photos—without losing their handmade touch.",
+      "lever": "Appeals to her desire to be seen as competent in all aspects of her business while maintaining her artisan identity.",
+      "score": 9,
+      "sentiment": "positive"
+    },
+    {
+      "angle": "Social proof/peer validation",
+      "headline": "How Sarah Cut Photo Editing Time in Half",
+      "body": "One tap in Photos removes distracting backgrounds from her jewelry shots. 'I wish I'd found Clean Up tool months ago,' says this Etsy seller.",
+      "lever": "Peer validation from someone at her exact scale doing her exact tasks reduces risk and provides concrete proof of value.",
+      "score": 9,
+      "sentiment": "positive"
+    }
+  ],
+  "painPoints": [
+    "Constant app switching between photo editing, social media, inventory management, and customer service - spending 20 minutes on 5-minute tasks",
+    "Manually copying and pasting the same customer service responses 50+ times per day instead of automated, personalized replies",
+    "Creating multiple versions of the same content (cropping photos differently, writing separate captions) for different platforms that all need different formats"
+  ],
+  "vocabulary": [
+    "daily workflow",
+    "switching between everything",
+    "handmade touch",
+    "brand voice",
+    "sounds like my voice",
+    "boring, repetitive stuff",
+    "creative parts",
+    "without me thinking about it",
+    "saves me actual time",
+    "makes MY life easier"
+  ],
+  "avoidList": [
+    "Generic AI-generated content that sounds like everyone else",
+    "Complicated features that make the phone harder to use",
+    "Additional subscription costs or premium pricing",
+    "Tech-heavy language or comparisons to ChatGPT",
+    "Anything that threatens the authenticity of handmade business"
+  ],
+  "platformHints": [
+    "iPhone/iOS (primary device)",
+    "Instagram (stories and regular posts)",
+    "Facebook",
+    "Shopify",
+    "Email customer service",
+    "Business website",
+    "Etsy marketplace"
+  ],
+  "discriminabilityScore": 2.25,
+  "isBarnum": false,
+  "rawAngleResults": [
+    {
+      "angle": "Fear/loss aversion",
+      "headline": "You're Already Paying for AI Help You Don't Use",
+      "body": "Your iPhone has writing tools that fix typos and suggest replies to customer emails. It's sitting there unused while you stress about responses.",
+      "lever": "Fear of wasting resources she's already invested in triggers her time-protecting instincts and scarcity mindset.",
+      "reaction": "*stops scrolling*\n\nWait... what? \n\nMy iPhone can suggest replies to customer emails? Like, it's already on my phone and I just... don't know about it?\n\n*feels a mix of curiosity and slight embarrassment*\n\nUgh, this is exactly what I was afraid of. I probably have been paying for stuff I don't even know exists. I mean, I upgraded to this iPhone 15 Pro specifically because I thought the camera would be better for product photos, but there's probably a bunch of other stuff I'm completely missing.\n\n\"Stress about responses\" - yeah, that hits. Especially those \"is this still available?\" messages I get at 9pm when I'm trying to wind down. If my phone could just... suggest what to say back, that would actually be huge.\n\n*would definitely click*\n\nThis actually makes me mad at myself. How long has this been sitting there while I'm typing the same \"Yes, it's available! Would you like me to set it aside for you?\" message twenty times a day?\n\nThe \"you're already paying for it\" angle is smart because it makes me feel like I'm wasting money if I don't at least figure out what I'm missing. And it's not trying to sell me anything new - it's telling me I'm being dumb about what I already have.\n\nI need to know what else I'm missing.",
+      "score": 9,
+      "sentiment": "positive",
+      "keyPhrase": "*would definitely click*"
+    },
+    {
+      "angle": "Aspiration/identity",
+      "headline": "The Creative Who Masters Both Craft AND Business",
+      "body": "Smart jewelry makers use their iPhone's built-in tools to polish product descriptions and clean up photos—without losing their handmade touch.",
+      "lever": "Appeals to her desire to be seen as competent in all aspects of her business while maintaining her artisan identity.",
+      "reaction": "*stops scrolling immediately*\n\nOh wow, this is actually talking to ME.\n\n\"Smart jewelry makers\" - okay, I want to be smart about this. And \"without losing their handmade touch\" - YES. That's exactly what I'm worried about. I don't want to sound like a robot or have my photos look fake and over-processed.\n\n*leans in closer to screen*\n\n\"Built-in tools\" on my iPhone? I'm starting to realize I really don't know what my phone can do. \"Polish product descriptions\" - if there's something that can help me write better descriptions without making them sound generic, I absolutely need to know about it.\n\nAnd \"clean up photos\" - is this different from just using filters? Because I've been struggling with getting my lighting consistent, especially for the more delicate pieces where you can see every little speck of dust or fingerprint.\n\n*would definitely click*\n\nThe \"craft AND business\" thing really gets me. I'm good at making jewelry, but the business side... I'm always feeling like I'm winging it. If other jewelry makers are using these tools and I'm not, I'm probably working way harder than I need to.\n\nThis feels like it's actually for people like me, not some big company or tech person. Finally.",
+      "score": 9,
+      "sentiment": "positive",
+      "keyPhrase": "*stops scrolling immediately*"
+    },
+    {
+      "angle": "Social proof/peer validation",
+      "headline": "How Sarah Cut Photo Editing Time in Half",
+      "body": "One tap in Photos removes distracting backgrounds from her jewelry shots. 'I wish I'd found Clean Up tool months ago,' says this Etsy seller.",
+      "lever": "Peer validation from someone at her exact scale doing her exact tasks reduces risk and provides concrete proof of value.",
+      "reaction": "*immediately stops scrolling*\n\nWait, SARAH? Is this the Sarah from SarahMakesRings?! \n\n*clicks without hesitation*\n\nOh my god, \"removes distracting backgrounds\" - this is exactly what I need! I'm always trying to photograph my pieces on my kitchen counter and there's always something in the background - like my coffee mug or a piece of mail or whatever. I spend forever trying to angle the shot just right or moving stuff out of the way.\n\n\"One tap in Photos\" - it's already in the Photos app? I don't need to download anything or learn a new thing?\n\nAnd \"Clean Up tool\" - I've never heard of this. How long has this been on my phone?! \n\n*feeling excited but also slightly frustrated*\n\n\"I wish I'd found this months ago\" - ME TOO, SARAH. This is so typical. I bet I've been doing things the hard way for months while this was just sitting there waiting for me to discover it.\n\nThe Etsy seller angle is perfect because that's my world. If Sarah's using it and she's at my level, then it's probably actually simple enough for me to figure out.\n\nI'm definitely clicking this. I need to know exactly what this Clean Up tool is and where to find it on my phone RIGHT NOW.",
+      "score": 9,
+      "sentiment": "positive",
+      "keyPhrase": "clicks without hesitation"
+    },
+    {
+      "angle": "Rational/evidence-based",
+      "headline": "30 Customer Emails: 45 Minutes vs 15 Minutes",
+      "body": "Smart Reply suggests responses to common questions. Writing tools fix grammar instantly. Same personal tone, fraction of the time.",
+      "lever": "Concrete time savings on specific tasks she does daily makes the benefit tangible and believable without abstract promises.",
+      "reaction": "*stops scrolling and stares*\n\nOh my GOD. Thirty minutes saved on emails? That's... that's like getting back a whole hour of my day if I count both morning and evening email sessions.\n\n*immediately thinks about her own situation*\n\nI literally spend forever on emails. \"Is this still available?\" \"When will it ship?\" \"Do you have this in gold?\" - I type the same answers over and over. If something could suggest responses and I could just tap and send...\n\n\"Same personal tone\" - okay, this is the key thing. Because I've built relationships with my customers. They know me. Mrs. Peterson always asks about my cat in her emails and I always ask about her garden. If Smart Reply can somehow keep that personal touch and not make me sound like customer service robot...\n\n*would definitely click*\n\n\"Writing tools fix grammar instantly\" - yes please. I'm always second-guessing myself. Is it \"you're\" or \"your\"? Did I spell \"jewelry\" or \"jewellery\"? I don't want to look unprofessional but I also don't have time to proofread every single email three times.\n\nFifteen minutes instead of forty-five? That's the difference between having time to actually make jewelry in the evening versus spending all my time on admin stuff.\n\nI need to know exactly how this works and where to find it on my phone.",
+      "score": 9,
+      "sentiment": "positive",
+      "keyPhrase": "*would definitely click*"
+    },
+    {
+      "angle": "Humor/irreverence",
+      "headline": "AI Can't Make Jewelry (Thank God)",
+      "body": "But it can write your 'shipping update' emails and remove that weird shadow from your product photos. You know, the boring stuff.",
+      "lever": "Humor disarms her fear that AI will replace her creativity while positioning it as a solution for mundane tasks she dislikes.",
+      "reaction": "*laughs out loud and stops scrolling immediately*\n\nYES! Finally someone gets it!\n\n\"AI Can't Make Jewelry (Thank God)\" - exactly! That's what I've been worried about this whole time. I don't want some robot making my jewelry or writing my product descriptions to sound like everyone else's. My customers buy from me because they're getting something handmade by an actual person.\n\n*feels genuinely relieved*\n\nBut \"the boring stuff\" - YES. Writing shipping updates is the worst. \"Hi! Your order shipped today with tracking number blah blah blah...\" I must type some version of that fifty times a week. \n\nAnd \"remove that weird shadow\" - how do they know about my shadow problem?! I swear no matter how I set up my lighting, there's always some weird shadow or reflection that makes my photos look amateur.\n\n*would definitely click*\n\nThis is the first ad that actually sounds like it was written by someone who understands what I do. They're not trying to revolutionize my whole business or make me sound like some tech startup. They just want to help with the tedious stuff so I can focus on what I'm actually good at.\n\n\"You know, the boring stuff\" - finally, someone who gets that I don't need AI to transform my life. I just need it to handle the parts of my day that feel like busywork.\n\nThis feels honest. I trust this.",
+      "score": 9,
+      "sentiment": "positive",
+      "keyPhrase": "laughs out loud and stops scrolling immediately"
+    },
+    {
+      "angle": "Wild card",
+      "headline": "Your iPhone Already Knows Your Brand Voice",
+      "body": "After you've typed a few product descriptions, Writing Tools learns your style and helps you write faster—while sounding exactly like you.",
+      "lever": "Reframes AI as preserving rather than threatening her unique voice, turning her biggest objection into the primary benefit.",
+      "reaction": "*stops scrolling, feeling skeptical but intrigued*\n\nWait... it \"learns my style\"? How does that even work?\n\n*thinks about all the product descriptions she's written*\n\nI mean, I have written like hundreds of product descriptions over the past two years. They're all saved in my Notes app, in my Shopify drafts, in old Instagram captions... So my phone has seen how I write, I guess?\n\nBut does it really sound \"exactly like me\"? Because that's a big claim. I've spent so much time figuring out how to describe my pieces in a way that sounds personal but not too casual, detailed but not boring. Like, I always say \"delicate\" instead of \"thin\" and I have this way of describing how pieces catch the light...\n\n*feeling cautiously optimistic*\n\n\"Write faster\" - god, I need that. Sometimes I sit there for twenty minutes trying to describe a simple pair of earrings because I want it to sound fresh and not like the last fifty pairs I described.\n\n*would probably click, but with reservations*\n\nI'm curious but also nervous. What if it learns my style wrong? Or what if it makes me lazy and I stop putting thought into my descriptions? My words are part of what makes people want to buy from me instead of some mass-produced jewelry site.\n\nBut if it really could help me write faster while still sounding like me... that would be huge.\n\nI'd click, but I'd be ready to back out if it felt weird.",
+      "score": 7,
+      "sentiment": "positive",
+      "keyPhrase": "I'd click, but I'd be ready to back out if it felt weird"
+    }
+  ],
+  "rawPainPoints": [
+    {
+      "question": "What's the single biggest frustration in your daily workflow that technology should solve but doesn't?",
+      "response": "*sighs heavily*\n\nHonestly? The constant switching between everything. Like, I'll be editing a product photo on my phone, then I need to write a caption for it, so I switch to Instagram, but then I realize I need to check if I have that item in stock, so I switch to Shopify, then a customer emails asking about shipping, so I switch to email, then I remember I need to post the photo on Facebook too, so I switch to that...\n\nBy the time I'm done, I've forgotten what I was originally trying to do and I've spent 20 minutes on what should have been a 5-minute task.\n\nWhat kills me is that I'm holding this iPhone that probably costs more than most people's laptops, and I'm still copying and pasting the same \"thanks for your order, it'll ship in 2-3 business days\" message fifty times a day. Or taking a decent photo, then having to crop it three different ways for Instagram stories, regular posts, and my website because they all want different sizes.\n\nI just want something that lets me do one thing and have it work everywhere else automatically. Take the photo, write the description once, post it everywhere, answer the basic customer questions without me having to type the same thing over and over.\n\nIs that too much to ask? I feel like my phone should be smarter than this by now."
+    },
+    {
+      "question": "When you hear 'Apple Inc now has AI features,' what's your honest first reaction?",
+      "response": "*rolls eyes slightly*\n\n\"Great, another thing I probably won't figure out how to use.\"\n\nHonestly? My first thought is that they're going to make my phone more complicated. Like, I finally figured out how to use all the camera settings and now they're adding more stuff I don't understand?\n\nAnd knowing Apple, it's probably going to work in some specific way that's different from everything else I've tried. I spent forever figuring out how to get my photos to look right for my website, and now there's going to be some AI thing that either doesn't work the way I expect or makes everything look weird and artificial.\n\nPlus, whenever I hear \"AI features,\" I think of ChatGPT and all that stuff that feels like it's for tech people. I tried it once and it gave me these super generic product descriptions that sounded like every other jewelry seller on Etsy. \n\nMy second thought is always \"Is this going to cost extra?\" Because Apple loves their subscriptions and I'm already paying for iCloud storage and my Shopify plan and Instagram ads...\n\nI guess part of me hopes it might actually help with something, but mostly I just hope they don't mess up the stuff that already works. I don't need my phone to be smarter - I need it to make MY life easier."
+    },
+    {
+      "question": "What would an AI feature need to do for you to actually change your behavior — not just try it once, but genuinely integrate it into how you work?",
+      "response": "*thinks for a moment*\n\nIt would have to save me actual time on something I do every single day, and it would have to work without me thinking about it.\n\nLike, if I could take a photo of a necklace and it automatically wrote three different captions - one for Instagram, one for Facebook, one for my website - that actually sounded like my voice, not some generic jewelry seller... and I didn't have to open a separate app or remember to do anything special. Just take the photo, boom, captions are ready.\n\nOr if when I got those \"when will my order ship?\" emails, I could just tap something and it would send a response that actually knew what their order status was. Not some generic \"thanks for contacting us\" thing, but \"Hi Sarah, your silver moon earrings shipped yesterday via USPS and will arrive Thursday.\"\n\nThe key thing is - it has to work faster than what I'm already doing. I can write an Instagram caption in like 30 seconds. If AI takes me 2 minutes because I have to edit what it wrote or tell it what I want differently, forget it. I'll just keep doing it myself.\n\nAnd honestly? It has to not make my stuff sound like everyone else's. My customers buy from me because they like my style and my voice. If AI makes me sound like every other handmade jewelry account, that actually hurts my business.\n\nIt needs to make the boring, repetitive stuff disappear so I can focus on the creative parts."
+    }
+  ],
+  "rawDiscriminability": {
+    "correctPersonaScore": 9,
+    "wrongPersonaScores": {
+      "small-biz-owner": 9,
+      "creative-director": 8,
+      "enterprise-it-lead": 3,
+      "college-student": 3,
+      "privacy-advocate-dev": 2
+    },
+    "avgWrongScore": 4,
+    "discriminabilityRatio": 2.25,
+    "isBarnum": false
+  }
+}

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: __WIDTH__px;
+    height: __HEIGHT__px;
+    overflow: hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .ad {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 60px;
+  }
+
+  /* Background image or gradient fallback */
+  .ad__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .ad__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ad__bg--gradient {
+    background: linear-gradient(135deg, __BG_DARK__ 0%, __BG_MID__ 50%, __BG_ACCENT__ 100%);
+  }
+
+  /* Dark overlay for text readability */
+  .ad__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.3) 40%,
+      rgba(0, 0, 0, 0.75) 100%
+    );
+    z-index: 1;
+  }
+
+  /* Content layer */
+  .ad__content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* Brand mark */
+  .ad__brand {
+    position: absolute;
+    top: 40px;
+    left: 60px;
+    z-index: 2;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  /* Headline */
+  .ad__headline {
+    font-size: __HEADLINE_SIZE__px;
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: #FFFFFF;
+    max-width: 85%;
+  }
+
+  /* Body text */
+  .ad__body {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 75%;
+  }
+
+  /* CTA */
+  .ad__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    padding: 14px 28px;
+    background: __CTA_COLOR__;
+    color: #FFFFFF;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 980px;
+    width: fit-content;
+    letter-spacing: -0.01em;
+  }
+
+  .ad__cta--text-link {
+    background: none;
+    padding: 0;
+    color: __CTA_COLOR__;
+    font-size: 17px;
+    font-weight: 600;
+  }
+
+  .ad__cta--text-link::after {
+    content: ' →';
+  }
+
+  /* Platform-specific: Story (vertical) */
+  .ad--story {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 48px;
+  }
+
+  .ad--story .ad__headline {
+    max-width: 100%;
+    font-size: 48px;
+  }
+
+  .ad--story .ad__body {
+    max-width: 100%;
+  }
+
+  .ad--story .ad__cta {
+    align-self: center;
+  }
+</style>
+</head>
+<body>
+<div class="ad __AD_CLASS__">
+  <div class="ad__bg __BG_CLASS__">
+    __BG_CONTENT__
+  </div>
+  <div class="ad__overlay"></div>
+  <div class="ad__brand">__BRAND__</div>
+  <div class="ad__content">
+    <div class="ad__headline">__HEADLINE__</div>
+    <div class="ad__body">__BODY__</div>
+    <div class="ad__cta __CTA_CLASS__">__CTA__</div>
+  </div>
+</div>
+</body>
+</html>
