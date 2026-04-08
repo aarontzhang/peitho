@@ -28,13 +28,13 @@ Include:
 
 The more specific this JSON is, the more accurate Gemini's output will be. Describe what the product actually looks like, not what you wish it looked like.
 
-**File:** `tesla_model_s.json`
+**Example:** `experiments/experiment-7-tesla-ads/tesla_model_s.json`
 
 ### 3. Create the Campaign JSON
 
 This is the core creative file. It defines the brand voice, product info, and — most importantly — the ICPs (Ideal Customer Profiles).
 
-**File:** `campaigns/tesla.json`
+**Example:** `experiments/experiment-7-tesla-ads/campaigns/tesla.json`
 
 #### Structure:
 
@@ -80,9 +80,9 @@ This is the most important part. Headlines should be:
 ### 4. Run the Pipeline
 
 ```bash
-cd experiments/experiment-7-tesla-ads
+cd experiments/<experiment-folder>
 export GEMINI_API_KEY="your-key"
-python3 generate.py campaigns/tesla.json
+python3 generate.py campaigns/<brand>.json
 ```
 
 **What happens under the hood:**
@@ -154,18 +154,18 @@ To run this pipeline for a different company:
 
 ## File Structure
 
+Each experiment folder follows this layout:
+
 ```
-experiment-7-tesla-ads/
+experiments/<experiment>/
 ├── campaigns/
-│   └── tesla.json              # Campaign config (brand + ICPs + copy)
-├── tesla_model_s.json          # Product spec (physical description for Gemini)
+│   └── <brand>.json            # Campaign config (brand + ICPs + copy)
+├── <product>.json              # Product spec (physical description for Gemini)
 ├── generate.py                 # Orchestrator — loads config, runs pipeline
-├── image_gen.py                # Gemini API integration
-├── text_overlay.py             # Layered text composition
-├── reference_model_s.webp      # Reference image from web (not used in pipeline)
-├── reference_exterior.webp     # Reference image from web (not used in pipeline)
+├── image_gen.py                # Gemini API integration (product-category-specific)
+├── text_overlay.py             # Layered text composition (brand-specific typography)
 └── output/
-    └── tesla_20260408-135133/  # Timestamped output
+    └── <brand>_<timestamp>/    # Timestamped output
         ├── campaign.json       # Config snapshot
         ├── {icp}_prompt.txt    # Gemini prompt used
         ├── {icp}_bg.png        # Raw Gemini image
@@ -173,6 +173,10 @@ experiment-7-tesla-ads/
         ├── {icp}_text.png      # Text layer
         └── {icp}_ad.png        # Final composite
 ```
+
+**Reference experiments:**
+- `experiment-6-structured-ads/` — Garmin Forerunner 255 (watch, Avenir Next font)
+- `experiment-7-tesla-ads/` — Tesla Model S Plaid (car, Helvetica Neue font)
 
 ## Dependencies
 
