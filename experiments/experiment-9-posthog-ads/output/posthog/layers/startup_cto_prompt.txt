@@ -1,0 +1,1 @@
+Procedural canvas (corner_glow) — see image_gen.render_procedural_background

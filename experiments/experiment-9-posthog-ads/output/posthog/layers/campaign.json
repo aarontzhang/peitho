@@ -1,0 +1,165 @@
+{
+  "brand": {
+    "name": "PostHog",
+    "voice": "Direct, developer-first, a little irreverent. No buzzwords. Confident without bragging.",
+    "brand_system_path": "posthog_system.json",
+    "colors": {
+      "primary": "#F54E00",
+      "ink": "#151515",
+      "cream": "#EEEFE7"
+    }
+  },
+
+  "product": {
+    "name": "PostHog",
+    "category": "Product analytics platform",
+    "brand_system_path": "posthog_system.json",
+    "hero_features": [
+      "Product analytics (events, funnels, retention, paths)",
+      "Session replay",
+      "Feature flags and A/B testing",
+      "Surveys and user feedback",
+      "SQL access to every event",
+      "Open source, self-hostable",
+      "Free up to 1M events per month"
+    ]
+  },
+
+  "icps": [
+    {
+      "id": "startup_cto",
+      "label": "Early-stage Startup CTO",
+      "layout": "centered_hero",
+      "bg_style": "corner_glow",
+      "pain_points": [
+        "Stitching together five analytics tools for a team that should be shipping product",
+        "Monthly bills from Mixpanel + LogRocket + LaunchDarkly + Hotjar add up before revenue does",
+        "Every new tool is another integration, another SDK, another source of truth",
+        "No engineering time to maintain a sprawling analytics stack"
+      ],
+      "platform": "linkedin",
+      "platform_rationale": "Early-stage founders live on LinkedIn for fundraising and hiring — it's where they see B2B tool ads in a professional mindset.",
+      "copy": {
+        "headline": "Every tool a\ngrowing product team needs.\nOne platform.",
+        "subline": "PostHog is an open-source product analytics platform that bundles event tracking, session replay, feature flags, A/B testing, and surveys into a single stack. Built for founders who'd rather ship than stitch five tools together. Free up to 1M events per month.",
+        "cta": "Start free",
+        "platform": "linkedin"
+      },
+      "visual_treatment": {
+        "background_mood": "A warm cream canvas (#F5F1E8) — almost a plain wash of color. A very gentle, soft radial glow of PostHog orange (#F54E00) anchored in the top-right corner, fading outward and never reaching the center of the frame. The middle of the image is nearly uniform cream, quiet and empty. Feels like premium warm paper. No objects, no text, no patterns. The vibe is founder-friendly, inviting, confident.",
+        "palette": {
+          "bg_base": "#F5F1E8",
+          "bg_accent": "#F54E00",
+          "text_primary": "#151515",
+          "text_secondary": "#4A4A4A",
+          "cta_bg": "#F54E00",
+          "cta_text": "#FFFFFF",
+          "logo_color": "#151515",
+          "logo_accent": "#F54E00"
+        }
+      }
+    },
+
+    {
+      "id": "engineering_lead",
+      "label": "Engineering Lead / Principal Engineer",
+      "layout": "left_editorial",
+      "bg_style": "side_panel",
+      "pain_points": [
+        "Can't run SQL against their own product event data — locked behind a SaaS UI",
+        "Privacy and compliance requirements make sending user events to a third-party a risk",
+        "Vendor lock-in and unpredictable pricing at enterprise scale",
+        "Wants analytics owned and operated by engineering, not marketing"
+      ],
+      "platform": "hackernews",
+      "platform_rationale": "Engineering leads evaluating infra-level tools read HN and technical Twitter. They respond to open-source credibility and self-host options — not to growth-marketing voice.",
+      "copy": {
+        "headline": "Product analytics\nyou can self-host.",
+        "subline": "PostHog is open-source and runs on your own infrastructure. Query every event with SQL, keep customer data inside your perimeter, and avoid the vendor lock-in that comes with Mixpanel or Amplitude. Used by teams at Airbus, Hasura, and Y Combinator startups.",
+        "cta": "Explore self-hosting",
+        "platform": "hackernews"
+      },
+      "visual_treatment": {
+        "background_mood": "A deep slate canvas (#1D1F27) — nearly uniform, with a very soft radial wash of PostHog orange (#F54E00) anchored in the bottom-left corner, bleeding faintly into the frame and stopping well before the center. The middle is quiet, dark, confident. No objects, no patterns, no shapes. Feels like a premium technical product marketing background — serious, sophisticated, engineer-first. No grids, no code, no circuit lines.",
+        "palette": {
+          "bg_base": "#1D1F27",
+          "bg_accent": "#F54E00",
+          "text_primary": "#FFFFFF",
+          "text_secondary": "#BFC2CC",
+          "cta_bg": "#F54E00",
+          "cta_text": "#FFFFFF",
+          "logo_color": "#FFFFFF",
+          "logo_accent": "#F54E00"
+        }
+      }
+    },
+
+    {
+      "id": "growth_pm",
+      "label": "Growth PM",
+      "layout": "numbered_steps",
+      "bg_style": "split_panel",
+      "pain_points": [
+        "Every experiment lives across three tools — flag system, analytics, session replay",
+        "Launch-to-learn cycle is slow because tools don't share a data model",
+        "Hard to prove impact of a test when the funnel lives in a different product than the replay",
+        "Spends more time plumbing dashboards than reading them"
+      ],
+      "platform": "linkedin",
+      "platform_rationale": "Growth PMs are on LinkedIn reading product posts and case studies, in a work mindset, receptive to tool-consolidation pitches and outcome framing.",
+      "copy": {
+        "headline": "Launch the test.\nWatch the replay.\nRead the results.",
+        "subline": "PostHog bundles feature flags, A/B testing, funnels, and session replay into one platform, so growth teams can ship an experiment and see exactly what happened without leaving the tool. The launch-to-learn loop gets shorter when the data lives in one place.",
+        "cta": "See how it works",
+        "platform": "linkedin"
+      },
+      "visual_treatment": {
+        "background_mood": "A soft off-white canvas (#EEEFE7) with a very gentle radial bloom of PostHog orange (#F54E00) anchored in the top-left corner — barely there, fading before it reaches the center. The middle is nearly a flat wash of light cream. Minimal, bright, slightly energetic but still quiet. No objects, no charts, no icons, no patterns. Feels like a clean design studio wall.",
+        "palette": {
+          "bg_base": "#EEEFE7",
+          "bg_accent": "#F54E00",
+          "text_primary": "#151515",
+          "text_secondary": "#4A4A4A",
+          "cta_bg": "#151515",
+          "cta_text": "#FFFFFF",
+          "logo_color": "#151515",
+          "logo_accent": "#F54E00"
+        }
+      }
+    },
+
+    {
+      "id": "indie_founder",
+      "label": "Indie Hacker / Solo Founder",
+      "layout": "oversized_display",
+      "bg_style": "flat_grain",
+      "pain_points": [
+        "Can't afford enterprise analytics on a bootstrapped budget",
+        "Google Analytics is built for marketing sites, not product usage",
+        "Needs to see actual user behavior to figure out why people churn",
+        "Wants to set up analytics in an evening, not a sprint"
+      ],
+      "platform": "twitter",
+      "platform_rationale": "Indie hackers live on Twitter and Indie Hackers — they find tools through peer recommendations and cost-conscious, dev-friendly messaging beats enterprise framing.",
+      "copy": {
+        "headline": "See what your users\nactually do in your app.",
+        "subline": "PostHog records every click, scroll, rage-click, and drop-off with session replay, event tracking, and funnels in one tool. Free up to 1M events per month, no credit card required. Set up in about ten minutes.",
+        "cta": "Get started free",
+        "platform": "twitter"
+      },
+      "visual_treatment": {
+        "background_mood": "A warm peach-cream canvas (#F9EFE3) — almost a flat wash of color. A very faint radial glow of PostHog orange (#F54E00) anchored in the bottom-right corner, drifting inward softly and stopping before the center. The middle of the frame is quiet and uniform. Inviting, approachable, a little homey — like a cozy workshop wall. No objects, no people, no patterns, no shapes.",
+        "palette": {
+          "bg_base": "#F9EFE3",
+          "bg_accent": "#F54E00",
+          "text_primary": "#151515",
+          "text_secondary": "#4A4A4A",
+          "cta_bg": "#F54E00",
+          "cta_text": "#FFFFFF",
+          "logo_color": "#151515",
+          "logo_accent": "#F54E00"
+        }
+      }
+    }
+  ]
+}

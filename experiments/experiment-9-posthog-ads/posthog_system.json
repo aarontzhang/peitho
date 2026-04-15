@@ -1,0 +1,68 @@
+{
+  "name": "PostHog",
+  "category": "Product analytics platform",
+  "one_liner": "Open-source product analytics, session replay, feature flags, A/B testing, and surveys in one stack.",
+  "voice": "Direct, developer-first, a little irreverent. No jargon, no buzzwords. Sentences sound like something an engineer would actually say. Confident without bragging.",
+
+  "palette": {
+    "primary_orange": "#F54E00",
+    "primary_orange_dark": "#C23B00",
+    "ink": "#151515",
+    "ink_soft": "#2D2D2D",
+    "cream": "#EEEFE7",
+    "cream_warm": "#F5F1E8",
+    "cream_peach": "#F9EFE3",
+    "slate": "#1D1F27",
+    "slate_soft": "#262830",
+    "off_white": "#FAFAF7"
+  },
+
+  "typography": {
+    "notes": "PostHog uses Matter; we fall back to Helvetica Neue which is available on macOS. Heavy weights for display, medium/regular for body. Tight line-height on headlines (1.05-1.1), relaxed on body (1.35-1.45).",
+    "font_file": "/System/Library/Fonts/HelveticaNeue.ttc",
+    "indices": {
+      "regular": 6,
+      "medium": 8,
+      "bold": 10,
+      "condensed_bold": 12,
+      "condensed_black": 13
+    }
+  },
+
+  "logo": {
+    "style": "wordmark",
+    "text": "PostHog",
+    "wordmark_weight_index": 10,
+    "wordmark_color": "ink",
+    "accent_dot": true,
+    "accent_dot_color": "primary_orange",
+    "position": "top_center",
+    "size_px": 44
+  },
+
+  "background_aesthetic": {
+    "description": "Minimal quiet canvas. Almost a plain wash. Soft radial gradient in the ICP accent color anchored at one corner or edge, bleeding gently toward the center but never reaching it. The middle 60% of the frame is nearly uniform so the headline sits cleanly. Think: premium paper, minimalist gallery wall, not a scene.",
+    "forbidden": [
+      "objects of any kind (no laptops, phones, hands, people, furniture, plants, UI mockups)",
+      "text, letters, numbers, or symbols",
+      "geometric patterns, grids, dots, or lines",
+      "photographic subjects",
+      "high-contrast shapes",
+      "gradients that cross the center band (y: 280 to 850)"
+    ]
+  },
+
+  "layout": {
+    "canvas": [1080, 1080],
+    "logo_zone": [60, 170],
+    "headline_zone": [240, 620],
+    "subline_zone": [640, 860],
+    "cta_zone": [890, 1000],
+    "h_margin_headline": 100,
+    "h_margin_subline": 130,
+    "headline_font_max": 72,
+    "headline_font_min": 44,
+    "subline_font_max": 26,
+    "subline_font_min": 20
+  }
+}

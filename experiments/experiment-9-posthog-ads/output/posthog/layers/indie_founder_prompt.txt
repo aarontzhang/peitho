@@ -1,0 +1,1 @@
+Procedural canvas (flat_grain) — see image_gen.render_procedural_background
