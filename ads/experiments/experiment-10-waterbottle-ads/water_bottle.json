@@ -1,0 +1,61 @@
+{
+  "product": "Insulated Water Bottle",
+  "variant": "Sunset Orange Gradient",
+  "category": "Insulated Water Bottle",
+  "capacity": "32 oz (946 mL)",
+
+  "physical_form": {
+    "type": "Wide-mouth vacuum-insulated stainless steel bottle",
+    "height": "Approximately 10 inches (25 cm)",
+    "diameter": "Approximately 3.5 inches (9 cm) at widest",
+    "shape": "Tall cylindrical body with straight walls, no taper. Slightly rounded shoulders transitioning to a wide-mouth neck. Flat base.",
+    "cap": "Black plastic flip-top lid with a sport spout and carry loop. The lid has a textured grip ring around the base. A locking mechanism clips the spout closed.",
+    "neck": "Wide-mouth opening — approximately 2.5 inches (6 cm) diameter",
+    "body": "Opaque double-wall stainless steel with a powder-coated matte finish. The color is a warm gradient — deep burnt orange at the bottom transitioning to golden yellow-orange at the top near the shoulders. The gradient is smooth and continuous.",
+    "base": "Flat circular base with a rubberized non-slip pad",
+    "handle": "A braided paracord wrist loop attached to the lid carry loop. The paracord is orange and yellow, matching the bottle gradient. Cobra-knot weave pattern, approximately 3 inches in diameter."
+  },
+
+  "color_palette": {
+    "body_bottom": {
+      "hex": "#D4600A",
+      "description": "Deep burnt orange at the base of the bottle"
+    },
+    "body_top": {
+      "hex": "#F5A623",
+      "description": "Warm golden yellow-orange at the top/shoulders"
+    },
+    "gradient_mid": {
+      "hex": "#E8821A",
+      "description": "Mid-tone orange in the center of the body where the gradient blends"
+    },
+    "cap": {
+      "hex": "#1A1A1A",
+      "description": "Matte black flip-top lid with textured grip"
+    },
+    "paracord": {
+      "hex": "#E8721A",
+      "description": "Orange and yellow braided paracord handle"
+    }
+  },
+
+  "rendering_instructions": {
+    "camera_angle": "Straight-on front view with very slight rotation (5-10 degrees) so the bottle has depth and the gradient is clearly visible across the body",
+    "camera_height": "Eye level — camera centered on the middle of the bottle",
+    "lighting": "Clean, bright commercial product photography lighting. Key light from upper right to highlight the metallic powder-coated finish. Fill light from left. Rim light on edges to define the cylindrical silhouette. The orange gradient should look warm and rich.",
+    "depth_of_field": "Sharp focus on the entire bottle, softer background",
+    "surface": "The bottle should appear upright and grounded — standing on a surface, not floating",
+    "condensation": "Light condensation droplets on the outside of the bottle to convey cold refreshment. Beaded water on the surface, not dripping.",
+    "reflection": "Subtle reflection/shadow beneath the bottle for grounding"
+  },
+
+  "prompt_templates": {
+    "base": "A single insulated stainless steel water bottle, 32oz. Warm sunset gradient — deep burnt orange at the base blending to golden yellow-orange at the top. Matte powder-coated finish. Black flip-top sport lid with textured grip. Orange and yellow braided paracord wrist loop attached to the lid. Light condensation on the surface. Premium commercial product photography.",
+    "style_suffixes": {
+      "splash": "Dramatic water splash erupting around the bottle, dynamic liquid motion, droplets frozen mid-air, clean studio background",
+      "outdoor": "Bright sunlight, natural hiking/camping setting, active lifestyle energy",
+      "minimal_studio": "Clean seamless background, dramatic product lighting, studio quality",
+      "athletic": "Dynamic sports environment, motion energy, active lifestyle"
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "brand": {
+    "name": "HydroSunset",
+    "voice": "Active. Warm. Reliable. Speaks to people who move — hikers, gym-goers, commuters, anyone who refuses to be dehydrated. Grounded confidence, not hype.",
+    "colors": {
+      "primary": "#E8721A",
+      "secondary": "#1A1A1A",
+      "accent": "#F5A623"
+    }
+  },
+  "product": {
+    "name": "Summit 32",
+    "category": "Insulated Water Bottle",
+    "price": "$34.99",
+    "product_json_path": "water_bottle.json",
+    "hero_features": [
+      "Double-wall vacuum insulation — 24hr cold, 12hr hot",
+      "32 oz capacity — one fill covers a full workout",
+      "Powder-coated matte grip — no slip, no sweat",
+      "Flip-top sport lid with one-hand operation",
+      "Paracord carry loop — clip it, carry it, go"
+    ]
+  },
+  "icps": [
+    {
+      "id": "trail_hiker",
+      "label": "Weekend Trail Hiker",
+      "pain_points": [
+        "Water gets warm an hour into a summer hike",
+        "Plastic bottles crack in backpack side pockets",
+        "Can't drink one-handed on steep descents",
+        "Tired of bottles that sweat and soak everything in the bag"
+      ],
+      "copy": {
+        "product_title": "Summit 32",
+        "tagline": "Insulated Bottle — 32 oz",
+        "headline": "STILL ICE COLD\nAT THE SUMMIT",
+        "subline": "Double-wall vacuum insulation keeps your water\ncold for 24 hours — even on the hottest trails.",
+        "cta": "GEAR UP"
+      },
+      "visual_treatment": {
+        "background_mood": "A dramatic water splash scene — the bottle standing upright in the center as a massive burst of crystal-clear water erupts around it from all sides. Frozen water droplets suspended mid-air. Cool blue and aqua tones mixing with warm orange reflections from the bottle. Dark moody background behind the splash so the water and bottle pop. Studio-lit splash photography. Darker at top and bottom edges for text contrast.",
+        "palette": {
+          "bg_accent": "#2EC4F2",
+          "text_primary": "#FFFFFF",
+          "text_secondary": "#C0E8F8",
+          "cta_bg": "#F5A623",
+          "cta_text": "#000000"
+        }
+      }
+    },
+    {
+      "id": "gym_regular",
+      "label": "Daily Gym Regular",
+      "pain_points": [
+        "Flimsy plastic bottles tip over on gym floors",
+        "Needs cold water through a 90-minute session",
+        "Hates unscrewing a cap mid-set",
+        "Wants something that survives getting dropped"
+      ],
+      "copy": {
+        "product_title": "Summit 32",
+        "tagline": "Insulated Bottle — 32 oz",
+        "headline": "ONE FILL.\nENTIRE WORKOUT.",
+        "subline": "32 ounces of ice-cold water that stays cold\nthrough every rep, every set, every session.",
+        "cta": "START TRAINING"
+      },
+      "visual_treatment": {
+        "background_mood": "An explosive water splash scene with the bottle at the center — water blasting upward and outward in a powerful dynamic burst. The splash has an athletic energy — aggressive, fast, high-impact. Dark charcoal/black background with dramatic side lighting catching every water droplet. Orange and amber light reflections dance through the water from the bottle's gradient. Frozen motion, ultra-high-speed photography feel. Darker at top and bottom edges for text contrast.",
+        "palette": {
+          "bg_accent": "#E8721A",
+          "text_primary": "#FFFFFF",
+          "text_secondary": "#D0D0D0",
+          "cta_bg": "#E8721A",
+          "cta_text": "#FFFFFF"
+        }
+      }
+    },
+    {
+      "id": "office_commuter",
+      "label": "Urban Office Commuter",
+      "pain_points": [
+        "Coffee goes cold on the train before arriving at work",
+        "Disposable cups are wasteful and expensive",
+        "Needs something that fits in a work bag without leaking",
+        "Wants a bottle that looks good on a desk"
+      ],
+      "copy": {
+        "product_title": "Summit 32",
+        "tagline": "Insulated Bottle — 32 oz",
+        "headline": "HOT COFFEE\nAT YOUR DESK. STILL.",
+        "subline": "12-hour heat retention means your morning pour\nis still steaming when you finally sit down.",
+        "cta": "DITCH THE DISPOSABLES"
+      },
+      "visual_treatment": {
+        "background_mood": "An elegant water splash scene — the bottle surrounded by a clean, controlled burst of water that spirals around it gracefully. The splash is refined and beautiful, not chaotic. Soft blue-white water against a deep navy/dark blue background. Warm golden light highlights from the orange bottle cutting through the cool water tones. Premium, editorial feel. Darker at top and bottom edges for text contrast.",
+        "palette": {
+          "bg_accent": "#F5A623",
+          "text_primary": "#FFFFFF",
+          "text_secondary": "#B0C8E0",
+          "cta_bg": "#F5A623",
+          "cta_text": "#000000"
+        }
+      }
+    },
+    {
+      "id": "outdoor_adventurer",
+      "label": "All-Day Outdoor Adventurer",
+      "pain_points": [
+        "Burns through 2-3 water bottles on long days",
+        "Needs a bottle that clips to a pack and takes a beating",
+        "Water sources on trail are warm — needs insulation to keep refills cold",
+        "Wants gear that performs, not just looks outdoorsy"
+      ],
+      "copy": {
+        "product_title": "Summit 32",
+        "tagline": "Insulated Bottle — 32 oz",
+        "headline": "BUILT FOR TRAILS\nTHAT BREAK GEAR",
+        "subline": "Powder-coated steel. Vacuum insulated. Paracord carry loop.\nThis bottle goes where you go.",
+        "cta": "EXPLORE NOW"
+      },
+      "visual_treatment": {
+        "background_mood": "A wild, dramatic water splash scene — the bottle emerging from an explosion of water as if it just crashed through a wave. Dynamic splashes shooting in every direction, raw power and energy. Teal and deep blue water tones with bright orange light reflections from the bottle gradient catching the spray. Dark background with dramatic rim lighting on every droplet. Adventure and power in a single frame. Darker at top and bottom edges for text contrast.",
+        "palette": {
+          "bg_accent": "#0FA89E",
+          "text_primary": "#FFFFFF",
+          "text_secondary": "#A0E0D8",
+          "cta_bg": "#E8721A",
+          "cta_text": "#FFFFFF"
+        }
+      }
+    }
+  ]
+}
